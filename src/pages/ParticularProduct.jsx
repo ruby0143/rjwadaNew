@@ -588,7 +588,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               {sizenotselected ? null : console.log("Size selection needed")}
               <div className="size-lower-text">
                 Size Not Available?
-                <span className="product-notify">Notify Me</span>
+                {/* <span className="product-notify">Notify Me</span> */}
               </div>
               {/* <div className="product-rating-section">
                 <div className="star-rating">
