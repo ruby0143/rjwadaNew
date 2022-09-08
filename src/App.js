@@ -16,6 +16,7 @@ import LocationPage from './pages/Locationpage';
 import { auth, fs } from "./config/Config";
 import { useNavigate } from "react-router-dom";
 import Navbar from './components/Navbar';
+import Privacy from './pages/Privacy';
 
 function App() {
 
@@ -129,6 +130,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Homepage />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/privacy' element={<Privacy />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/productpage/:category_id'
           element={<Productpage addToCart={addToCart} />} />

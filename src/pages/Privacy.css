@@ -1,0 +1,73 @@
+.privacy-section {
+    margin: 0 5rem;
+  }
+  .privacy-main-heading-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .privacy-main-heading-text h1 {
+  
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    color: #000000;
+  }
+  .privacy-main-heading-text p {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .privacy-heading-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
+  .privacy-heading-text h1 {
+    text-align: center;
+  }
+  
+  .privacy-heading-text p {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .privacy-main-heading-text h1 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 30px;
+      line-height: 49px;
+      color: #000000;
+    }
+    .privacy-main-heading-text p {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 25px;
+      color: #000000;
+      text-align: left;
+    }
+    .privacy-heading-text h1 {
+      text-align: left;
+    }
+    .privacy-section {
+      margin: 0 1rem;
+    }
+  }
+  

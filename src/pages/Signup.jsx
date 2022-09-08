@@ -8,6 +8,7 @@ import { initializeAuthentication } from "../config/Config";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import Terms from "../components/Terms";
+import Privacy from "./Privacy";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -225,9 +226,10 @@ const Signup = () => {
                   By signing up you agree to Rjwada's
                 </span>
                 <Terms />
-                {/* <span style={{ marginLeft: "5px" }}>and</span> */}
-
-                {/* <Privacy /> */}
+                <Link to={"/privacy"} style={{textDecoration: 'none'}}>
+                <span style={{ marginLeft: "5px", color:"#2c8f88" }}>and privacy</span>
+                </Link>
+                
               </div>
             </form>
 
