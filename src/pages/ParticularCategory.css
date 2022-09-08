@@ -1,0 +1,131 @@
+.category-page-wrapper {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 200px; */
+  /* border: 2px solid red; */
+}
+.category-filter-heading {
+  margin: 10px;
+}
+.category-filter-wrapper {
+  /* border: 2px solid red; */
+  margin: 10px 10px;
+  padding: 5px 10px;
+  display: flex;
+}
+.shopby-products{
+  justify-content: flex-start;
+  margin-top: -4rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.category-main-wrapper {
+  margin: 10px 10px;
+  width: 100%;
+
+  /* align-items: flex-start; */
+}
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar{
+  display: none;  
+}
+.filter-btn {
+  /* border: 2px solid red; */
+  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.filter-list-container {
+  display: flex;
+
+  justify-content: left;
+}
+
+.filter-list-input[type="checkbox"] {
+  display: none;
+}
+
+.filter-list-input[type="checkbox"]:hover + label:before {
+  opacity: 0.5;
+}
+
+.filter-list-checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  line-height: 28px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #111;
+  font-weight: 600;
+}
+
+.filter-list-checkbox:before {
+  z-index: 15;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 13px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #444;
+  height: 13px;
+}
+.filter-list-input[type="checkbox"]:checked + label {
+  color: #000;
+}
+
+.filter-list-input[type="checkbox"]:checked + label:before {
+  border-color: transparent;
+  border-left-color: #2ecc71;
+  border-bottom-color: #2ecc71;
+  transform: rotate(-50deg);
+  width: 20px;
+  height: 10px;
+  top: 3px;
+}
+
+.category-main-header {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.category-main-grid-wrapper {
+  margin: 10px 10px;
+}
+
+.category-sort {
+  width: 200px;
+  padding: 2px 2px;
+  border: 0px;
+  font-family: "Ubuntu";
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .category-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  .category-filter-wrapper {
+   margin-left: -10px;
+  }
+  .category-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+

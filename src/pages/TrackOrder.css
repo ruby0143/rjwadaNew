@@ -1,0 +1,134 @@
+.track-container {
+  /* max-width: 60vw; */
+  font-family: "Montserrat";
+}
+.track-grid {
+  display: flex;
+  flex-direction: column;
+}
+.titem-img {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 2.4rem;
+  background-image: url("../images/banner1.png");
+  background-size: contain;
+}
+.track-status {
+  display: flex;
+  align-items: center;
+}
+.track-header {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  margin: 20px;
+  /* line-height: 39px; */
+  margin-top: 50px;
+  text-align: start;
+}
+.titem-card {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  font-size: 18px;
+  margin: 30px;
+  /* background: rgb(255, 255, 255);
+  background: linear-gradient(
+    325deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(220, 247, 253, 1) 100%
+  ); */
+}
+.titem-detail-wrap{
+  width: 600px;
+}
+.titem-detail {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.titem-card-detail {
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+
+}
+.cancel-btn {
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background: #b2eeee;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.titem-name {
+  margin-left: 20px;
+  font-weight: 600;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+  /* margin-left: 50px; */
+  /* margin-left: 10px; */
+}
+.detail.icon {
+  font-size: 20px;
+}
+.titem-header{
+  width: 600px !important;
+}
+@media only screen and (min-width: 1024px)  {
+  .titem-header{
+    width: auto !important;
+  }
+  .track-container{
+    max-width: 60vw;
+  }
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .track-container{
+    max-width: inherit;
+    /* max-width: 0px !important; */
+  }
+  .titem-header{
+    width: 400px !important;
+  }
+  
+}
+
+@media only screen and (min-width: 320px) and (max-width: 599px) {
+  .track-container{
+    max-width: inherit;
+    /* max-width: 0px !important; */
+  }
+  .titem-header{
+    width: 200px !important;
+  }
+  .titem-img{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+  }
+  .titem-card, .box, .cancel-btn{
+    font-size: 10px !important;
+  }
+  .titem-card-detail{
+    grid-template-columns: 80px 80px;
+  }
+  .cancel-btn{
+    padding: 2px 5px;
+  }
+  .detail-icon{
+    font-size: 16px !important;
+    margin-right: 2px !important;
+  }
+}

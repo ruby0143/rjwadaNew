@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.toplist{
+    width: 100%;
+    padding: 1px 0px;
+    font-size: 0.9rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    color: black;
+    background-color: #ECF4F4;
+}
+.toplist-categories{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+.cate{
+    color: black;
+}
+.cate:hover{
+    cursor: pointer;
+    color: rgb(0, 85, 255);
+}
+@media screen and (max-width:1000px) {
+    .toplist{
+        padding: 1px;
+    }
+    .toplist-categories{
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        padding: 0;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .cate{
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 10px;
+        margin: 0px;
+        font-size: 0.8rem;
+    }
+}

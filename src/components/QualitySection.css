@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+.quality-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 30px 50px;
+  
+}
+.quality-item {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  color: #000000;
+  display: flex;
+  /* width: 350px; */
+  text-align: start;
+}
+.quality-subheading{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+/* line-height: 1rem; */
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .quality-subheading{
+    display: none;
+  }
+  .quality-item-heading{
+    font-size: 10px;
+  }
+  .quality-item-icon{
+    margin-top: -12px !important;
+  }
+  .quality-wrapper{
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .collection-item-wrapper{
+    margin: 0; 
+  }
+  
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (max-width: 768px) {
+  .quality-subheading{
+    display: none;
+  }
+  .quality-item-icon{
+    margin-top: -12px !important;
+  }
+  .collection-item-wrapper{
+    margin: 0; 
+  }
+  .collection-heading{
+    margin: 0;
+  }
+  .collection-item{
+    margin: 0;
+  }
+  
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1024px) {
+ .quality-subheading{
+  font-size: 12px;
+ }
+ .quality-item-heading{
+  font-size: 15px;
+ }
+ .quality-item{
+  line-height: 15px;
+ }
+ .quality-item-icon{
+  /* font-size: 48px !important; */
+ }
+}
