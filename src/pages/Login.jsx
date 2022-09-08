@@ -31,7 +31,7 @@ const Login = () => {
         seterrmsg("");
         setTimeout(() => {
           setsuccess("");
-          navigate("/");
+          navigate(window.history.back());
         }, 1000);
       })
       .catch((error) => seterrmsg(error.message));
@@ -61,7 +61,7 @@ const Login = () => {
           seterrmsg("");
           setTimeout(() => {
             setsuccess("");
-            navigate("/");
+            navigate(window.history.back());
           }, 1000);
         })
         .catch((error) => {
@@ -199,9 +199,9 @@ const Login = () => {
                   By signing up you agree to Rjwada's
                 </span>
                 <Terms />
-                {/* <span style={{ marginLeft: "5px" }}>and</span> */}
-
-                {/* <Privacy /> */}
+                <Link to={"/privacy"} style={{textDecoration: 'none'}}>
+                <span style={{ marginLeft: "5px", color:"#2c8f88" }}>and privacy</span>
+                </Link>
               </div>
             </form>
             {/* {errmsg && (

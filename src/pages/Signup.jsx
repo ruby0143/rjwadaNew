@@ -43,7 +43,7 @@ const Signup = () => {
           seterrmsg("");
           setTimeout(() => {
             setsuccess("");
-            navigate("/");
+            navigate(window.history.length>=2 ? -2: window.history.back());
           }, 1000);
         })
         .catch((error) => {
@@ -73,7 +73,7 @@ const Signup = () => {
             seterrmsg("");
             setTimeout(() => {
               setsuccess("");
-              navigate("/login");
+              navigate(window.history.back());
             }, 1000);
           })
           .catch((error) => {
