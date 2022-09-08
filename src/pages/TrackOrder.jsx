@@ -88,12 +88,12 @@ const TrackOrder = () => {
               console.log(data.data);
               settrackingProd((trackingProd) => [...trackingProd, data.data]);
               console.log(trackingProd);
+              console.log("images",data.data.images[0])
             });
         });
     };
     getTrackData();
   }, [user]);
-
   console.log(uidInventory, localStorage.getItem("uid"));
 
   return (
@@ -172,7 +172,9 @@ const TrackOrder = () => {
                               }}
                             >
                               <div className="titem-name"></div>
-                              <button className="cancel-btn">Cancel</button>
+                              <a href="mailto:contact@rjwada.com?body=I want to cancel the product with name ________."><button className="cancel-btn">Cancel</button></a>
+                              
+                              {/* contact@rjwada.com */}
                             </div>
                             <div className="titem-card-detail">
                               <div className="box titem-price">

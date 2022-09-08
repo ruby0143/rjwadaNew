@@ -258,7 +258,7 @@ const Homepage = (props) => {
                         </div>
                       </>
                     )}
-                    {data.id === 8 && (
+                    {data.id === 5 && (
                       <>
                         <div className="data-banner-container data-banner-container-ext"
                           key={data.id}
