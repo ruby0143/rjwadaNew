@@ -107,7 +107,7 @@ const Footer = () => {
                     />
                   </span>
                   <p>
-                    <a href="malito:tiago86g@gmail.com">RJWADA@gmail.com</a>
+                    <a href="mailto:contact@rjwada.com">contact@rjwada.com</a>
                   </p>
                 </li>
               </ul>
