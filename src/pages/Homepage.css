@@ -109,7 +109,7 @@
   }
   .data-banner{
     background-size: cover !important;
-    margin: 10px !important;
+    margin-right: 3rem !important;
     height: 300px !important;
   }
   }
@@ -148,7 +148,7 @@
   }
   .data-banner{
     background-size: cover !important;
-    margin: 0 !important;
+    /* margin: 0 !important; */
   }
   .collection-item-wrapper{
     justify-content: center !important;
