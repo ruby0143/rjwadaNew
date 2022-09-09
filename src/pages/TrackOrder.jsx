@@ -46,7 +46,7 @@ const TrackOrder = () => {
   }, []);
 
   const user = Getcurrentuser();
-
+  
   ////display product//////
   const [trackorderProduct, settrackorderProduct] = useState(null);
   useEffect(() => {
@@ -75,26 +75,38 @@ const TrackOrder = () => {
     const getTrackData = () => {
       data &&
         data.map((d) => {
-          let proAPI = `http://api.rjwada.com/items/products/${
-            d.id.split(".")[2]
-          }`;
-          setuidInventory(d.id.split(".")[0]);
-          console.log("link", proAPI);
-          fetch(proAPI)
-            .then((data) => {
-              return data.json();
-            })
-            .then((data) => {
-              console.log(data.data);
-              settrackingProd((trackingProd) => [...trackingProd, data.data]);
-              console.log(trackingProd);
-              console.log("images",data.data.images[0])
-            });
+          getImage(d.id)
         });
     };
     getTrackData();
   }, [user]);
   console.log(uidInventory, localStorage.getItem("uid"));
+  
+   const getImage = async(id) =>{
+    let proAPI = `http://api.rjwada.com/items/products/${
+      id.split(".")[2]
+    }`;
+    setuidInventory(id.split(".")[0]);
+    console.log("link", proAPI);
+    await fetch(proAPI)
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data.data);
+        // settrackingProd((trackingProd) => [...trackingProd, data.data.images]);
+        console.log(trackingProd);
+        console.log("images",data.data.images[0])
+        return data.data.images[0]
+      })
+      .catch((error)=>{
+        console.log(error)
+    })
+      
+  }
+  
+console.log(getImage("11.11.11"))
+
 
   return (
     <div>
@@ -157,7 +169,7 @@ const TrackOrder = () => {
                             <div
                               className="titem-img"
                               style={{
-                                // backgroundImage: "url()",
+                                backgroundImage: "url()",
                               }}
                             ></div>
                           </div>
@@ -179,6 +191,9 @@ const TrackOrder = () => {
                             <div className="titem-card-detail">
                               <div className="box titem-price">
                                 Price : ₹ {data.price}
+                              </div>
+                              <div className="box titem-price">
+                                Price : ₹ {getImage(data.id)?getImage(data.id) : null}
                               </div>
                               <div className="box titem-quan">
                                 Quantity : {data.quantity}

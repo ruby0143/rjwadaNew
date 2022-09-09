@@ -81,6 +81,7 @@
   flex-wrap: wrap;
   margin: 10px 40px;
   justify-content: flex-start;
+  overflow-x: scroll !important;
 }
 .collection-item {
   margin: 10px;
@@ -197,6 +198,9 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 1024px) {
+  .homepage-wrapper{
+    overflow-x: hidden;
+  }
   .homepage-banner-btn {
     position: absolute;
     width: 198px;
@@ -233,6 +237,7 @@
   }
   .collection-item-wrapper{
     justify-content: center;
+    overflow-x: hidden !important;
   }
 }
 
