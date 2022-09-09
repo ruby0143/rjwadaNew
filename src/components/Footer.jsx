@@ -107,6 +107,7 @@ const Footer = () => {
                     />
                   </span>
                   <p>
+                    {/* <a href="mailto:contact@rjwada.com">contact@rjwada.com</a> */}
                     <a href="mailto:contact@rjwada.com">contact@rjwada.com</a>
                   </p>
                 </li>
