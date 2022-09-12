@@ -142,7 +142,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
     );
     console.log(returnedEndpoint);
     let uun = Date.now() * Math.random();
-    bodyContent.append("filename", `${prod_id}${user_id}${uun}`);
+    bodyContent.append("filename", `${prod_id}*${user_id}*${uun}`);
 
     let response = fetch(endpoint, {
       method: "POST",
