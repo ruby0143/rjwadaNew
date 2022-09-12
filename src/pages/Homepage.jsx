@@ -75,10 +75,10 @@ const Homepage = (props) => {
   }, []);
 
   const user = Getcurrentuser();
-  
+
   return (
     <>
-      <Toplist /> 
+      <Toplist />
       <div className="homepage-wrapper">
         <div className="homepage-banner">
           {/* <button className="homepage-banner-btn">EXPLORE NOW</button> */}
@@ -95,14 +95,14 @@ const Homepage = (props) => {
                   <div className="categorycard-homepage" key={data.id}>
                     {data.id < 4 && (
                       <div
-                      className="data-banner-container"
+                        className="data-banner-container"
                         key={data.id}
                         style={{
                           height: "600px",
                           overflow: "hidden",
                           margin: "40px",
                           width: "390px",
-                          textAlign: "center"
+                          textAlign: "center",
                         }}
                       >
                         <Link
@@ -110,7 +110,7 @@ const Homepage = (props) => {
                           to={`productpage/${data.id}`}
                         >
                           <div
-                          className="data-banner"
+                            className="data-banner"
                             style={{
                               height: "510px",
                               borderRadius: "30px",
@@ -147,6 +147,14 @@ const Homepage = (props) => {
             </div>
           </div>
         </div>
+        <hr
+          style={{
+            border: "0px",
+            height: "2px",
+            backgroundImage:
+              "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))",
+          }}
+        />
         <div className="collection-wrapper">
           <div className="collection-heading">
             <center>Hot Selling Products</center>
@@ -159,7 +167,7 @@ const Homepage = (props) => {
                     {data.id === 4 && (
                       <>
                         <div
-                        className="data-banner-container data-banner-container-ext"
+                          className="data-banner-container data-banner-container-ext"
                           key={data.id}
                           style={{
                             height: "600px",
@@ -177,7 +185,7 @@ const Homepage = (props) => {
                             }}
                           >
                             <div
-                            className="data-banner"
+                              className="data-banner"
                               style={{
                                 height: "510px",
                                 borderRadius: "30px",
@@ -211,7 +219,7 @@ const Homepage = (props) => {
                     {data.id === 11 && (
                       <>
                         <div
-                        className="data-banner-container data-banner-container-ext"
+                          className="data-banner-container data-banner-container-ext"
                           key={data.id}
                           style={{
                             height: "600px",
@@ -220,14 +228,15 @@ const Homepage = (props) => {
                             width: "390px",
                           }}
                         >
-                           <Link
+                          <Link
                             style={{ textDecoration: "none" }}
                             to={`productpage/${data.category_id}/${data.id}`}
                             onClick={() => {
                               <ParticularProduct cat_id={data.category_id} />;
                             }}
                           >
-                            <div className="data-banner"
+                            <div
+                              className="data-banner"
                               style={{
                                 height: "510px",
                                 borderRadius: "30px",
@@ -260,7 +269,8 @@ const Homepage = (props) => {
                     )}
                     {data.id === 5 && (
                       <>
-                        <div className="data-banner-container data-banner-container-ext"
+                        <div
+                          className="data-banner-container data-banner-container-ext"
                           key={data.id}
                           style={{
                             height: "600px",
@@ -269,7 +279,7 @@ const Homepage = (props) => {
                             width: "390px",
                           }}
                         >
-                           <Link
+                          <Link
                             style={{ textDecoration: "none" }}
                             to={`productpage/${data.category_id}/${data.id}`}
                             onClick={() => {
@@ -277,7 +287,7 @@ const Homepage = (props) => {
                             }}
                           >
                             <div
-                            className="data-banner"
+                              className="data-banner"
                               style={{
                                 height: "510px",
                                 borderRadius: "30px",
