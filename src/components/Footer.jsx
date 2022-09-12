@@ -23,23 +23,21 @@ const Footer = () => {
               </p>
               <ul className="some">
                 <li>
-                  <a href="#">
-                    <i className="fa fa-facebook" aria-hidden="true" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
+                  <a href="https://twitter.com/rjwadalife" target="_blank">
                     <i className="fa fa-twitter" aria-hidden="true" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a
+                    href="https://www.instagram.com/rjwadalife/"
+                    target="_blank"
+                  >
                     <i className="fa fa-instagram" aria-hidden="true" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i className="fa fa-youtube-play" aria-hidden="true" />
+                  <a href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in">
+                    <i className="fa fa-linkedin" aria-hidden="true" />
                   </a>
                 </li>
               </ul>
@@ -48,22 +46,34 @@ const Footer = () => {
               <h2>Quick Links</h2>
               <ul>
                 <li>
-                  <a href="#">About</a>
+                  <a
+                    href="https://www.linkedin.com/company/rjwada/about/"
+                    target="_blank"
+                  >
+                    About
+                  </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#">Team</a>
-                </li>
+                </li> */}
                 <li>
-                  <a href="#">Career</a>
+                  <a
+                    href="https://www.linkedin.com/company/rjwada/jobs/"
+                    target="_blank"
+                  >
+                    Career
+                  </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#">Blog</a>
-                </li>
+                </li> */}
                 {/* <li>
                 <a href="#">Terms &amp; conditions</a>
               </li> */}
                 <li>
-                  <a href="#">Contract</a>
+                  <a href="mailto:contact@rjwada.com" target="_blank">
+                    Contact
+                  </a>
                 </li>
               </ul>
             </div>
@@ -86,23 +96,23 @@ const Footer = () => {
                     Delhi 110016
                   </span>
                 </li>
-                <li>
+                {/* <li>
                   <span>
                     <i
                       className="fa fa-phone"
-                      style={{ color: "black",marginTop:"20px" }}
+                      style={{ color: "black", marginTop: "20px" }}
                       aria-hidden="true"
                     />
                   </span>
                   <p>
                     <a href="tel:4542594575">+91 987654321</a>
                   </p>
-                </li>
+                </li> */}
                 <li>
                   <span>
                     <i
                       className="fa fa-envelope"
-                      style={{ color: "black",marginTop:"20px" }}
+                      style={{ color: "black", marginTop: "20px" }}
                       aria-hidden="true"
                     />
                   </span>
