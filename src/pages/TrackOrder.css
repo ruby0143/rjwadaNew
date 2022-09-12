@@ -12,7 +12,8 @@
   height: 100px;
   border-radius: 10px;
   margin-top: 2.4rem;
-  background-image: url("../images/banner1.png");
+  /* background-image: url("../images/banner1.png"); */
+  background-image: url("");
   background-size: contain;
 }
 .track-status {
