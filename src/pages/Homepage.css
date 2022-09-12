@@ -1,4 +1,4 @@
-.homepage-wrapper{
+.homepage-wrapper {
   overflow-x: hidden;
 }
 
@@ -80,8 +80,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px 40px;
-  justify-content: flex-start;
-  overflow-x: scroll !important;
+  justify-content: center;
 }
 .collection-item {
   margin: 10px;
@@ -103,18 +102,18 @@
   color: black;
 }
 @media only screen and (max-width: 340px) {
-  .data-banner-container{
+  .data-banner-container {
     height: 360px !important;
     padding-left: 2rem !important;
   }
-  .data-banner{
+  .data-banner {
     background-size: cover !important;
     margin-right: 3rem !important;
     height: 300px !important;
   }
-  }
+}
 
-  /* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 450px) {
   /* .collection-item-image {
     width: 180px !important;
@@ -142,15 +141,15 @@
     display: flex;
     flex-direction: column;
   } */
-  .data-banner-container{
-      width: 255px !important;
-      padding-left: 1rem !important;
+  .data-banner-container {
+    width: 255px !important;
+    padding-left: 1rem !important;
   }
-  .data-banner{
+  .data-banner {
     background-size: cover !important;
     /* margin: 0 !important; */
   }
-  .collection-item-wrapper{
+  .collection-item-wrapper {
     justify-content: center !important;
   }
 }
@@ -178,27 +177,27 @@
     /* height: 300px; */
     background: url("../images/banner-mob.png");
   }
-  .collection-wrapper{
+  .collection-wrapper {
     display: flex;
     flex-direction: column;
   }
-  .collection-item-text{
+  .collection-item-text {
     max-width: 200px;
     display: flex;
     flex-wrap: wrap;
     font-size: 20px;
   }
-  .collection-item-wrapper{
+  .collection-item-wrapper {
     justify-content: center;
   }
-  .quality-wrapper{
+  .quality-wrapper {
     flex-direction: column;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 1024px) {
-  .homepage-wrapper{
+  .homepage-wrapper {
     overflow-x: hidden;
   }
   .homepage-banner-btn {
@@ -219,7 +218,7 @@
     line-height: 20px;
     cursor: pointer;
   }
-  .homepage-banner{
+  .homepage-banner {
     background: url("../images/banner-tab.png");
     background-size: cover;
   }
@@ -229,15 +228,14 @@
   .topsell-item-image {
     width: 280px;
   }
-  .collection-item{
+  .collection-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .collection-item-wrapper{
+  .collection-item-wrapper {
     justify-content: center;
     overflow-x: hidden !important;
   }
 }
-
