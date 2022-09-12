@@ -23,7 +23,7 @@
 .footer .ft-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
 }
 
@@ -92,7 +92,6 @@
 .quickLinks {
   position: relative;
   width: 25%;
-  
 }
 
 .quickLinks ul li {

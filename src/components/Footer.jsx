@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -74,6 +75,15 @@ const Footer = () => {
                   <a href="mailto:contact@rjwada.com" target="_blank">
                     Contact
                   </a>
+                </li>
+                <li>
+                  <Link
+                    to={"/privacy"}
+                    target="_blank"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Privacy Policy
+                  </Link>
                 </li>
               </ul>
             </div>

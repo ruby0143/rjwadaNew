@@ -199,8 +199,10 @@ const Login = () => {
                   By signing up you agree to Rjwada's
                 </span>
                 <Terms />
-                <Link to={"/privacy"} style={{textDecoration: 'none'}}>
-                <span style={{ marginLeft: "5px", color:"#2c8f88" }}>and privacy</span>
+                <Link to={"/privacy"} style={{ textDecoration: "none" }}>
+                  <span style={{ marginLeft: "5px", color: "#2c8f88" }}>
+                    and Privacy Policy
+                  </span>
                 </Link>
               </div>
             </form>
