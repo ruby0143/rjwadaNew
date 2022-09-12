@@ -84,13 +84,13 @@ const Navbar = ({ user }) => {
           {!user && (
             <>
               <Link className="navbar-link link" to={"/login"}>
-                <li className="nav-links nav-box" style={{padding:"2px 10px",border:"1px solid black", borderRadius:"2px 10px",marginRight:"10px"}} >
+                <li className="nav-links nav-box" style={{padding:"2px 10px",border:"1px solid black", borderRadius:"2px 10px",marginRight:"25px"}} >
                   {/* <CgLogIn/>  */}
                   Login
                 </li>
               </Link>
               <Link className="navbar-link link" to={"/signup"}>
-                <li className="nav-links nav-box" style={{padding:"2px 10px",border:"1px solid black", borderRadius:"2px 10px",marginRight:"10px"}} >Sign up</li>
+                <li className="nav-links nav-box" style={{padding:"2px 10px",border:"1px solid black", borderRadius:"2px 10px",marginRight:"30px"}} >Sign up</li>
               </Link>
             </>
           )}
