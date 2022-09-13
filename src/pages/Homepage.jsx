@@ -206,9 +206,14 @@ const Homepage = (props) => {
                             >
                               <center>
                                 <div
-                                  style={{ marginTop: "-20px", color: "black" }}
+                                  style={{ fontSize: "1.2rem", marginTop: "-20px", color: "black" }}
                                 >
                                   {data.name}
+                                </div>
+                                <div
+                                  style={{ marginTop: "0.2rem", fontSize: "1.5rem", color: "black" }}
+                                >
+                                  ₹ {data.price}
                                 </div>
                               </center>
                             </Link>
@@ -257,9 +262,14 @@ const Homepage = (props) => {
                             >
                               <center>
                                 <div
-                                  style={{ marginTop: "-20px", color: "black" }}
+                                  style={{ fontSize: "1.2rem", marginTop: "-20px", color: "black" }}
                                 >
                                   {data.name}
+                                </div>
+                                <div
+                                  style={{ marginTop: "0.2rem", fontSize: "1.5rem", color: "black" }}
+                                >
+                                  ₹ {data.price}
                                 </div>
                               </center>
                             </Link>
@@ -308,9 +318,14 @@ const Homepage = (props) => {
                             >
                               <center>
                                 <div
-                                  style={{ marginTop: "-20px", color: "black" }}
+                                  style={{ fontSize: "1.2rem", marginTop: "-20px", color: "black" }}
                                 >
                                   {data.name}
+                                </div>
+                                <div
+                                  style={{ marginTop: "0.2rem", fontSize: "1.5rem", color: "black" }}
+                                >
+                                  ₹ {data.price}
                                 </div>
                               </center>
                             </Link>
