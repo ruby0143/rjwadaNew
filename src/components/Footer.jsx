@@ -12,6 +12,11 @@ const Footer = () => {
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossOrigin="anonymous"
       />
+      <hr
+        style={{
+          margin: "0px",
+        }}
+      />
       <div className="footer-wrapper">
         <div className="footer">
           <div className="ft-container">
@@ -38,7 +43,10 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in"
+                  >
                     <i className="fa fa-linkedin" aria-hidden="true" />
                   </a>
                 </li>

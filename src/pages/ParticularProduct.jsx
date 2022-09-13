@@ -673,7 +673,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 >
                   Add to cart
                 </button>
-                {/* <button
+                <button
                   className="product-button-cart"
                   onClick={() => {
                     if (!selectedsize) {
@@ -690,14 +690,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   }}
                 >
                   Add to wishlist
-                </button> */}
-                <div
+                </button>
+                {/* <div
                   className="product-favourite-icon"
                   onClick={() => setClicked(true)}
-                  style={{
-                    position: "relative",
-                    bottom: "8rem",
-                  }}
                 >
                   {clicked ? (
                     <BsHeartFill
@@ -722,7 +718,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       }}
                     />
                   )}
-                </div>
+                </div> */}
               </div>
               {/* <div className="quantity-section">
                 <div className="quantity-text">Quantity</div>
