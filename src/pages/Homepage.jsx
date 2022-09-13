@@ -155,8 +155,20 @@ const Homepage = (props) => {
               "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))",
           }}
         />
-        <div className="collection-wrapper">
-          <div className="collection-heading">
+        <div
+          className="collection-wrapper"
+          style={{
+            background: "rgb(255,255,255)",
+            backgroundImage:
+              "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 9%, rgba(236,244,244,1) 22%)",
+          }}
+        >
+          <div
+            className="collection-heading"
+            style={{
+              maginTop: "2rem",
+            }}
+          >
             <center>Hot Selling Products</center>
           </div>
           <div className="collection-item-wrapper">
