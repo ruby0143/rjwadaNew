@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Terms from "../components/Terms";
 import "./Footer.css";
 
 const Footer = () => {
@@ -75,6 +76,15 @@ const Footer = () => {
                   <a href="mailto:contact@rjwada.com" target="_blank">
                     Contact
                   </a>
+                </li>
+                <li>
+                  <Link
+                    to={"/Termsncondition"}
+                    target="_blank"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Terms and Condition
+                  </Link>
                 </li>
                 <li>
                   <Link
