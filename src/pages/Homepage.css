@@ -127,7 +127,7 @@
   }
   .homepage-banner {
     /* height: 300px; */
-    background: url("../images/banner-tab.png");
+    background: url("../images/banner300.png") !important;
     background-size: cover;
   }
   .homepage-banner-btn {
@@ -153,6 +153,12 @@
     justify-content: center !important;
   }
 }
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .homepage-banner {
+    /* height: 300px; */
+    background: url("../images/banner600.png") !important;
+  }
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .collection-item-wrapper,
@@ -175,7 +181,7 @@
   }
   .homepage-banner {
     /* height: 300px; */
-    background: url("../images/banner-mob.png");
+    background: url("../images/banner300.png") !important;
   }
   .collection-wrapper {
     display: flex;

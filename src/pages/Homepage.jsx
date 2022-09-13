@@ -78,7 +78,6 @@ const Homepage = (props) => {
 
   return (
     <>
-      <Toplist />
       <div className="homepage-wrapper">
         <div className="homepage-banner">
           {/* <button className="homepage-banner-btn">EXPLORE NOW</button> */}
@@ -218,12 +217,20 @@ const Homepage = (props) => {
                             >
                               <center>
                                 <div
-                                  style={{ fontSize: "1.2rem", marginTop: "-20px", color: "black" }}
+                                  style={{
+                                    fontSize: "1.2rem",
+                                    marginTop: "-20px",
+                                    color: "black",
+                                  }}
                                 >
                                   {data.name}
                                 </div>
                                 <div
-                                  style={{ marginTop: "0.2rem", fontSize: "1.5rem", color: "black" }}
+                                  style={{
+                                    marginTop: "0.2rem",
+                                    fontSize: "1.5rem",
+                                    color: "black",
+                                  }}
                                 >
                                   ₹ {data.price}
                                 </div>
@@ -274,12 +281,20 @@ const Homepage = (props) => {
                             >
                               <center>
                                 <div
-                                  style={{ fontSize: "1.2rem", marginTop: "-20px", color: "black" }}
+                                  style={{
+                                    fontSize: "1.2rem",
+                                    marginTop: "-20px",
+                                    color: "black",
+                                  }}
                                 >
                                   {data.name}
                                 </div>
                                 <div
-                                  style={{ marginTop: "0.2rem", fontSize: "1.5rem", color: "black" }}
+                                  style={{
+                                    marginTop: "0.2rem",
+                                    fontSize: "1.5rem",
+                                    color: "black",
+                                  }}
                                 >
                                   ₹ {data.price}
                                 </div>
@@ -330,12 +345,20 @@ const Homepage = (props) => {
                             >
                               <center>
                                 <div
-                                  style={{ fontSize: "1.2rem", marginTop: "-20px", color: "black" }}
+                                  style={{
+                                    fontSize: "1.2rem",
+                                    marginTop: "-20px",
+                                    color: "black",
+                                  }}
                                 >
                                   {data.name}
                                 </div>
                                 <div
-                                  style={{ marginTop: "0.2rem", fontSize: "1.5rem", color: "black" }}
+                                  style={{
+                                    marginTop: "0.2rem",
+                                    fontSize: "1.5rem",
+                                    color: "black",
+                                  }}
                                 >
                                   ₹ {data.price}
                                 </div>
