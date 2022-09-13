@@ -360,7 +360,7 @@ const Cart = ({ userid }) => {
               <table className="cart-total">
                 <tr className="cart-row">
                   <td className="cart-col">Total</td>
-                  <td className="cart-col">₹{totalq}</td>
+                  <td className="cart-col">₹ {totalq}</td>
                 </tr>
               </table>
               <div
@@ -380,7 +380,7 @@ const Cart = ({ userid }) => {
                     margin: "10px 0px",
                   }}
                 >
-                  {user && useradd ? (
+                  {user && useradd ? ((x>=1) ? (
                     <Razorpay
                       cartProducts={cartProducts.length}
                       totalCartPrice={x}
@@ -388,6 +388,10 @@ const Cart = ({ userid }) => {
                       style={{ width: "20px" }}
                     />
                   ) : (
+                    <center>
+                      <h2>Cart is Empty!</h2>
+                    </center>
+                  )) : (
                     <center>
                       <h2>Please enter address</h2>
                       <Link to="/profile" style={{ textDecoration: "none" }}>
