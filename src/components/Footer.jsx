@@ -31,14 +31,14 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/rjwadalife/"
+                    href="https://www.instagram.com/rjwadalife"
                     target="_blank"
                   >
                     <i className="fa fa-instagram" aria-hidden="true" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in">
+                  <a target="_blank" href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in">
                     <i className="fa fa-linkedin" aria-hidden="true" />
                   </a>
                 </li>
