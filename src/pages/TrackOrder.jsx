@@ -127,6 +127,13 @@ const TrackOrder = () => {
                                 {data.cancel_status ? "Cancelled" : null}
                               </div>
                             }
+
+                            {!data.dispatch_status &&
+                            !data.in_progress_status &&
+                            !data.order_completed_status &&
+                            !data.return_status
+                              ? "Order Placed"
+                              : null}
                             {
                               <div className="track-status">
                                 {data.dispatch_status ? "Dispatched" : null}
@@ -159,7 +166,11 @@ const TrackOrder = () => {
                             <div
                               className="titem-img"
                               style={{
-                                backgroundImage: "url()",
+                                backgroundImage:
+                                  "url(" +
+                                  "http://api.rjwada.com/assets/" +
+                                  `${data.image_of_design}` +
+                                  ")",
                               }}
                             ></div>
                           </div>
