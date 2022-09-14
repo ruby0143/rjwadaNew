@@ -95,7 +95,7 @@ export function senddata(json) {
       category: `${json.categoryId}`,
       image_of_design: `${json.banner}`,
       color: "black",
-      size: `${json.size}`,
+      size: `${json.size}` || localStorage.getItem("size"),
       ordered_on: `${date}T${time}`,
       in_progress_status: false,
       order_completed_status: false,

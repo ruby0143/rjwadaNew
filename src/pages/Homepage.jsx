@@ -176,7 +176,6 @@ const Homepage = (props) => {
                           style={{
                             height: "600px",
                             overflow: "hidden",
-
                             width: "390px",
                           }}
                         >

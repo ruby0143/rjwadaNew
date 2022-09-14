@@ -485,7 +485,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   {size[0] ? (
                     <button
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[0])}
+                      onClick={() => {
+                        localStorage.setItem("size", size[0]);
+                        setselectedsize(size[0]);
+                      }}
                     >
                       {size[0]}
                     </button>
@@ -502,7 +505,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   {size[1] ? (
                     <button
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[1])}
+                      onClick={() => {
+                        localStorage.setItem("size", size[1]);
+                        setselectedsize(size[1]);
+                      }}
                     >
                       {size[1]}
                     </button>
@@ -511,7 +517,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       disabled={true}
                       style={{ backgroundColor: "#D0D0D0" }}
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[0])}
+                      onClick={() => setselectedsize(size[1])}
                     >
                       M
                     </button>
@@ -519,7 +525,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   {size[2] ? (
                     <button
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[2])}
+                      onClick={() => {
+                        localStorage.setItem("size", size[2]);
+                        setselectedsize(size[2]);
+                      }}
                     >
                       {size[2]}
                     </button>
@@ -528,7 +537,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       disabled={true}
                       style={{ backgroundColor: "#D0D0D0" }}
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[0])}
+                      onClick={() => setselectedsize(size[2])}
                     >
                       L
                     </button>
@@ -536,7 +545,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   {size[3] ? (
                     <button
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[3])}
+                      onClick={() => {
+                        localStorage.setItem("size", size[3]);
+                        setselectedsize(size[3]);
+                      }}
                     >
                       {size[3]}
                     </button>
@@ -545,7 +557,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       disabled={true}
                       style={{ backgroundColor: "#D0D0D0" }}
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[0])}
+                      onClick={() => setselectedsize(size[3])}
                     >
                       XL
                     </button>
@@ -553,7 +565,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   {size[4] ? (
                     <button
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[4])}
+                      onClick={() => {
+                        localStorage.setItem("size", size[4]);
+                        setselectedsize(size[4]);
+                      }}
                     >
                       {size[4]}
                     </button>
@@ -562,7 +577,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       disabled={true}
                       style={{ backgroundColor: "#D0D0D0" }}
                       className="product-size-item"
-                      onClick={() => setselectedsize(size[0])}
+                      onClick={() => setselectedsize(size[4])}
                     >
                       XXL
                     </button>
