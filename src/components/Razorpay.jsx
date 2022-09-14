@@ -3,8 +3,15 @@ import "./Razorpay.css";
 import axios from "axios";
 import { auth, fs } from "../config/Config";
 import { senddata } from "./send";
-const Razorpay = ({ totalCartPrice, products, cartProducts, selectedsize }) => {
+const Razorpay = ({
+  totalCartPrice,
+  products,
+  cartProducts,
+  selectedsize,
+  dataToSend,
+}) => {
   console.log(products, "in razorpay jsx");
+  console.log(dataToSend, "in razorpay jsx");
   const price = totalCartPrice;
   const [paymentid, setpaymentid] = useState();
   console.log(price);
@@ -58,7 +65,7 @@ const Razorpay = ({ totalCartPrice, products, cartProducts, selectedsize }) => {
                 products[property].userid_id +
                 ` PRODUCT_ID = ${products[property].product_id}`
             );
-            senddata(products[property]);
+            senddata(products[property] || dataToSend);
             console.log("json sent");
             fs.collection("cart")
               .doc(
@@ -88,7 +95,7 @@ const Razorpay = ({ totalCartPrice, products, cartProducts, selectedsize }) => {
 
   return (
     <div>
-      <button className="razorpaycss" onClick={() => displayRazorpay(price)}>
+      <button className="razorpaycss" onClick={() => displayRazorpay(1)}>
         BUY NOW
       </button>
     </div>

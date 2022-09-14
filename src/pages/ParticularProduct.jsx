@@ -50,6 +50,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const { id } = useParams();
 
   const [data, setData] = useState(null);
+  console.log(data);
   useEffect(() => {
     fetch("http://api.rjwada.com/items/products")
       .then((response) => {
@@ -79,10 +80,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const [description, setdescription] = useState("Product description");
   const [datas, setdata] = useState({});
   const [banner, setbanner] = useState("Product img");
-  console.log(images);
-  console.log(images[1]);
-
-  console.log(datas);
+  const [color, setColor] = useState({});
 
   useEffect(() => {
     data &&
@@ -97,10 +95,12 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
             setproductId(data.id),
             setprice(data.price),
             setdescription(data.description),
-            setbanner(data.banner))
+            setbanner(data.banner),
+            setColor(data.colours))
           : null
       );
   }, [data]);
+  console.log(datas);
   datas["categoryId"] = categoryId;
   console.log(selectedsize);
 
@@ -116,6 +116,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   tosend["price"] = price;
   tosend["description"] = description;
   tosend["banner"] = banner;
+  tosend["color"] = color;
 
   useEffect(() => {
     if (localStorage.getItem("paymentdone") === true) {
@@ -627,20 +628,29 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 <div className="product-color-text">Colors:</div>
                 <div className="product-color">
                   {/* Color add */}
-                  {data &&
-                    data[0].colours.map((data) => (
-                      <>
-                        {console.log(data)}
-                        <BsCircleFill
-                          style={{
-                            color: `${data}`,
-                            margin: "9px",
-                            fontSize: "20px",
-                            // color: "grey",
-                          }}
-                        />
-                      </>
-                    ))}
+
+                  {color[0] && (
+                    <BsCircleFill
+                      style={{
+                        color: `${color[0]}`,
+                        border: "1px solid black",
+                        borderRadius: "30px",
+                        margin: "9px",
+                        fontSize: "20px",
+                      }}
+                    />
+                  )}
+                  {color[1] && (
+                    <BsCircleFill
+                      style={{
+                        color: `${color[1]}`,
+                        border: "1px solid black",
+                        borderRadius: "30px",
+                        margin: "9px",
+                        fontSize: "20px",
+                      }}
+                    />
+                  )}
                 </div>
               </div>
               <div className="product-btn-section">
@@ -667,6 +677,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <Razorpay
                       className="product-button "
                       totalCartPrice={price}
+                      dataToSend={tosend}
                     />
                   )}
                 </div>
