@@ -123,40 +123,47 @@ const TrackOrder = () => {
                                     fontSize: "30px",
                                   }}
                                 />
-
-                                {data.cancel_status ? "Cancelled" : null}
-                              </div>
-                            }
-
-                            {!data.dispatch_status &&
-                            !data.in_progress_status &&
-                            !data.order_completed_status &&
-                            !data.return_status
-                              ? "Order Placed"
-                              : null}
-                            {
-                              <div className="track-status">
-                                {data.dispatch_status ? "Dispatched" : null}
-                              </div>
-                            }
-                            {
-                              <div className="track-status">
-                                {data.in_progress_status ? "In progress" : null}
-                              </div>
-                            }
-                            {
-                              <div className="track-status">
-                                {data.order_completed_status
-                                  ? "Completed"
+                                {!data.dispatch_status &&
+                                !data.in_progress_status &&
+                                !data.order_completed_status &&
+                                !data.return_status
+                                  ? "Order Placed"
                                   : null}
-                              </div>
-                            }
-                            {
-                              <div
-                                className="track-status"
-                                style={{ width: "20%" }}
-                              >
-                                {data.return_status ? "Return" : null}
+                                {
+                                  <div className="track-status">
+                                    {data.dispatch_status ? "Dispatched" : null}
+                                  </div>
+                                }
+                                {
+                                  <div className="track-status">
+                                    {data.in_progress_status
+                                      ? "In progress"
+                                      : null}
+                                  </div>
+                                }
+                                {
+                                  <div className="track-status">
+                                    {data.order_completed_status
+                                      ? "Completed"
+                                      : null}
+                                  </div>
+                                }
+                                {
+                                  <div
+                                    className="track-status"
+                                    style={{ width: "20%" }}
+                                  >
+                                    {data.return_status ? "Return" : null}
+                                  </div>
+                                }
+                                {
+                                  <div
+                                    className="track-status"
+                                    style={{ width: "20%" }}
+                                  >
+                                    {data.cancel_status ? "Cancelled" : null}
+                                  </div>
+                                }
                               </div>
                             }
                           </p>
@@ -185,9 +192,14 @@ const TrackOrder = () => {
                               }}
                             >
                               <div className="titem-name"></div>
-                              <a href="mailto:contact@rjwada.com?body=I want to cancel the product with name ________.">
-                                <button className="cancel-btn">Cancel</button>
-                              </a>
+                              {!data.dispatch_status &&
+                              !data.in_progress_status &&
+                              !data.order_completed_status &&
+                              !data.return_status ? (
+                                <a href="mailto:contact@rjwada.com?body=I want to cancel the product with name ________.">
+                                  <button className="cancel-btn">Cancel</button>
+                                </a>
+                              ) : null}
 
                               {/* contact@rjwada.com */}
                             </div>
