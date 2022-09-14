@@ -621,7 +621,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                             color: `${data}`,
                             margin: "9px",
                             fontSize: "20px",
-                            // color:"Light Grey"
+                            // color: "grey",
                           }}
                         />
                       </>
@@ -869,7 +869,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 </AccordionDetails>
               </Accordion> */}
               <Accordion
-                defaultExpanded={true}
+                defaultExpanded={false}
                 className="product-accordion-main"
               >
                 <AccordionSummary
@@ -884,7 +884,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 </AccordionDetails>
               </Accordion>
               <Accordion
-                defaultExpanded={true}
+                defaultExpanded={false}
                 className="product-accordion-main"
               >
                 <AccordionSummary

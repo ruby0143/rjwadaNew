@@ -117,7 +117,7 @@ const Cart = ({ userid }) => {
           .doc(`USER_ID = ` + userid + ` PRODUCT_ID = ${id}`)
           .delete()
           .then(() => {
-            delete products[`${id}`]
+            delete products[`${id}`];
             cartProducts = cartProducts.filter((item) => {
               return item.ID !== `USER_ID = ` + userid + ` PRODUCT_ID = ${id}`;
             });
@@ -169,7 +169,7 @@ const Cart = ({ userid }) => {
   }, [user]);
 
   const [products, setProducts] = useState({});
-  console.log(products)
+  console.log(products);
 
   return (
     <div>
