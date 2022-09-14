@@ -96,13 +96,7 @@ const Homepage = (props) => {
                       <div
                         className="data-banner-container"
                         key={data.id}
-                        style={{
-                          height: "600px",
-                          overflow: "hidden",
-                          margin: "40px",
-                          width: "390px",
-                          textAlign: "center",
-                        }}
+                        style={{}}
                       >
                         <Link
                           style={{ textDecoration: "none" }}
@@ -111,7 +105,6 @@ const Homepage = (props) => {
                           <div
                             className="data-banner"
                             style={{
-                              height: "510px",
                               borderRadius: "30px",
                               backgroundImage:
                                 "url(" +
@@ -183,7 +176,7 @@ const Homepage = (props) => {
                           style={{
                             height: "600px",
                             overflow: "hidden",
-                            margin: "40px",
+
                             width: "390px",
                           }}
                         >
