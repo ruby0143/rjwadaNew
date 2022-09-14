@@ -1,7 +1,7 @@
 import axios from "axios";
 export function senddata(json) {
+  let paymentid = localStorage.getItem("browser_tahelka");
   var today = new Date();
-
   var date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
@@ -78,8 +78,10 @@ export function senddata(json) {
   console.log("inside send.jsx", json);
   console.log("inside send.jsx price", json.productPrice);
 
-  let paymentid = localStorage.getItem("browser_tahelka");
+  let sizeGot = json.size || localStorage.getItem("size");
+  console.log(sizeGot);
 
+  console.log(paymentid);
   axios
     .post("http://api.rjwada.com/items/inventory", {
       id: `${json.userid_id}.${paymentid}.${json.product_id}`,
@@ -95,7 +97,7 @@ export function senddata(json) {
       category: `${json.categoryId}`,
       image_of_design: `${json.banner}`,
       color: "black",
-      size: `${json.size}` || localStorage.getItem("size"),
+      size: sizeGot,
       ordered_on: `${date}T${time}`,
       in_progress_status: false,
       order_completed_status: false,

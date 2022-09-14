@@ -15,7 +15,7 @@ const Razorpay = ({
   const price = totalCartPrice;
   const [paymentid, setpaymentid] = useState();
   console.log(price);
-
+  console.log(localStorage.getItem("browser_tahelka"), "razorpay line 18");
   const loadScript = (src) => {
     return new Promise((resovle) => {
       const script = document.createElement("script");
@@ -57,32 +57,46 @@ const Razorpay = ({
         localStorage.setItem("browser_tahelka", response.razorpay_payment_id);
         alert("Payment Successfully");
         localStorage.setItem("paymentdone", true);
-        for (const property in products) {
-          if (products.hasOwnProperty(property)) {
-            console.log(products[property], "inside razorpay");
-            console.log(
-              "USER_ID = " +
-                products[property].userid_id +
-                ` PRODUCT_ID = ${products[property].product_id}`
-            );
-            senddata(products[property] || dataToSend);
-            console.log("json sent");
-            fs.collection("cart")
-              .doc(
+        console.log(dataToSend);
+        if (dataToSend) {
+          senddata(dataToSend);
+          console.log(localStorage.getItem("paymentdone"), ": payment done");
+          console.log(dataToSend, "Data Sent through particular page");
+          localStorage.setItem("paymentdone", false);
+          console.log(localStorage.getItem("paymentdone"));
+          console.log(
+            "USER_ID = " +
+              dataToSend.userid_id +
+              ` PRODUCT_ID = ${dataToSend.product_id}`
+          );
+        } else {
+          for (const property in products) {
+            if (products.hasOwnProperty(property)) {
+              console.log(products[property], "inside razorpay");
+              console.log(
                 "USER_ID = " +
                   products[property].userid_id +
                   ` PRODUCT_ID = ${products[property].product_id}`
-              )
-              .delete()
-              .then(() => {
-                console.log("all cart items deleted!");
-                cartProducts = 0;
-              });
+              );
+              senddata(products[property]);
+              console.log("json sent");
+              fs.collection("cart")
+                .doc(
+                  "USER_ID = " +
+                    products[property].userid_id +
+                    ` PRODUCT_ID = ${products[property].product_id}`
+                )
+                .delete()
+                .then(() => {
+                  console.log("all cart items deleted!");
+                  cartProducts = 0;
+                });
+            }
           }
+          console.log(localStorage.getItem("paymentdone"), ": payment done");
+          localStorage.setItem("paymentdone", false);
+          console.log(localStorage.getItem("paymentdone"));
         }
-        console.log(localStorage.getItem("paymentdone"), ": payment done");
-        localStorage.setItem("paymentdone", false);
-        console.log(localStorage.getItem("paymentdone"));
       },
       prefill: {
         name: "",

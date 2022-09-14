@@ -107,13 +107,13 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   let quantity = 1;
 
   let tosend = {};
-  tosend["userId"] = localStorage.getItem("uid");
+  tosend["userid_id"] = localStorage.getItem("uid");
   tosend["name"] = name;
   tosend["quantity"] = quantity;
   tosend["size"] = selectedsize;
   tosend["categoryId"] = categoryId;
-  tosend["productId"] = productId;
-  tosend["price"] = price;
+  tosend["product_id"] = productId;
+  tosend["productPrice"] = price;
   tosend["description"] = description;
   tosend["banner"] = banner;
   tosend["color"] = color;

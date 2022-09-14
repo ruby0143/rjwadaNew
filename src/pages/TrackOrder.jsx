@@ -46,7 +46,7 @@ const TrackOrder = () => {
   }, []);
 
   const user = Getcurrentuser();
-  
+
   ////display product//////
   const [trackorderProduct, settrackorderProduct] = useState(null);
   useEffect(() => {
@@ -76,27 +76,24 @@ const TrackOrder = () => {
       data &&
         data.map((d) => {
           let proAPI = `http://api.rjwada.com/items/products/${
-      d.id.split(".")[2]
-    }`;
-    setuidInventory(d.id.split(".")[0]);
-    console.log("link", proAPI);
-     fetch(proAPI)
-      .then((data) => {
-        return data.json();
-      })
-      .then((data) => {
-        console.log(data.data);
-        settrackingProd((trackingProd) => [...trackingProd, data.data.images]);
-        console.log(trackingProd);
-      })
-      
+            d.id.split(".")[2]
+          }`;
+          setuidInventory(d.id.split(".")[0]);
+          console.log("link", proAPI);
+          fetch(proAPI)
+            .then((data) => {
+              return data.json();
+            })
+            .then((data) => {
+              console.log(data.data);
+              settrackingProd((trackingProd) => [...trackingProd, data.data]);
+              console.log(trackingProd);
+            });
         });
     };
     getTrackData();
   }, [user]);
   console.log(uidInventory, localStorage.getItem("uid"));
-  
-   
 
   return (
     <div>
@@ -121,7 +118,10 @@ const TrackOrder = () => {
                               <div className="track-status">
                                 <TbTruckDelivery
                                   className="detail-icon"
-                                  style={{ margin: "0px 10px 0px 20px",fontSize:"30px" }}
+                                  style={{
+                                    margin: "0px 10px 0px 20px",
+                                    fontSize: "30px",
+                                  }}
                                 />
 
                                 {data.cancel_status ? "Cancelled" : null}
@@ -174,8 +174,10 @@ const TrackOrder = () => {
                               }}
                             >
                               <div className="titem-name"></div>
-                              <a href="mailto:contact@rjwada.com?body=I want to cancel the product with name ________."><button className="cancel-btn">Cancel</button></a>
-                              
+                              <a href="mailto:contact@rjwada.com?body=I want to cancel the product with name ________.">
+                                <button className="cancel-btn">Cancel</button>
+                              </a>
+
                               {/* contact@rjwada.com */}
                             </div>
                             <div className="titem-card-detail">
@@ -186,16 +188,10 @@ const TrackOrder = () => {
                                 Quantity : {data.quantity}
                               </div>
 
-                              <div
-                                className="box titem-color"
-                                
-                              >
+                              <div className="box titem-color">
                                 Color : {data.color}
                               </div>
-                              <div
-                                className="box titem-size"
-                                
-                              >
+                              <div className="box titem-size">
                                 Size : {data.size}
                               </div>
                             </div>
