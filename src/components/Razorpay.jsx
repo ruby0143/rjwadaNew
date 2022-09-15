@@ -109,7 +109,7 @@ const Razorpay = ({
 
   return (
     <div>
-      <button className="razorpaycss" onClick={() => displayRazorpay(1)}>
+      <button className="razorpaycss" onClick={() => displayRazorpay(price)}>
         BUY NOW
       </button>
     </div>
