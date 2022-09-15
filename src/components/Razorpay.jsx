@@ -99,7 +99,9 @@ const Razorpay = ({
         }
       },
       prefill: {
-        name: "",
+        name: localStorage.getItem("name"),
+        contact: localStorage.getItem("mobile"),
+        // email: localStorage.getItem("mobile"),
       },
     };
 
