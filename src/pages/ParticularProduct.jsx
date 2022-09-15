@@ -16,6 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Footer from "../components/Footer";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button } from "@mui/material";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -228,7 +229,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
 
   return (
     <div>
-      <Toplist />
+      {/* <Toplist /> */}
       <div className="part-product-wrapper">
         <div className="section-one">
           <div className="product-image-section">
@@ -462,6 +463,11 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     Tryon
                   </button>
                 </div>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <AiOutlineInfoCircle style={{ marginRight: "5px" }} />
+                  To use Try-On feature, click on Upload button, then click on
+                  Tryon button
+                </div>
               </div>
               {/* TRY ON */}
             </div>
@@ -479,7 +485,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 {" "}
                 <br />
                 <div className="product-size-heading">
-                  <h3>Sizes : </h3>
+                  <h3>Sizes</h3>
                 </div>
                 {/* <div className="product-size-chart-text">Size Chart</div> */}
                 <div className="product-size-boxes">
@@ -603,7 +609,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               )}
               {sizenotselected ? null : console.log("Size selection needed")}
               <div className="size-lower-text">
-                Size Not Available?
+                {/* Size Not Available? */}
                 {/* <span className="product-notify">Notify Me</span> */}
               </div>
               {/* <div className="product-rating-section">
@@ -699,7 +705,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 >
                   Add to cart
                 </button>
-                <button
+                {/* <button
                   className="product-button-cart"
                   onClick={() => {
                     if (!selectedsize) {
@@ -716,10 +722,21 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   }}
                 >
                   Add to wishlist
-                </button>
-                {/* <div
+                </button> */}
+                <div
                   className="product-favourite-icon"
-                  onClick={() => setClicked(true)}
+                  style={{
+                    position: "relative",
+                    bottom: "4.2rem",
+                  }}
+                  onClick={() => {
+                    if (!selectedsize) {
+                      setsizenotselected(false);
+                      setClicked(false);
+                    } else {
+                      setClicked(true);
+                    }
+                  }}
                 >
                   {clicked ? (
                     <BsHeartFill
@@ -737,14 +754,21 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         color: "black",
                       }}
                       onClick={() => {
-                        setTimeout(() => {
-                          addToWhishlist(datas);
-                          navigate("/whishlist");
-                        }, 1000);
+                        if (!selectedsize) {
+                          setsizenotselected(false);
+                        } else {
+                          setTimeout(() => {
+                            setsizenotselected(true);
+                            console.log("size?", { selectedsize });
+                            console.log("datas.data", datas.data);
+                            addToWhishlist(datas.data, selectedsize);
+                            navigate("/whishlist");
+                          }, 1000);
+                        }
                       }}
                     />
                   )}
-                </div> */}
+                </div>
               </div>
               {/* <div className="quantity-section">
                 <div className="quantity-text">Quantity</div>

@@ -182,7 +182,7 @@ const Login = () => {
                           paddingRight: "5px",
                         }}
                       />
-                      Sign in with Google
+                      Continue with Google
                     </button>
                   </div>
                 </div>

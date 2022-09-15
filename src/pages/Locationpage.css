@@ -9,9 +9,15 @@
 }
 
 .addlocation-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   overflow: hidden;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin-top: 20px;
 }
@@ -29,12 +35,24 @@
 }
 .addlocation-form-wrapper {
   width: 750px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 .addloc-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .form-group {
@@ -103,10 +121,17 @@ input[type="radio"] {
   .addloc-form {
     width: 20rem;
     margin: 10px 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   .addloc-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin-top: 10px;
   }

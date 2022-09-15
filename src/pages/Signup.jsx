@@ -43,7 +43,7 @@ const Signup = () => {
           seterrmsg("");
           setTimeout(() => {
             setsuccess("");
-            navigate(window.history.length>=2 ? -2: window.history.back());
+            navigate(window.history.length >= 2 ? -2 : window.history.back());
           }, 1000);
         })
         .catch((error) => {
@@ -147,7 +147,6 @@ const Signup = () => {
                 <>
                   <div
                     style={{
-                
                       // backgroundColor: "#7DCE13",
                       margin: "auto",
                       padding: "5px",
@@ -165,7 +164,6 @@ const Signup = () => {
                 <>
                   <div
                     style={{
-                
                       // backgroundColor: "red",
                       margin: "auto",
                       padding: "5px",
@@ -181,19 +179,19 @@ const Signup = () => {
               )}
               <div className="login-btn" style={{ width: "101%" }}>
                 <center>
-                  
                   <button type="submit" className="login-btn-login">
                     Sign up
                   </button>
                   <div className="login-btn" onClick={handleSignupGoogle}>
                     <center>
                       <button className="login-google">
-                      <FcGoogle
-                        style={{
-                          // fontSize: "20px",
-                          paddingRight: "5px",
-                        }}/>
-                        Sign up with Google
+                        <FcGoogle
+                          style={{
+                            // fontSize: "20px",
+                            paddingRight: "5px",
+                          }}
+                        />
+                        Continue with Google
                       </button>
                     </center>
                   </div>
@@ -226,10 +224,11 @@ const Signup = () => {
                   By signing up you agree to Rjwada's
                 </span>
                 <Terms />
-                <Link to={"/privacy"} style={{textDecoration: 'none'}}>
-                <span style={{ marginLeft: "5px", color:"#2c8f88" }}>and privacy</span>
+                <Link to={"/privacy"} style={{ textDecoration: "none" }}>
+                  <span style={{ marginLeft: "5px", color: "#2c8f88" }}>
+                    and privacy
+                  </span>
                 </Link>
-                
               </div>
             </form>
 

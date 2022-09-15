@@ -1,6 +1,11 @@
 .category-page-wrapper {
   margin: 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   /* padding-bottom: 200px; */
   /* border: 2px solid red; */
@@ -12,12 +17,19 @@
   /* border: 2px solid red; */
   margin: 10px 10px;
   padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
-.shopby-products{
+.shopby-products {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   margin-top: -4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 .category-main-wrapper {
@@ -26,20 +38,30 @@
 
   /* align-items: flex-start; */
 }
-.css-4t3x6l-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar{
-  display: none;  
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar {
+  display: none;
 }
 .filter-btn {
   /* border: 2px solid red; */
   /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
   margin: 10px;
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
 }
 .filter-list-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+
+  -webkit-box-pack: left;
+
+  -ms-flex-pack: left;
 
   justify-content: left;
 }
@@ -69,6 +91,8 @@
   position: absolute;
   left: 0;
   top: 6px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   cursor: pointer;
   width: 13px;
@@ -85,6 +109,8 @@
   border-color: transparent;
   border-left-color: #2ecc71;
   border-bottom-color: #2ecc71;
+  -webkit-transform: rotate(-50deg);
+  -ms-transform: rotate(-50deg);
   transform: rotate(-50deg);
   width: 20px;
   height: 10px;
@@ -93,8 +119,15 @@
 
 .category-main-header {
   margin: 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .category-main-grid-wrapper {
@@ -108,24 +141,32 @@
   font-family: "Ubuntu";
 }
 
-
-
-
 @media screen and (max-width: 1024px) {
   .category-page-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     /* align-items: center; */
   }
   .category-filter-wrapper {
-   margin-left: -10px;
+    margin-left: -10px;
   }
   .category-main-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     padding: 0px;
     margin: 0px;
   }
 }
-

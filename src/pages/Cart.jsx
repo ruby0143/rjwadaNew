@@ -173,7 +173,7 @@ const Cart = ({ userid }) => {
 
   return (
     <div>
-      <Toplist />
+      {/* <Toplist /> */}
       <center>
         <div className="cart-container">
           <div
@@ -380,18 +380,20 @@ const Cart = ({ userid }) => {
                     margin: "10px 0px",
                   }}
                 >
-                  {user && useradd ? ((x>=1) ? (
-                    <Razorpay
-                      cartProducts={cartProducts.length}
-                      totalCartPrice={x}
-                      products={products}
-                      style={{ width: "20px" }}
-                    />
+                  {user && useradd ? (
+                    x >= 1 ? (
+                      <Razorpay
+                        cartProducts={cartProducts.length}
+                        totalCartPrice={x}
+                        products={products}
+                        style={{ width: "20px" }}
+                      />
+                    ) : (
+                      <center>
+                        <h2>Cart is Empty!</h2>
+                      </center>
+                    )
                   ) : (
-                    <center>
-                      <h2>Cart is Empty!</h2>
-                    </center>
-                  )) : (
                     <center>
                       <h2>Please enter address</h2>
                       <Link to="/profile" style={{ textDecoration: "none" }}>

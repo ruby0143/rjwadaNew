@@ -85,7 +85,7 @@ const ParticularCategory = ({ addToCart }) => {
 
   return (
     <div>
-      <Toplist />
+      {/* <Toplist /> */}
 
       <div className="category-page-wrapper">
         <div className="category-filter-wrapper">
@@ -97,12 +97,18 @@ const ParticularCategory = ({ addToCart }) => {
             <FilterListIcon style={{ marginLeft: "-10px", marginRight:"5px" }} />
             Filters
           </div> */}
-          <Drawer className="box-drawer"
+          <Drawer
+            className="box-drawer"
             anchor="left"
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
           >
-            <Box className="box-drawer-box" p={2} width="300px" role="presentation">
+            <Box
+              className="box-drawer-box"
+              p={2}
+              width="300px"
+              role="presentation"
+            >
               <div className="category-filter-header">
                 <h2 className="category-filter-heading">Filters</h2>
                 <hr />
@@ -301,7 +307,8 @@ const ParticularCategory = ({ addToCart }) => {
             <div className="shopby-products">
               {data &&
                 data.map((data) =>
-                  data.category_id == category_id && data.status == "published" ? (
+                  data.category_id == category_id &&
+                  data.status == "published" ? (
                     <Link
                       style={{ textDecoration: "none" }}
                       to={`${data.id}`}
@@ -316,10 +323,10 @@ const ParticularCategory = ({ addToCart }) => {
                           lineHeight: "1.4rem",
                           textDecoration: "none",
                           width: "235px",
-                          padding:"15px",
+                          padding: "15px",
                           color: "black",
                           margin: "40px",
-                          borderRadius:"10px"
+                          borderRadius: "10px",
                         }}
                       >
                         <div
@@ -375,7 +382,12 @@ const ParticularCategory = ({ addToCart }) => {
                           <div style={{ display: "flex" }}>
                             <div style={{ marginRight: "10px" }}>Size:</div>
                             {data.sizes.map((size) => {
-                              return <div>{size}{", "}</div>;
+                              return (
+                                <div>
+                                  {size}
+                                  {", "}
+                                </div>
+                              );
                             })}
                           </div>
                         </div>

@@ -4,7 +4,12 @@
   --third-color: #2c8f88;
 }
 .cart-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin: 10px 30px;
   /* border: 1px solid red; */
@@ -17,7 +22,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 29px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   width: 80vw;
 }
@@ -34,18 +44,34 @@
   width: 20%;
 }
 .product-item-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
 }
 
 .cart-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   /* border: 1px solid red; */
 }
 .card-product-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 0px 10px;
   width: 48%;
@@ -53,28 +79,44 @@
 }
 .cart-img {
   width: 98px;
-  /* height: 1px; */
+  height: 130px;
+  -webkit-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 .cart-price-detail {
   width: 19%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 .incDec {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border: 1px solid rgba(0, 0, 0, 0.353);
   border-radius: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 60px 0px;
   /* justify-content: center; */
   /* width: 20%; */
 }
 .cart-price-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 .delete-btn {
@@ -101,7 +143,11 @@
   margin: 10px 40px;
   color: black;
   padding: 8px 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   border: 1px solid #2c8f88;
   border-radius: 6px;
@@ -123,10 +169,17 @@
 }
 .cart-detail-container {
   text-align: start;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
 }
 .cart-add-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .add-heading-bold {
@@ -169,6 +222,9 @@
 }
 @media only screen and (min-width: 600px) and (max-width: 959px) {
   .cart-detail-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .buynow-btn {
@@ -176,6 +232,7 @@
   }
   .cart-address-wrapper {
     padding: 20px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
   .card-product-detail {
@@ -188,6 +245,7 @@
   .cart-img {
     width: 100% !important;
     height: 100px;
+    -o-object-fit: cover;
     object-fit: cover;
   }
   .cart-img-wrap {
@@ -201,8 +259,11 @@
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 599px) {
+@media only screen and (min-width: 300px) and (max-width: 599px) {
   .cart-detail-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .buynow-btn {
@@ -210,6 +271,7 @@
   }
   .cart-address-wrapper {
     padding: 20px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
   .card-product-detail {
@@ -221,7 +283,8 @@
   }
   .cart-img {
     width: 100% !important;
-    height: 100px;
+    height: 70px;
+    -o-object-fit: cover;
     object-fit: cover;
   }
   .cart-img-wrap {

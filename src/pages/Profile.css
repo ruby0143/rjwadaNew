@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 :root {
-  --primary-color: #0D99FF;
+  --primary-color: #0d99ff;
 }
 .addlocation-heading {
   font-family: "Ubuntu", sans-serif;
@@ -9,9 +9,15 @@
 }
 
 .addlocation-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   overflow: hidden;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin-top: 20px;
 }
@@ -29,12 +35,24 @@
 }
 .addlocation-form-wrapper {
   width: 750px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 .addloc-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .form-group {
@@ -63,7 +81,6 @@
   margin-top: 0.4rem;
   height: 2rem;
   width: 20rem;
-  
 }
 .addloc-column {
   float: left;
@@ -101,51 +118,53 @@ input[type="radio"] {
 }
 
 @media only screen and (max-width: 600px) {
-  .addloc-form{
+  .addloc-form {
     width: 20rem;
     margin: 10px 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-
   }
-  .addloc-row{
+  .addloc-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin-top: 10px;
   }
-  .addloc-btn{
+  .addloc-btn {
     width: 5rem;
     font-size: 12px;
   }
-  .addlocation-image{
+  .addlocation-image {
     display: none;
   }
-#add-longtext{
-  width: 20rem;
-}
-
+  #add-longtext {
+    width: 20rem;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-  .addlocation-image{
+  .addlocation-image {
     display: none;
   }
-   
-
 }
 
-
 @media only screen and (max-width: 320px) {
-  
-  .addloc-form{
+  .addloc-form {
     width: 16rem;
     margin: 0px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-
   }
-  .addloc-input{
+  .addloc-input {
     width: 18rem;
   }
-  #add-longtext{
+  #add-longtext {
     width: 18rem;
   }
 }

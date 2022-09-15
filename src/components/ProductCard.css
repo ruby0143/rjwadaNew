@@ -58,8 +58,15 @@
 .product-card-color-item {
   margin: 4px 0px;
   font-size: small;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 .product-card-color-item-number {
@@ -73,9 +80,16 @@
   margin: 5px 10px;
 }
 .product-card-price-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   margin: 5px 0px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .product-card-price-text {

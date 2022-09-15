@@ -5,6 +5,8 @@ import { auth, fs } from "../config/Config";
 import "./Whishlist.css";
 import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
+import { RiShoppingBagFill } from "react-icons/ri";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const Whishlist = ({ userid, addToCart }) => {
   const navigate = useNavigate();
@@ -69,16 +71,14 @@ const Whishlist = ({ userid, addToCart }) => {
     });
   };
   let particularProductArray = [];
-  console.log(cartproducts)
-  
+  console.log(cartproducts);
+
   return (
     <div>
       {/* <Toplist /> */}
       <center>
         <div className="wishlist-wrapperr">
-          <h1 style={{ fontWeight: "100" }}>
-            Wishlist Items
-          </h1>
+          <h1 style={{ fontWeight: "100" }}>Wishlist Items</h1>
           {cartproducts.length < 1 && (
             <h5 style={{ padding: "10px", color: "black" }}>
               Add your favourites here
@@ -86,88 +86,93 @@ const Whishlist = ({ userid, addToCart }) => {
           )}
           {cartproducts.length >= 1 && (
             <div className="noproduct">
-          <div
-            className="cart-item-header"
-            style={{
-              // border: "1px solid red",
-            }}
-          >
-            <div className="cart-prod">Product</div>
-            <div className="cart-price">Price</div>
-            {/* <div className="cart-quan">Quantity</div> */}
-          </div>
+              <div
+                className="cart-item-header"
+                style={
+                  {
+                    // border: "1px solid red",
+                  }
+                }
+              >
+                {/* <div className="cart-quan">Quantity</div> */}
+              </div>
               {cartproducts.map((data) => {
                 const slicedid = data.ID.slice(10, 38);
 
                 if (slicedid === userid) {
                   particularProductArray.push([data.name, userid]);
-                  console.log(data)
+                  console.log(data);
                   return (
                     <>
-                  <hr style={{width:"75vw"}}/>
-                    <div className="wishlist-wrapper">
-                      <div className="wish-img" style={{ width: "23%" }}>
-                        <img
-                          src={`http://api.rjwada.com/assets/${data.banner}`}
-                          alt=""
-                          className="cart-img"
-                        />
-                      </div>
-                      <div
-                        className="wish-name"
-                        style={{ width: "20%", textAlign: "start" }}
-                      >
-                        <h4> {data.name}</h4>
-                      </div>
-                      <div className="wish-price" style={{ width: "20%" }}>
-                        <h4>₹ {data.total_prod_price}</h4>
-                      </div>
-                      <div className="cart-btn" style={{ width: "20%",marginTop:"20px" }}>
-                        <button
-                          style={{ marginLeft: "30px",border:"0px" }}
-                          onClick={() => {
-                            console.log(data);
-                            addToCart(data ,data.size);
-                            setTimeout(() => {
-                              fs.collection("whishlist")
-                                .doc(
-                                  "USER_ID = " +
-                                    userid +
-                                    ` PRODUCT_ID = ${data.id}`
-                                )
-                                .delete();
-                              navigate("/cart");
-                            }, 1000);
-                          }}
-                          className="product-button-cart"
-                        >
-                          Add to Cart
-                        </button>
-                      </div>
-                      <div className="wish-del" style={{ width: "20%",marginTop:"18px" }}>
+                      <hr style={{ width: "75vw" }} />
+                      <div className="wishlist-wrapper">
                         <div
-                          // className="product-button-cart"
-                          onClick={() =>
-                            handleProductDelete(
-                              data,
-                              userid,
-                              data.name,
-                              data.quantity,
-                              data.price,
-                              data.id
-                            )
-                          }
                           style={{
-                            marginLeft: "50px",
-                            fontSize:"30px",
-                            color:"red"
+                            display: "flex",
+                            justifyContent: "space-evenly",
                           }}
-                          className="del-icon"
                         >
-                          <BsTrash/>
+                          <div className="wish-img">
+                            <img
+                              src={`http://api.rjwada.com/assets/${data.banner}`}
+                              alt=""
+                              className="wish-img"
+                            />
+                          </div>
+                          <hr style={{ marginLeft: "5px" }} />
+                          <div className="wish-detail">
+                            <div className="wish-text">
+                              <b>{data.name}</b>
+                            </div>
+                            <div className="wish-text">
+                              <b> Price :</b> ₹ {data.total_prod_price}
+                            </div>
+                            <div className="wish-text">
+                              {" "}
+                              <b>Size :</b> {data.size}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="wish-btns">
+                          <div
+                            onClick={() => {
+                              console.log(data);
+                              addToCart(data, data.size);
+                              setTimeout(() => {
+                                fs.collection("whishlist")
+                                  .doc(
+                                    "USER_ID = " +
+                                      userid +
+                                      ` PRODUCT_ID = ${data.id}`
+                                  )
+                                  .delete();
+                                navigate("/cart");
+                              }, 1000);
+                            }}
+                            className="wish-text wish-btn"
+                          >
+                            Add to <RiShoppingBagFill />
+                          </div>
+                          <div className="del-icon wish-text">
+                            <div
+                              // className="product-button-cart"
+                              onClick={() =>
+                                handleProductDelete(
+                                  data,
+                                  userid,
+                                  data.name,
+                                  data.quantity,
+                                  data.price,
+                                  data.id
+                                )
+                              }
+                              className="wish-text wish-btn wish-del"
+                            >
+                              Delete <RiDeleteBinLine />
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
                     </>
                   );
                 }
@@ -178,7 +183,6 @@ const Whishlist = ({ userid, addToCart }) => {
       </center>
     </div>
   );
-  
 };
 
 export default Whishlist;
