@@ -661,7 +661,8 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               </div>
               <div className="product-btn-section">
                 <div className="">
-                  {!user || localStorage.getItem("city") === null || !selectedsize ? (
+                
+                  {!user || localStorage.getItem("city") === null ? (
                     <>
                       {!user ? (
                         <button
@@ -680,11 +681,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       )}
                     </>
                   ) : (
+                    <>
+                    {!selectedsize ? (
+                    
+                    <button
+                          className="product-button-cart"
+                          // onClick={() => navigate("/profile")}
+                          disabled={true}
+                        >
+                          Buy Now
+                        </button>
+                    ) : (
                     <Razorpay
                       className="product-button "
                       totalCartPrice={price}
                       dataToSend={tosend}
-                    />
+                    />)}
+                    </>
                   )}
                 </div>
                 <button
