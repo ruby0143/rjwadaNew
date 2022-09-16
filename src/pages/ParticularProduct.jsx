@@ -661,7 +661,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               </div>
               <div className="product-btn-section">
                 <div className="">
-                  {!user || localStorage.getItem("city") === null ? (
+                  {!user || localStorage.getItem("city") === null || !selectedsize ? (
                     <>
                       {!user ? (
                         <button
