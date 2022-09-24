@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Toplist from "../components/Toplist";
 import { auth, fs } from "../config/Config";
 import "../pages/TrackOrder.css";
+import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
@@ -170,16 +171,22 @@ const TrackOrder = () => {
                         </div>
                         <div className="titem-detail">
                           <div className="track-img-sec">
-                            <div
-                              className="titem-img"
-                              style={{
-                                backgroundImage:
-                                  "url(" +
-                                  "http://api.rjwada.com/assets/" +
-                                  `${data.image_of_design}` +
-                                  ")",
-                              }}
-                            ></div>
+                            <Link
+                              to={`/productpage/${data.category}/${
+                                data.id[data.id.length - 1]
+                              }`}
+                            >
+                              <div
+                                className="titem-img"
+                                style={{
+                                  backgroundImage:
+                                    "url(" +
+                                    "http://api.rjwada.com/assets/" +
+                                    `${data.image_of_design}` +
+                                    ")",
+                                }}
+                              ></div>
+                            </Link>
                           </div>
 
                           <div className="titem-detail-wrap">

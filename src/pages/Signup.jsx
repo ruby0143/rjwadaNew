@@ -188,6 +188,7 @@ const Signup = () => {
                         <FcGoogle
                           style={{
                             // fontSize: "20px",
+                            fontSize: "20px",
                             paddingRight: "5px",
                           }}
                         />
@@ -220,12 +221,12 @@ const Signup = () => {
                 Log in
               </Link> */}
               <div className="login-tyc-wrapper">
-                <span style={{ marginRight: "5px" }}>
+                <span className="login-tyc-wrapper-span" style={{ marginRight: "5px" }}>
                   By signing up you agree to Rjwada's
                 </span>
                 <Terms />
                 <Link to={"/privacy"} style={{ textDecoration: "none" }}>
-                  <span style={{ marginLeft: "5px", color: "#2c8f88" }}>
+                  <span className="privacy" style={{ marginLeft: "5px", color: "#2c8f88" }}>
                     and privacy
                   </span>
                 </Link>

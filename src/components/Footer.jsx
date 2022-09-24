@@ -142,14 +142,15 @@ const Footer = () => {
                   <span>
                     <i
                       className="fa fa-envelope"
-                      style={{ color: "black", marginTop: "20px" }}
+                      style={{ color: "black"}}
                       aria-hidden="true"
                     />
                   </span>
-                  <p>
+                  
                     {/* <a href="mailto:contact@rjwada.com">contact@rjwada.com</a> */}
-                    <a href="mailto:contact@rjwada.com">contact@rjwada.com</a>
-                  </p>
+                    <a href="mailto:contact@rjwada.com">
+                      <span>contact@rjwada.com</span></a>
+        
                 </li>
               </ul>
             </div>

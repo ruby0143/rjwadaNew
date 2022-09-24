@@ -224,13 +224,15 @@ const Cart = ({ userid }) => {
                                 marginRight: "6px",
                               }}
                             >
-                              <div className="wish-img">
-                                <img
-                                  src={`http://api.rjwada.com/assets/${p.banner}`}
-                                  alt=""
-                                  className="wish-img"
-                                />
-                              </div>
+                              <Link to={`/productpage/${p.categoryId}/${p.id}`}>
+                                <div className="wish-img">
+                                  <img
+                                    src={`http://api.rjwada.com/assets/${p.banner}`}
+                                    alt=""
+                                    className="wish-img"
+                                  />
+                                </div>
+                              </Link>
                               <hr style={{ marginLeft: "5px" }} />
                               <div className="wish-details">
                                 <div className="wish-text">

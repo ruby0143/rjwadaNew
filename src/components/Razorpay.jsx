@@ -3,6 +3,7 @@ import "./Razorpay.css";
 import axios from "axios";
 import { auth, fs } from "../config/Config";
 import { senddata } from "./send";
+import { useNavigate } from "react-router-dom";
 const Razorpay = ({
   btnText,
   totalCartPrice,
@@ -11,6 +12,8 @@ const Razorpay = ({
   selectedsize,
   dataToSend,
 }) => {
+  const navigate = useNavigate();
+
   console.log(products, "in razorpay jsx");
   console.log(dataToSend, "in razorpay jsx");
   const price = totalCartPrice;
@@ -89,6 +92,9 @@ const Razorpay = ({
                 )
                 .delete()
                 .then(() => {
+                  setTimeout(() => {
+                    navigate("/trackOrder");
+                  }, 2000);
                   console.log("all cart items deleted!");
                   cartProducts = 0;
                 });
@@ -111,11 +117,9 @@ const Razorpay = ({
   };
 
   return (
-    <div>
-      <button className="razorpaycss" onClick={() => displayRazorpay(price)}>
-        {btnText}
-      </button>
-    </div>
+    <button className="razorpaycss" onClick={() => displayRazorpay(price)}>
+      {btnText}
+    </button>
   );
 };
 

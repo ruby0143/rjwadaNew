@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Toplist from "../components/Toplist";
 import { auth, fs } from "../config/Config";
 import "./Whishlist.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -112,13 +112,17 @@ const Whishlist = ({ userid, addToCart }) => {
                             justifyContent: "space-evenly",
                           }}
                         >
-                          <div className="wish-img">
-                            <img
-                              src={`http://api.rjwada.com/assets/${data.banner}`}
-                              alt=""
-                              className="wish-img"
-                            />
-                          </div>
+                          <Link
+                            to={`/productpage/${data.category_id}/${data.id}`}
+                          >
+                            <div className="wish-img">
+                              <img
+                                src={`http://api.rjwada.com/assets/${data.banner}`}
+                                alt=""
+                                className="wish-img"
+                              />
+                            </div>
+                          </Link>
                           <hr style={{ marginLeft: "5px" }} />
                           <div className="wish-detail">
                             <div className="wish-text">

@@ -101,13 +101,15 @@ h3 {
   text-transform: uppercase;
   padding: 18px 18px;
   background: #b2eeee;
-  border-radius: 25px;
+  border-radius: 15px;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   margin-left: 10px;
   cursor: pointer;
   border: 0px;
+  border: 1px solid black;
+  width: 100%;
   /* padding: 5px; */
 }
 .product-button-section {
@@ -127,6 +129,45 @@ h3 {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+
+.product-btn-section-desktop {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.product-btn-section-desktop .buy-now-btn {
+  flex: 0.6;
+  width: 100%;
+}
+.product-btn-section-mobile {
+  display: none;
+  flex-direction: column;
+  width: 90%;
+}
+
+.product-btn-section-mobile .product-button-cart {
+  width: 85%;
+}
+
+.product-btn-section-mobile-lower-div {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.product-btn-section-mobile-lower-div .product-button-cart {
+  width: 90%;
+}
+
+.product-btn-section-mobile-lower-div .cart-btn {
+  flex: 0.5;
+}
+
+.product-btn-section-mobile-lower-div .wishlist-btn {
+  flex: 0.5;
+}
+
 .product-accordion-detail {
   margin: 10px 10px;
   font-size: 16px;
@@ -557,7 +598,7 @@ h3 {
   font-size: 16px;
 }
 .product-favourite-icon {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   /* margin-top: 2px; */
 }
 
@@ -629,6 +670,15 @@ h3 {
 }
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+@media (max-width: 440px) {
+  .product-btn-section-mobile {
+    display: flex;
+  }
+  .product-btn-section-desktop {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -776,7 +826,7 @@ h3 {
   .particular-productimage {
     height: 335px !important;
   }
-  .product-size-heading{
+  .product-size-heading {
     display: none;
   }
   .product-size-item {
@@ -849,7 +899,7 @@ h3 {
     width: 298px !important;
     height: 335px !important;
   }
-  .product-size-heading{
+  .product-size-heading {
     display: none;
   }
   .product-size-item {

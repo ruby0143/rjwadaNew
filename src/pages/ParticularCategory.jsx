@@ -325,7 +325,7 @@ const ParticularCategory = ({ addToCart }) => {
                           width: "235px",
                           padding: "15px",
                           color: "black",
-                          margin: "40px",
+                          margin: "20px",
                           borderRadius: "10px",
                         }}
                       >

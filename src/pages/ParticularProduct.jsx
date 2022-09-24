@@ -1,7 +1,6 @@
-
-
 import React from "react";
 import Navbar from "../components/Navbar";
+import { BsHandbag } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import Toplist from "../components/Toplist";
 import { Link, useParams } from "react-router-dom";
@@ -555,15 +554,15 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               selectedsize == "XL" ||
               selectedsize == "XXL" ? null : (
                 <h3
-                style={{
-                  marginTop: "-8px",
-                  marginLeft: "5px",
-                  color: "red",
-                  fontFamily:"Montserrat",
-                }}
-              >
-                *Please select a size
-              </h3>
+                  style={{
+                    marginTop: "-8px",
+                    marginLeft: "5px",
+                    color: "red",
+                    fontFamily: "Montserrat",
+                  }}
+                >
+                  *Please select a size
+                </h3>
               )}
               {sizenotselected ? null : console.log("Size selection needed")}
               <div className="size-lower-text">
@@ -617,20 +616,20 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   )}
                 </div>
               </div>
-              <div className="product-btn-section">
-                <div className="">
+              <div className="product-btn-section product-btn-section-desktop">
+                <div className="buy-now-btn">
                   {!user || localStorage.getItem("city") === null ? (
                     <>
                       {!user ? (
                         <button
-                          className="product-button-cart"
+                          className="product-button-cart "
                           onClick={() => navigate("/login")}
                         >
                           Buy Now
                         </button>
                       ) : (
                         <button
-                          className="product-button-cart"
+                          className="product-button-cart "
                           onClick={() => navigate("/profile")}
                         >
                           Buy Now
@@ -641,7 +640,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <>
                       {!selectedsize ? (
                         <button
-                          className="product-button-cart"
+                          className="product-button-cart "
                           // onClick={() => navigate("/profile")}
                           disabled={true}
                         >
@@ -658,24 +657,26 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     </>
                   )}
                 </div>
-                <button
-                  className="product-button-cart"
-                  onClick={() => {
-                    if (!selectedsize) {
-                      setsizenotselected(false);
-                    } else {
-                      setTimeout(() => {
-                        setsizenotselected(true);
-                        console.log("size?", { selectedsize });
-                        console.log("datas.data", datas.data);
-                        addToCart(datas.data, selectedsize);
-                        navigate("/cart");
-                      }, 1000);
-                    }
-                  }}
-                >
-                  Add to cart
-                </button>
+                <div style={{ flex: 0.2, textAlign: "center" }}>
+                  <BsHandbag
+                    style={{ cursor: "pointer" }}
+                    // className="product-button-cart"
+                    size={28}
+                    onClick={() => {
+                      if (!selectedsize) {
+                        setsizenotselected(false);
+                      } else {
+                        setTimeout(() => {
+                          setsizenotselected(true);
+                          console.log("size?", { selectedsize });
+                          console.log("datas.data", datas.data);
+                          addToCart(datas.data, selectedsize);
+                          navigate("/cart");
+                        }, 1000);
+                      }
+                    }}
+                  />
+                </div>
                 {/* <button
                   className="product-button-cart"
                   onClick={() => {
@@ -695,11 +696,6 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   Add to wishlist
                 </button> */}
                 <div
-                  className="product-favourite-icon"
-                  style={{
-                    position: "relative",
-                    bottom: "4.2rem",
-                  }}
                   onClick={() => {
                     if (!selectedsize) {
                       setsizenotselected(false);
@@ -741,6 +737,104 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   )}
                 </div>
               </div>
+
+              <div className="product-btn-section-mobile">
+                <div>
+                  {!user || localStorage.getItem("city") === null ? (
+                    <>
+                      {!user ? (
+                        <button
+                          onClick={() => navigate("/login")}
+                          className="product-button-cart"
+                        >
+                          Buy Now
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => navigate("/profile")}
+                          className="product-button-cart"
+                        >
+                          Buy Now
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {!selectedsize ? (
+                        <button className="product-button-cart" disabled={true}>
+                          Buy Now
+                        </button>
+                      ) : (
+                        <div style={{ width: "88%" }}>
+                          <Razorpay
+                            btnText="Buy Now"
+                            totalCartPrice={price}
+                            dataToSend={tosend}
+                          />
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+                <div className="product-btn-section-mobile-lower-div">
+                  <div className="cart-btn">
+                    <button
+                      className="product-button-cart"
+                      onClick={() => {
+                        if (!selectedsize) {
+                          setsizenotselected(false);
+                        } else {
+                          setTimeout(() => {
+                            setsizenotselected(true);
+                            console.log("size?", { selectedsize });
+                            console.log("datas.data", datas.data);
+                            addToCart(datas.data, selectedsize);
+                            navigate("/cart");
+                          }, 1000);
+                        }
+                      }}
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+
+                  <div
+                    className="product-favourite-icon wishlist-btn"
+                    onClick={() => {
+                      if (!selectedsize) {
+                        setsizenotselected(false);
+                        setClicked(false);
+                      } else {
+                        setClicked(true);
+                      }
+                    }}
+                  >
+                    {clicked ? (
+                      <button className="product-button-cart">Added</button>
+                    ) : (
+                      <button
+                        className="product-button-cart"
+                        onClick={() => {
+                          if (!selectedsize) {
+                            setsizenotselected(false);
+                          } else {
+                            setTimeout(() => {
+                              setsizenotselected(true);
+                              console.log("size?", { selectedsize });
+                              console.log("datas.data", datas.data);
+                              addToWhishlist(datas.data, selectedsize);
+                              navigate("/whishlist");
+                            }, 1000);
+                          }
+                        }}
+                      >
+                        Wishlist
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+
               {/* <div className="quantity-section">
                 <div className="quantity-text">Quantity</div>
                 <input className="quantity-input-box" type="-" />
@@ -1002,28 +1096,6 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
 };
 
 export default ParticularProduct;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 // import Navbar from "../components/Navbar";
@@ -2076,9 +2148,6 @@ export default ParticularProduct;
 
 // export default ParticularProduct;
 
-
-
-
 // import React from "react";
 // import Navbar from "../components/Navbar";
 // import { useState, useEffect } from "react";
@@ -3072,28 +3141,6 @@ export default ParticularProduct;
 // };
 
 // export default ParticularProduct;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // import React from "react";
 // // import Navbar from "../components/Navbar";
