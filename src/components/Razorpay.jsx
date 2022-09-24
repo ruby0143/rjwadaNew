@@ -4,6 +4,7 @@ import axios from "axios";
 import { auth, fs } from "../config/Config";
 import { senddata } from "./send";
 const Razorpay = ({
+  btnText,
   totalCartPrice,
   products,
   cartProducts,
@@ -112,7 +113,7 @@ const Razorpay = ({
   return (
     <div>
       <button className="razorpaycss" onClick={() => displayRazorpay(price)}>
-        BUY NOW
+        {btnText}
       </button>
     </div>
   );

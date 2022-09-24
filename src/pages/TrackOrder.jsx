@@ -103,7 +103,7 @@ const TrackOrder = () => {
         <div className="track-container">
           <div className="track-header">Your Orders</div>
           <center>
-            <hr style={{ marginBottom: "-10px" }} />
+            {/* <hr style={{ marginBottom: "-10px" }} /> */}
             <div className="track-grid">
               {data &&
                 data.map((data) => {
@@ -111,7 +111,7 @@ const TrackOrder = () => {
                   return data.customer_id === localStorage.getItem("uid") ? (
                     <>
                       <div className="titem-card">
-                        <hr style={{ marginBottom: "-10px" }} />
+                        <hr />
                         <div className="titem-status">
                           <p className="detail-text">
                             {
@@ -126,9 +126,9 @@ const TrackOrder = () => {
                                 {!data.dispatch_status &&
                                 !data.in_progress_status &&
                                 !data.order_completed_status &&
-                                !data.return_status
-                                  ? "Order Placed"
-                                  : null}
+                                !data.return_status ? (
+                                  <span>Order Placed</span>
+                                ) : null}
                                 {
                                   <div className="track-status">
                                     {data.dispatch_status ? "Dispatched" : null}
@@ -188,7 +188,6 @@ const TrackOrder = () => {
                               style={{
                                 display: "flex",
                                 justifyContent: "space-between",
-                                width: "600px",
                               }}
                             >
                               <div className="titem-name"></div>

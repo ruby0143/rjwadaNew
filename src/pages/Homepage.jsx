@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 // import BannerImg from "../images/Banner.png"
+import "aos/dist/aos.css";
+import Aos from "aos";
 import "./Homepage.css";
 import QualitySection from "../components/QualitySection";
 import Toplist from "../components/Toplist";
@@ -8,6 +10,7 @@ import Footer from "../components/Footer";
 import { auth, fs } from "../config/Config";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
+import { Banner } from "./Banner";
 import ParticularProduct from "./ParticularProduct";
 
 const Homepage = (props) => {
@@ -76,12 +79,19 @@ const Homepage = (props) => {
 
   const user = Getcurrentuser();
 
+  useEffect(() => {
+    Aos.init({
+      duration: 1500,
+    });
+  }, []);
+
   return (
     <>
       <div className="homepage-wrapper">
-        <div className="homepage-banner">
-          {/* <button className="homepage-banner-btn">EXPLORE NOW</button> */}
-        </div>
+        {/* <div className="homepage-banner">
+         
+        </div> */}
+        <Banner />
         <QualitySection />
         <div className="collection-wrapper">
           <div className="collection-heading">
@@ -91,7 +101,11 @@ const Homepage = (props) => {
             <div className="collection-item">
               {data &&
                 data.map((data) => (
-                  <div className="categorycard-homepage" key={data.id}>
+                  <div
+                    className="categorycard-homepage"
+                    key={data.id}
+                    data-aos="fade-in"
+                  >
                     {data.id < 4 && (
                       <div
                         className="data-banner-container"
@@ -167,7 +181,11 @@ const Homepage = (props) => {
             <div className="collection-item">
               {homepageTopseller &&
                 homepageTopseller.map((data) => (
-                  <div className="categorycard-homepage" key={data.id}>
+                  <div
+                    className="categorycard-homepage"
+                    key={data.id}
+                    data-aos="fade-in"
+                  >
                     {data.id === 4 && (
                       <>
                         <div
@@ -202,7 +220,11 @@ const Homepage = (props) => {
                               }}
                             ></div>
                           </Link>
-                          <div key={data.id} className="collection-item-text">
+                          <div
+                            key={data.id}
+                            data-aos="fade-in"
+                            className="collection-item-text"
+                          >
                             <Link
                               style={{ textDecoration: "none" }}
                               to={`productpage/${data.id}`}
@@ -237,6 +259,7 @@ const Homepage = (props) => {
                         <div
                           className="data-banner-container data-banner-container-ext"
                           key={data.id}
+                          data-aos="fade-in"
                           style={{
                             height: "600px",
                             overflow: "hidden",

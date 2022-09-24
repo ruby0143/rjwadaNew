@@ -85,7 +85,16 @@ const LocationPage = () => {
 
   return (
     <div>
-      <h1 style={{width:"90%", margin:"auto", backgroundColor:"blue", color:"white"}}>{success}</h1>
+      <h1
+        style={{
+          width: "90%",
+          margin: "auto",
+          backgroundColor: "blue",
+          color: "white",
+        }}
+      >
+        {success}
+      </h1>
       {/* <h2 className="addlocation-heading">
         <center>Add a new location</center>
       </h2> */}
@@ -102,22 +111,22 @@ const LocationPage = () => {
                   required
                   type="text"
                   className="addloc-input"
-                  placeholder={localStorage.getItem('name')}
+                  placeholder={localStorage.getItem("name")}
                   onChange={(e) => setname(e.target.value)}
                 />
               </label>
             </div>
 
             <div className="form-group">
-              <div class="addloc-row">
-                <div class="addloc-column">
+              <div className="addloc-row">
+                <div className="addloc-column">
                   <label htmlFor="">
                     Mobile Number <br />
                     <input
                       required
                       type="text"
                       className="addloc-input"
-                      placeholder={localStorage.getItem('mobile')}
+                      placeholder={localStorage.getItem("mobile")}
                       onChange={(e) => setmobile(e.target.value)}
                     />
                   </label>
@@ -131,27 +140,27 @@ const LocationPage = () => {
               </div>
             </div>
             <div className="form-group">
-              <div class="addloc-row">
-                <div class="addloc-column">
+              <div className="addloc-row">
+                <div className="addloc-column">
                   <label htmlFor="">
                     Country <br />
                     <input
                       required
                       type="text"
-                      placeholder={localStorage.getItem('country')}
+                      placeholder={localStorage.getItem("country")}
                       className="addloc-input"
                       onChange={(e) => setcountry(e.target.value)}
                     />
                   </label>
                 </div>
-                <div class="addloc-column">
+                <div className="addloc-column">
                   <label htmlFor="">
                     State <br />
                     <input
                       required
                       type="text"
                       className="addloc-input"
-                      placeholder={localStorage.getItem('state')}
+                      placeholder={localStorage.getItem("state")}
                       onChange={(e) => setstate(e.target.value)}
                     />
                   </label>
@@ -163,10 +172,10 @@ const LocationPage = () => {
                 Street <br />
                 <textarea
                   type="text"
-                  className="addloc-input"
+                  className="addloc-input textarea"
                   id="add-longtext"
-                  rows="4"
-                  placeholder={localStorage.getItem('street')}
+                  rows="3"
+                  placeholder={localStorage.getItem("street")}
                   onChange={(e) => setstreet(e.target.value)}
                 ></textarea>
               </label>
@@ -176,36 +185,36 @@ const LocationPage = () => {
                 Landmark <br />
                 <textarea
                   type="text"
-                  className="addloc-input"
+                  className="addloc-input textarea"
                   id="add-longtext"
-                  placeholder={localStorage.getItem('landmark')}
-                  rows="4"
+                  placeholder={localStorage.getItem("landmark")}
+                  rows="3"
                   onChange={(e) => setlandmark(e.target.value)}
                 ></textarea>
               </label>
             </div>
             <div className="form-group">
-              <div class="addloc-row">
-                <div class="addloc-column">
+              <div className="addloc-row">
+                <div className="addloc-column">
                   <label htmlFor="">
                     City <br />
                     <input
                       required
                       type="text"
                       className="addloc-input"
-                      placeholder={localStorage.getItem('city')}
+                      placeholder={localStorage.getItem("city")}
                       onChange={(e) => setcity(e.target.value)}
                     />
                   </label>
                 </div>
-                <div class="addloc-column">
+                <div className="addloc-column">
                   <label htmlFor="">
                     Pincode <br />
                     <input
                       required
                       type="text"
                       className="addloc-input"
-                      placeholder={localStorage.getItem('pincode')}
+                      placeholder={localStorage.getItem("pincode")}
                       onChange={(e) => setpincode(e.target.value)}
                     />
                   </label>
@@ -237,7 +246,11 @@ const LocationPage = () => {
               </select>
             </div> */}
 
-            <button className="addloc-btn" type="submit" style={{cursor:"pointer"}}>
+            <button
+              className="addloc-btn"
+              type="submit"
+              style={{ cursor: "pointer" }}
+            >
               Add Address
             </button>
           </form>

@@ -18,12 +18,11 @@
   flex-direction: row;
   overflow: hidden;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 20px;
 }
 .addlocation-image {
   height: 550px;
-  width: 620px;
   margin-left: 20px;
   background-repeat: no-repeat;
   /* background-image: url("../images/profilepage.jpeg"); */
@@ -34,7 +33,7 @@
   padding: 10px;
 }
 .addlocation-form-wrapper {
-  width: 750px;
+  /* width: 750px; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,6 +41,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  justify-content: center;
 }
 .addloc-form {
   display: -webkit-box;
@@ -60,6 +60,10 @@
   font-size: 16px;
   margin-top: 0.5rem;
   font-weight: bold;
+}
+
+.form-group .textarea{
+  margin-bottom: 10px;
 }
 .addloc-addtype-wrapper {
   margin: 10px 0;
@@ -80,11 +84,13 @@
   border-radius: 5px;
   margin-top: 0.4rem;
   height: 2rem;
-  width: 20rem;
+  width: 19rem;
 }
+
 .addloc-column {
   float: left;
   width: 50%;
+  /* margin-right: 1rem; */
 }
 
 /* Clear floats after the columns */
@@ -94,10 +100,10 @@
   clear: both;
 }
 #add-longtext {
-  width: 43.5rem;
+  width: 40rem;
   height: 50%;
   resize: none;
-  margin-bottom: -1.6rem;
+  margin-bottom: -.8rem;
 }
 #checkbox-label {
   font-size: small;
@@ -119,11 +125,11 @@ input[type="radio"] {
 
 @media only screen and (max-width: 600px) {
   .addloc-form {
-    width: 20rem;
     margin: 10px 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: center;
   }
   .addloc-row {
     display: -webkit-box;
@@ -134,15 +140,31 @@ input[type="radio"] {
     -ms-flex-direction: column;
     flex-direction: column;
     margin-top: 10px;
+    justify-content: center;
   }
   .addloc-btn {
-    width: 5rem;
-    font-size: 12px;
+    width: 8rem;
+    font-size: 14px;
+    padding: 10px;
+    margin: 15px auto;
   }
   .addlocation-image {
     display: none;
   }
   #add-longtext {
     width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .addloc-input{
+    width: 15rem;
+  }
+  #add-longtext{
+    width: 15rem;
+  }
+
+  .addloc-form{
+    margin: 10px;
   }
 }

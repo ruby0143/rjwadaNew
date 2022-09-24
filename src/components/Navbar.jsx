@@ -28,8 +28,7 @@ const Navbar = ({ user }) => {
               src={Rjwada_logo}
               alt="Rjwada👑"
               height={"50px"}
-              style={{marginLeft:"20px",
-            scale:"0.7"}}
+              style={{ marginLeft: "20px", scale: "0.7" }}
             />
           </Link>
           <div className="location-selection">
@@ -40,7 +39,11 @@ const Navbar = ({ user }) => {
             </select> */}
           </div>
         </div>
-        {user ? <h2 className="nuser-text" >Hi , {user}</h2> : BsEmojiNeutralFill}
+        {user ? (
+          <h2 className="nuser-text">Hi , {user}</h2>
+        ) : (
+          BsEmojiNeutralFill
+        )}
         {/* <div className="input-wrapper">
           <input
             type="text"
@@ -53,44 +56,98 @@ const Navbar = ({ user }) => {
       <div className="menu-wrapper">
         <ul>
           {user && (
-            <div style={{marginRight:"30px", display:"flex"}}>
+            <div style={{ marginRight: "30px", display: "flex" }}>
               <Link className="navbar-link link" to={"/whishlist"}>
-                <li className="nav-links" style={{padding:"2px 10px", fontSize:"30px", marginRight:"10px"}} >
-                  <AiOutlineHeart/>
+                <li
+                  className="nav-links"
+                  style={{
+                    padding: "2px 10px",
+                    fontSize: "30px",
+                    marginRight: "10px",
+                  }}
+                >
+                  <AiOutlineHeart />
                 </li>
               </Link>
               <Link className="navbar-link link" to={"/cart"}>
-                <li className="nav-links" style={{padding:"2px 10px", fontSize:"25px", marginRight:"10px"}} >
-                  <BsHandbag/>
+                <li
+                  className="nav-links"
+                  style={{
+                    padding: "2px 10px",
+                    fontSize: "25px",
+                    marginRight: "10px",
+                  }}
+                >
+                  <BsHandbag />
                 </li>
               </Link>
               <Link className="navbar-link link" to={"/profile"}>
-                <li className="nav-links" style={{padding:"2px 10px",fontSize:"25px", marginRight:"10px"}} >
-                  <CgProfile/>
+                <li
+                  className="nav-links"
+                  style={{
+                    padding: "2px 10px",
+                    fontSize: "25px",
+                    marginRight: "10px",
+                  }}
+                >
+                  <CgProfile />
                 </li>
               </Link>
               <Link className="navbar-link link" to={"/trackOrder"}>
-                <li className="nav-links" style={{padding:"2px 10px", marginRight:"20px"}} >Orders</li>
+                <li
+                  className="nav-links"
+                  style={{ padding: "2px 10px", marginRight: "20px" }}
+                >
+                  Orders
+                </li>
               </Link>
               <Link
                 className="navbar-link link"
                 to={"/"}
                 onClick={handlelogout}
               >
-                <li className="nav-links nav-box" style={{padding:"2px 10px", border:"1px solid black", borderRadius:"2px 10px", marginRight:"10px"}} >Logout</li>
+                <li
+                  className="nav-links nav-box"
+                  style={{
+                    padding: "2px 10px",
+                    border: "1px solid black",
+                    borderRadius: "2px 10px",
+                    marginRight: "10px",
+                  }}
+                >
+                  Logout
+                </li>
               </Link>
             </div>
           )}
           {!user && (
             <>
               <Link className="navbar-link link" to={"/login"}>
-                <li className="nav-links nav-box" style={{padding:"2px 10px",border:"1px solid black", borderRadius:"2px 10px",marginRight:"25px"}} >
+                <li
+                  className="nav-links nav-box"
+                  style={{
+                    padding: "2px 10px",
+                    border: "1px solid black",
+                    borderRadius: "2px 10px",
+                    marginRight: "25px",
+                  }}
+                >
                   {/* <CgLogIn/>  */}
                   Login
                 </li>
               </Link>
               <Link className="navbar-link link" to={"/signup"}>
-                <li className="nav-links nav-box" style={{padding:"2px 10px",border:"1px solid black", borderRadius:"2px 10px",marginRight:"30px"}} >Sign up</li>
+                <li
+                  className="nav-links nav-box"
+                  style={{
+                    padding: "2px 10px",
+                    border: "1px solid black",
+                    borderRadius: "2px 10px",
+                    marginRight: "30px",
+                  }}
+                >
+                  Sign up
+                </li>
               </Link>
             </>
           )}

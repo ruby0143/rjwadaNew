@@ -24,7 +24,7 @@ const Footer = () => {
               <h2>About us</h2>
               <p>
                 Rjwada is an augmented reality-based fashion-tech startup.
-                Founded by IITD students and mentored by IIMA professors at
+                Founded by IITD students and mentored by IIMA professors. At
                 Rjwada, we are reinventing the e-commerce customer experience by
                 providing state-of-the-art 3D AR Try-on.
               </p>
@@ -116,13 +116,15 @@ const Footer = () => {
                       aria-hidden="true"
                     />
                   </span>
-                  <span>
-                    Research and Innovation Park IIT Delhi, New Delhi
-                    <br />
-                    IIT Delhi, New Delhi
-                    <br />
-                    Delhi 110016
-                  </span>
+                  <a href="https://www.google.co.in/maps/place/Research+and+Innovation+Park+IIT+DELHI+(+RNI+)/@28.5429542,77.1875624,195m/data=!3m1!1e3!4m5!3m4!1s0x0:0x48afdc51e54c8134!8m2!3d28.5433266!4d77.1874941?shorturl=1" target="_blank">
+                    <span >
+                      Research and Innovation Park,
+                      <br />
+                      IIT Delhi, New Delhi
+                      <br />
+                      Delhi 110016
+                    </span>
+                  </a>
                 </li>
                 {/* <li>
                   <span>

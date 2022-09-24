@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./index.css";
 import App from "./App";
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from "./components/ScrollToTop";
 import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HashRouter>
-    <ScrollToTop />
+      <ScrollToTop />
       <App />
     </HashRouter>
   </React.StrictMode>
