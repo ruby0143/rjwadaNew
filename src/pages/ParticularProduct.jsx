@@ -765,7 +765,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                           Buy Now
                         </button>
                       ) : (
-                        <div style={{ width: "88%" }}>
+                        <div style={{ width: "85%", marginLeft: "10px" }}>
                           <Razorpay
                             btnText="Buy Now"
                             totalCartPrice={price}
