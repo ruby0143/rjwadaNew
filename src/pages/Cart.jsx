@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import Razorpay from '../components/Razorpay';
-import Toplist from '../components/Toplist';
-import { auth, fs } from '../config/Config';
-import { Link, useNavigate } from 'react-router-dom';
-import { Icon } from 'react-icons-kit';
-import { plus } from 'react-icons-kit/feather/plus';
-import { minus } from 'react-icons-kit/feather/minus';
-import './Cart.css';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
-import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import ProductCard from '../components/ProductCard';
-import { textAlign } from '@mui/system';
-import { senddata } from '../components/send';
-import { BsTrash } from 'react-icons/bs';
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import Razorpay from "../components/Razorpay";
+import Toplist from "../components/Toplist";
+import { auth, fs } from "../config/Config";
+import { Link, useNavigate } from "react-router-dom";
+import { Icon } from "react-icons-kit";
+import { plus } from "react-icons-kit/feather/plus";
+import { minus } from "react-icons-kit/feather/minus";
+import "./Cart.css";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import CurrencyRupeeOutlinedIcon from "@mui/icons-material/CurrencyRupeeOutlined";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import RefreshIcon from "@mui/icons-material/Refresh";
+import ProductCard from "../components/ProductCard";
+import { textAlign } from "@mui/system";
+import { senddata } from "../components/send";
+import { BsTrash } from "react-icons/bs";
 
 const Cart = ({ userid }) => {
   let deliverycharges = 0;
@@ -28,7 +28,7 @@ const Cart = ({ userid }) => {
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          fs.collection('users')
+          fs.collection("users")
             .doc(user.uid)
             .get()
             .then((snapshot) => {
@@ -45,7 +45,7 @@ const Cart = ({ userid }) => {
   const user = Getcurrentuser();
   const [cartProducts, setCartProducts] = useState([]);
 
-  const cart = fs.collection('cart');
+  const cart = fs.collection("cart");
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -59,7 +59,7 @@ const Cart = ({ userid }) => {
         });
       } else {
         setTimeout(() => {
-          navigate('/login');
+          navigate("/login");
         }, 100);
       }
     });
@@ -74,11 +74,11 @@ const Cart = ({ userid }) => {
         x -= price * quantity;
         auth.onAuthStateChanged((user) => {
           if (user) {
-            fs.collection('cart')
-              .doc('USER_ID = ' + userid + ` PRODUCT_ID = ${id}`)
+            fs.collection("cart")
+              .doc("USER_ID = " + userid + ` PRODUCT_ID = ${id}`)
               .update(ProdUpdate)
               .then(() => {
-                console.log('done decrement');
+                console.log("done decrement");
               });
           } else {
             console.log("can't decrement ");
@@ -97,14 +97,14 @@ const Cart = ({ userid }) => {
         x += price * quantity;
         auth.onAuthStateChanged((user) => {
           if (user) {
-            fs.collection('cart')
-              .doc('USER_ID = ' + userid + ` PRODUCT_ID = ${id}`)
+            fs.collection("cart")
+              .doc("USER_ID = " + userid + ` PRODUCT_ID = ${id}`)
               .update(ProdUpdate)
               .then(() => {
-                console.log('done increment');
+                console.log("done increment");
               });
           } else {
-            console.log('cant increment ');
+            console.log("cant increment ");
           }
         });
       }
@@ -113,7 +113,7 @@ const Cart = ({ userid }) => {
   const handleProductDelete = (p, userid, name, quantity, price, id) => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        fs.collection('cart')
+        fs.collection("cart")
           .doc(`USER_ID = ` + userid + ` PRODUCT_ID = ${id}`)
           .delete()
           .then(() => {
@@ -121,7 +121,7 @@ const Cart = ({ userid }) => {
             cartProducts = cartProducts.filter((item) => {
               return item.ID !== `USER_ID = ` + userid + ` PRODUCT_ID = ${id}`;
             });
-            console.log('deleted item');
+            console.log("deleted item");
           });
       } else {
       }
@@ -151,7 +151,7 @@ const Cart = ({ userid }) => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         await fs
-          .collection('user_address')
+          .collection("user_address")
           .doc(`${userid}`)
           .get()
           .then((snapshot) => {
@@ -179,8 +179,8 @@ const Cart = ({ userid }) => {
           <div
             className="cart-header"
             style={{
-              textAlign: 'left',
-              marginBottom: '30px',
+              textAlign: "left",
+              marginBottom: "30px",
             }}
           >
             Your Cart Item
@@ -192,22 +192,22 @@ const Cart = ({ userid }) => {
               )}
               {cartProducts.length > 0 && (
                 <div className="noproduct">
-                  <div className="cart-item-header">
+                  {/* <div className="cart-item-header">
                     <div className="cart-prod">Product</div>
                     <div className="cart-price">Price</div>
                     <div className="cart-quan">Quantity</div>
-                  </div>
+                  </div> */}
                   {cartProducts.map((p) => {
                     const slicedid = p.ID.slice(10, 38);
                     if (slicedid === userid) {
                       let tosend = {};
-                      tosend['userid_id'] = localStorage.getItem('uid');
-                      tosend['product_id'] = p.id;
-                      tosend['quantity'] = p.quantity;
-                      tosend['categoryId'] = p.categoryId;
-                      tosend['productPrice'] = p.price;
-                      tosend['banner'] = p.banner;
-                      tosend['size'] = p.size[0];
+                      tosend["userid_id"] = localStorage.getItem("uid");
+                      tosend["product_id"] = p.id;
+                      tosend["quantity"] = p.quantity;
+                      tosend["categoryId"] = p.categoryId;
+                      tosend["productPrice"] = p.price;
+                      tosend["banner"] = p.banner;
+                      tosend["size"] = p.size[0];
                       particularProductArray.push([p.name, userid]);
                       console.log(tosend);
                       products[`${p.id}`] = tosend;
@@ -218,10 +218,10 @@ const Cart = ({ userid }) => {
                           <div className="cart-card" key={p.id}>
                             <div
                               style={{
-                                display: 'flex',
-                                justifyContent: 'space-evenly',
-                                alignItems: 'center',
-                                marginRight: '6px',
+                                display: "flex",
+                                justifyContent: "space-evenly",
+                                alignItems: "center",
+                                marginRight: "6px",
                               }}
                             >
                               <div className="wish-img">
@@ -231,7 +231,7 @@ const Cart = ({ userid }) => {
                                   className="wish-img"
                                 />
                               </div>
-                              <hr style={{ marginLeft: '5px' }} />
+                              <hr style={{ marginLeft: "5px" }} />
                               <div className="wish-details">
                                 <div className="wish-text">
                                   <b>{p.name}</b>
@@ -259,7 +259,7 @@ const Cart = ({ userid }) => {
                                 </div>
                                 <div
                                   className="cart-quantity"
-                                  style={{ padding: '5px 10px' }}
+                                  style={{ padding: "5px 10px" }}
                                 >
                                   {p.quantity}
                                 </div>
@@ -332,7 +332,7 @@ const Cart = ({ userid }) => {
                       {useradd.Country}
                     </li>
                     <li className="add-detail-phone">
-                      Phone{' '}
+                      Phone{" "}
                       <span className="add-detail-number">
                         {useradd.Mobile}
                       </span>
@@ -342,7 +342,7 @@ const Cart = ({ userid }) => {
               ) : (
                 <h4> click on change address to add address </h4>
               )}
-              <Link to="/profile" style={{ textDecoration: 'none' }}>
+              <Link to="/profile" style={{ textDecoration: "none" }}>
                 <button className="change-add-btn">Change Address</button>
               </Link>
             </div>
@@ -370,18 +370,18 @@ const Cart = ({ userid }) => {
               <div
                 className="cart-btn-sec"
                 style={{
-                  backgroundColor: '#ECF4F4',
+                  backgroundColor: "#ECF4F4",
                 }}
               >
                 <button
                   className="buynow-btn"
                   style={{
-                    width: '100%',
-                    backgroundColor: '#b2eeee',
-                    border: '1px solid black',
-                    borderRadius: '20px',
-                    padding: '6px',
-                    margin: '10px 0px',
+                    width: "100%",
+                    backgroundColor: "#b2eeee",
+                    border: "1px solid black",
+                    borderRadius: "20px",
+                    padding: "6px",
+                    margin: "10px 0px",
                   }}
                 >
                   {user && useradd ? (
@@ -391,7 +391,7 @@ const Cart = ({ userid }) => {
                         cartProducts={cartProducts.length}
                         totalCartPrice={x}
                         products={products}
-                        style={{ width: '20px' }}
+                        style={{ width: "20px" }}
                       />
                     ) : (
                       <center>
@@ -401,7 +401,7 @@ const Cart = ({ userid }) => {
                   ) : (
                     <center>
                       <h2>Please enter address</h2>
-                      <Link to="/profile" style={{ textDecoration: 'none' }}>
+                      <Link to="/profile" style={{ textDecoration: "none" }}>
                         <button className="change-add-btn">Add Address</button>
                       </Link>
                     </center>

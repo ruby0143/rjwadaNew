@@ -556,7 +556,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               selectedsize == "XXL" ? null : (
                 <h3
                 style={{
-                  marginTop: "-20px",
+                  marginTop: "-8px",
                   marginLeft: "5px",
                   color: "red",
                   fontFamily:"Montserrat",

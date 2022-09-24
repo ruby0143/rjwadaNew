@@ -79,6 +79,9 @@ button {
   text-decoration: none;
   color: black;
 }
+a:hover {
+  color: #8fd4f1;
+}
 
 @media (max-width: 768px) {
   .desktop-nav {

@@ -136,7 +136,7 @@
 
 @media only screen and (max-width: 450px) {
   .data-banner-container {
-    height: 385px !important;
+    height: 400px !important;
     /* padding-left: 2rem !important; */
   }
   .data-banner {
@@ -313,59 +313,58 @@
     justify-content: center;
     overflow-x: hidden !important;
   }
-  .collection-heading{
+  .collection-heading {
     margin-top: 50px;
   }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1350px){
-  .data-banner-container{
+@media only screen and (min-width: 1024px) and (max-width: 1350px) {
+  .data-banner-container {
     width: 290px;
     height: 500px;
     /* margin: 0 80px; */
   }
 
-  .data-banner-container-ext{
+  .data-banner-container-ext {
     width: 290px !important;
     height: 550px !important;
-  } 
+  }
 
-  .data-banner{
+  .data-banner {
     height: 430px !important;
-    
   }
 
-  .collection-item-text{
+  .collection-item-text {
     margin-top: 20px;
-    height: 60px
+    height: 60px;
   }
 
-  .collection-item-wrapper{
+  .collection-item-wrapper {
     margin-bottom: 0px;
   }
 
-  .collection-item{
+  .collection-item {
     margin-bottom: 60px;
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-  .data-banner-container{
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .data-banner-container {
     width: 210px;
     height: 450px;
     margin: 0 20px !important;
   }
 
-  .data-banner-container-ext{
+  .data-banner-container-ext {
     width: 210px !important;
     height: 450px !important;
-  } 
+  }
 
-  .data-banner{
+  .data-banner {
     height: 340px !important;
   }
 
-  .collection-item{
+  .collection-item {
     flex-direction: row;
     margin-bottom: 60px;
   }

@@ -152,8 +152,8 @@
 }
 
 .contact .info li span:nth-child(1) {
-  color: #fff;
-  font-size: 20px;
+  /* color: #fff;
+  font-size: 20px; */
   margin-right: 10px;
 }
 
