@@ -313,7 +313,7 @@ const Privacy = () => {
           Phone: 08765750208
         </p>
       </div>
-      <div className="privacy-heading-text">
+      <div className="privacy-heading-text marginBottom">
         <h1>
           How can you Revive, Update, Or Delete The Data We Collect From You?
         </h1>

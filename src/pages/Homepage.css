@@ -133,7 +133,13 @@
   height: 510px;
   border-radius: 30px;
 }
+@media only screen and (max-width: 320px) {
+  .collection-item{
+    width: 230px !important;
+  }
+}
 
+/*     old queries*/
 @media only screen and (max-width: 450px) {
   .data-banner-container {
     height: 400px !important;
@@ -175,7 +181,7 @@
     flex-direction: column;
   } */
   .data-banner-container {
-    width: 255px !important;
+    width: 227px !important;
   }
   .data-banner {
     background-size: cover !important;

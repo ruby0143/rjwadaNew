@@ -16,6 +16,7 @@ h3 {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  overflow: hidden;
 }
 /*  */
 .section-one {

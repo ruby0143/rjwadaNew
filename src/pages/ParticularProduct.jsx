@@ -235,6 +235,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   return (
     <div>
       {/* <Toplist /> */}
+
       <div className="part-product-wrapper">
         <div className="section-one">
           <div className="product-image-section">

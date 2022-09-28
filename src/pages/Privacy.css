@@ -1,5 +1,5 @@
 .privacy-section {
-  margin: 0 5rem;
+  margin: 2.5rem 5rem;
 }
 .privacy-main-heading-text {
   display: -webkit-box;
@@ -51,15 +51,33 @@
 }
 .privacy-heading-text h1 {
   text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
 }
 
 .privacy-heading-text p {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 18px;
   line-height: 21px;
   color: #000000;
+}
+
+@media only screen and (max-width: 768px){
+  .privacy-section{
+    margin: 0rem 1rem;
+  }
+  .marginBottom{
+    margin-bottom: 120px;
+  }
+  .privacy-heading-text h1{
+    font-size: 1.6rem;
+
+  }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -79,6 +97,9 @@
     line-height: 25px;
     color: #000000;
     text-align: left;
+  }
+  .privacy-heading-text p{
+    font-size: 16px;
   }
   .privacy-heading-text h1 {
     text-align: left;

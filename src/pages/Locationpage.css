@@ -42,6 +42,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 80px;
 }
 .addloc-form {
   display: -webkit-box;
@@ -62,7 +63,7 @@
   font-weight: bold;
 }
 
-.form-group .textarea{
+.form-group .textarea {
   margin-bottom: 10px;
 }
 .addloc-addtype-wrapper {
@@ -103,7 +104,7 @@
   width: 40rem;
   height: 50%;
   resize: none;
-  margin-bottom: -.8rem;
+  margin-bottom: -0.8rem;
 }
 #checkbox-label {
   font-size: small;
@@ -156,15 +157,15 @@ input[type="radio"] {
   }
 }
 
-@media only screen and (max-width: 375px){
-  .addloc-input{
+@media only screen and (max-width: 375px) {
+  .addloc-input {
     width: 15rem;
   }
-  #add-longtext{
+  #add-longtext {
     width: 15rem;
   }
 
-  .addloc-form{
+  .addloc-form {
     margin: 10px;
   }
 }

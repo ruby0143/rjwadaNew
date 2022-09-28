@@ -18,6 +18,7 @@ import ProductCard from "../components/ProductCard";
 import { textAlign } from "@mui/system";
 import { senddata } from "../components/send";
 import { BsTrash } from "react-icons/bs";
+import Footer from "../components/Footer";
 
 const Cart = ({ userid }) => {
   let deliverycharges = 0;
@@ -380,7 +381,7 @@ const Cart = ({ userid }) => {
                   style={{
                     width: "100%",
                     backgroundColor: "#b2eeee",
-                    border: "1px solid black",
+                    // border: "1px solid black",
                     borderRadius: "20px",
                     padding: "6px",
                     margin: "10px 0px",
@@ -414,6 +415,7 @@ const Cart = ({ userid }) => {
           </div>
         </div>
       </center>
+      <Footer />
     </div>
   );
 };

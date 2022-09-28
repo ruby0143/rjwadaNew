@@ -124,8 +124,8 @@
 }
 .delete-btn {
   margin: 60px 0px;
-  margin-left: 130px;
-  font-size: 30px;
+  /* margin-left: 130px; */
+  font-size: 25px;
   color: red;
   cursor: pointer;
 }
@@ -180,6 +180,10 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.cart-total-container {
+  margin-top: 40px;
 }
 .cart-add-header {
   display: -webkit-box;
@@ -293,7 +297,7 @@
     width: 100% !important;
   }
   .delete-btn {
-    margin-left: 20px;
+    margin-left: 5px;
   }
   .add-heading-bold {
     overflow-y: hidden;

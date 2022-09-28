@@ -124,6 +124,7 @@ input[type="radio"] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
   }
   .addloc-row {
     display: -webkit-box;
