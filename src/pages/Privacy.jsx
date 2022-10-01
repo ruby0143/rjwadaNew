@@ -319,6 +319,7 @@ const Privacy = () => {
             us by post at the following corporate address:
           </p>
 
+<<<<<<< HEAD
           <p>
             Rjwada Private Limited <br />
             Gokul Prashad, Plot No. 212 & 214,
@@ -340,6 +341,28 @@ const Privacy = () => {
             http://www.rjwada.com/profile.
           </p>
         </div>
+=======
+        <p>
+          Rjwada Private Limited <br />
+          Gokul Prashad, Plot No. 212 & 214,
+          <br />
+          New Delhi, Delhi 110016 <br />
+          India <br />
+          Phone: 08765750208
+        </p>
+      </div>
+      <div className="privacy-heading-text marginBottom">
+        <h1>
+          How can you Revive, Update, Or Delete The Data We Collect From You?
+        </h1>
+        <p>
+          Based on the applicable laws of your country, you may have the right
+          to request access to the personal information we collect from you,
+          change that information, or delete it. To request to review, update,
+          or delete your personal information, please visit:
+          http://www.rjwada.com/profile.
+        </p>
+>>>>>>> 0c9abd847aeca61b1b2ff5ccf5bc8881ed6ba75e
       </div>
       <Footer></Footer>
     </>

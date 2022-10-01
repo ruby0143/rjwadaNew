@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { RiDeleteBinLine } from "react-icons/ri";
-
+import Footer from './../components/Footer';
 const Whishlist = ({ userid, addToCart }) => {
   const navigate = useNavigate();
 
@@ -85,7 +85,7 @@ const Whishlist = ({ userid, addToCart }) => {
             </h5>
           )}
           {cartproducts.length >= 1 && (
-            <div className="noproduct">
+            <div className="noproduct" style={{marginBottom:"30px"}}>
               <div
                 className="cart-item-header"
                 style={
@@ -185,7 +185,9 @@ const Whishlist = ({ userid, addToCart }) => {
           )}
         </div>
       </center>
+      <Footer />
     </div>
+    
   );
 };
 

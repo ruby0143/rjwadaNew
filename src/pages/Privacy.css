@@ -61,11 +61,16 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
+<<<<<<< HEAD
   font-size: 20px;
+=======
+  font-size: 18px;
+>>>>>>> 0c9abd847aeca61b1b2ff5ccf5bc8881ed6ba75e
   line-height: 21px;
   color: #000000;
 }
 
+<<<<<<< HEAD
 @media only screen and (max-width: 1200px){
   .privacy-main-heading-text h1 {
     font-weight: 700;
@@ -75,10 +80,16 @@
 @media only screen and (max-width: 768px){
   .privacy-section{
     margin: 2rem 1.5rem;
+=======
+@media only screen and (max-width: 768px){
+  .privacy-section{
+    margin: 0rem 1rem;
+>>>>>>> 0c9abd847aeca61b1b2ff5ccf5bc8881ed6ba75e
   }
   .marginBottom{
     margin-bottom: 120px;
   }
+<<<<<<< HEAD
 
   .privacy-main-heading-text h1 {
     font-weight: 700;
@@ -92,6 +103,13 @@
   .privacy-main-heading-text p {
     font-size: 17px;
   }
+=======
+  .privacy-heading-text h1{
+    font-size: 1.6rem;
+
+  }
+
+>>>>>>> 0c9abd847aeca61b1b2ff5ccf5bc8881ed6ba75e
 }
 
 @media only screen and (max-width: 500px) {
