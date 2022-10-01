@@ -1,9 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Terms from "../components/Terms";
 import "./Footer.css";
+import { auth, fs } from "../config/Config";
 
 const Footer = () => {
+   function Getcurrentuser() {
+    const [user, setuser] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          fs.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+              setuser(snapshot.data().Fullname);
+              console.log(snapshot.data().Fullname);
+            });
+        } else {
+          setuser(null);
+        }
+      });
+    }, []);
+    return user;
+  }
+
+  const user = Getcurrentuser();
   return (
     <div>
       <link
@@ -116,8 +138,11 @@ const Footer = () => {
                       aria-hidden="true"
                     />
                   </span>
-                  <a href="https://www.google.co.in/maps/place/Research+and+Innovation+Park+IIT+DELHI+(+RNI+)/@28.5429542,77.1875624,195m/data=!3m1!1e3!4m5!3m4!1s0x0:0x48afdc51e54c8134!8m2!3d28.5433266!4d77.1874941?shorturl=1" target="_blank">
-                    <span >
+                  <a
+                    href="https://www.google.co.in/maps/place/Research+and+Innovation+Park+IIT+DELHI+(+RNI+)/@28.5429542,77.1875624,195m/data=!3m1!1e3!4m5!3m4!1s0x0:0x48afdc51e54c8134!8m2!3d28.5433266!4d77.1874941?shorturl=1"
+                    target="_blank"
+                  >
+                    <span>
                       Research and Innovation Park,
                       <br />
                       IIT Delhi, New Delhi
@@ -142,22 +167,26 @@ const Footer = () => {
                   <span>
                     <i
                       className="fa fa-envelope"
-                      style={{ color: "black"}}
+                      style={{ color: "black" }}
                       aria-hidden="true"
                     />
                   </span>
-                  
-                    {/* <a href="mailto:contact@rjwada.com">contact@rjwada.com</a> */}
-                    <a href="mailto:contact@rjwada.com">
-                      <span>contact@rjwada.com</span></a>
-        
+
+                  {/* <a href="mailto:contact@rjwada.com">contact@rjwada.com</a> */}
+                  <a href="mailto:contact@rjwada.com">
+                    <span>contact@rjwada.com</span>
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div className="copyrightText">
+      {/* <div className="copyrightText">
+        
+        <p>Copyright © 2022 Rjwada. All rights reserved</p>
+      </div> */}
+      <div className={user ? "copyrightText" : "copyrightText-logOut"}>
         <p>Copyright © 2022 Rjwada. All rights reserved</p>
       </div>
     </div>

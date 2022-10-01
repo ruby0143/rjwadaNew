@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
+    paddingBottom: theme.spacing(10),
   },
   "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
@@ -76,8 +77,8 @@ export default function CustomizedDialogs() {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            <h3>
-              <u>ACCEPTANCE OF TERMS OF USE</u>
+            <h3 style={{margin: "60px auto"}}>
+              <u style={{fontSize: "24px"}}>ACCEPTANCE OF TERMS OF USE</u>
             </h3>
             <div style={{ fontWeight: "600" }}>
               ACCEPTANCE OF TERMS OF USE PLEASE READ THESE TERMS AND CONDITIONS

@@ -94,7 +94,10 @@ const Homepage = (props) => {
         <Banner />
         <QualitySection />
         <div className="collection-wrapper">
-          <div className="collection-heading">
+          <div
+            className="collection-heading"
+            style={{ marginTop: "2px", marginBottom: "5px" }}
+          >
             <center>COLLECTIONS</center>
           </div>
           <div className="collection-item-wrapper">
@@ -171,9 +174,7 @@ const Homepage = (props) => {
         >
           <div
             className="collection-heading"
-            style={{
-              maginTop: "2rem",
-            }}
+            style={{ marginTop: "2px", marginBottom: "5px" }}
           >
             <center>Hot Selling Products</center>
           </div>
@@ -194,7 +195,7 @@ const Homepage = (props) => {
                           style={{
                             height: "600px",
                             overflow: "hidden",
-                            width: "390px",
+                            width: "380px",
                           }}
                         >
                           {/* `productpage/${data.id} */}
@@ -222,7 +223,6 @@ const Homepage = (props) => {
                           </Link>
                           <div
                             key={data.id}
-                            data-aos="fade-in"
                             className="collection-item-text"
                           >
                             <Link
@@ -259,12 +259,11 @@ const Homepage = (props) => {
                         <div
                           className="data-banner-container data-banner-container-ext"
                           key={data.id}
-                          data-aos="fade-in"
                           style={{
                             height: "600px",
                             overflow: "hidden",
                             margin: "40px",
-                            width: "390px",
+                            width: "380px",
                           }}
                         >
                           <Link
@@ -328,7 +327,7 @@ const Homepage = (props) => {
                             height: "600px",
                             overflow: "hidden",
                             margin: "40px",
-                            width: "390px",
+                            width: "380px",
                           }}
                         >
                           <Link

@@ -1,29 +1,29 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import { useState, useEffect } from "react";
-import Toplist from "../components/Toplist";
-import { Link, useParams } from "react-router-dom";
-import "../pages/ParticularCategory.css";
+import React from 'react';
+import Navbar from '../components/Navbar';
+import { useState, useEffect } from 'react';
+import Toplist from '../components/Toplist';
+import { Link, useParams } from 'react-router-dom';
+import '../pages/ParticularCategory.css';
 import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Drawer,
-} from "@mui/material";
-import { auth, fs } from "../config/Config";
-import ParticularProduct from "../pages/ParticularProduct";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import CircleIcon from "@mui/icons-material/Circle";
-import Footer from "../components/Footer";
-import { Box } from "@mui/system";
+} from '@mui/material';
+import { auth, fs } from '../config/Config';
+import ParticularProduct from '../pages/ParticularProduct';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import CircleIcon from '@mui/icons-material/Circle';
+import Footer from '../components/Footer';
+import { Box } from '@mui/system';
 const ParticularCategory = ({ addToCart }) => {
   function Getcurrentuser() {
     const [user, setuser] = useState(null);
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          fs.collection("users")
+          fs.collection('users')
             .doc(user.uid)
             .get()
             .then((snapshot) => {
@@ -44,7 +44,7 @@ const ParticularCategory = ({ addToCart }) => {
   const [data, setData] = useState(null);
   console.log(category_id);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/products")
+    fetch('http://api.rjwada.com/items/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -63,7 +63,7 @@ const ParticularCategory = ({ addToCart }) => {
 
   const [cate, setCate] = useState(null);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/products")
+    fetch('http://api.rjwada.com/items/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -118,7 +118,7 @@ const ParticularCategory = ({ addToCart }) => {
                   <Accordion
                     defaultExpanded={true}
                     className="filter-list-accordion-main"
-                    style={{ margin: "10px" }}
+                    style={{ margin: '10px' }}
                   >
                     <AccordionSummary
                       id="panel1-header"
@@ -158,7 +158,7 @@ const ParticularCategory = ({ addToCart }) => {
                 <div className="filter-list-accordion">
                   <Accordion
                     className="filter-list-accordion-main"
-                    style={{ margin: "10px" }}
+                    style={{ margin: '10px' }}
                     defaultExpanded={true}
                   >
                     <AccordionSummary
@@ -197,7 +197,7 @@ const ParticularCategory = ({ addToCart }) => {
                   </Accordion>
                   <Accordion
                     className="filter-list-accordion-main"
-                    style={{ margin: "10px" }}
+                    style={{ margin: '10px' }}
                     defaultExpanded={true}
                   >
                     <AccordionSummary
@@ -308,32 +308,34 @@ const ParticularCategory = ({ addToCart }) => {
               {data &&
                 data.map((data) =>
                   data.category_id == category_id &&
-                  data.status == "published" ? (
+                  data.status == 'published' ? (
                     <Link
-                      style={{ textDecoration: "none" }}
+                      style={{ textDecoration: 'none' }}
                       to={`${data.id}`}
                       onClick={() => {
                         <ParticularProduct cat_id={data.category_id} />;
                       }}
                     >
                       <div
-                        style={{
-                          boxShadow: "0px 0px 3px black",
-                          overflow: "hidden",
-                          lineHeight: "1.4rem",
-                          textDecoration: "none",
-                          width: "235px",
-                          padding: "15px",
-                          color: "black",
-                          margin: "20px",
-                          borderRadius: "10px",
-                        }}
+                        className="product-main-wrapper"
+                        // style={{
+                        //   boxShadow: "0px 0px 3px black",
+                        //   overflow: "hidden",
+                        //   lineHeight: "1.4rem",
+                        //   textDecoration: "none",
+                        //   width: "225px",
+                        //   height:"410px",
+                        //   padding: "15px",
+                        //   color: "black",
+                        //   margin: "20px",
+                        //   borderRadius: "10px",
+                        // }}
                       >
                         <div
                           className="product-wrapper"
                           style={{
-                            height: "240px",
-                            overflow: "hidden",
+                            height: '240px',
+                            overflow: 'hidden',
                           }}
                         >
                           <img
@@ -345,24 +347,24 @@ const ParticularCategory = ({ addToCart }) => {
                         <div
                           className="details"
                           style={{
-                            textDecoration: "none",
-                            height: "130px",
-                            padding: "7px",
+                            textDecoration: 'none',
+                            height: '130px',
+                            padding: '7px',
                           }}
                         >
                           <div
                             style={{
-                              fontWeight: "bold",
-                              fontSize: "1.2rem",
-                              color: "black",
+                              fontWeight: 'bold',
+                              fontSize: '1rem',
+                              color: 'black',
                             }}
                           >
                             {data.name} <br />
                           </div>
-                          <div style={{ fontSize: "0.9rem", padding: "2px" }}>
+                          <div style={{ fontSize: '0.9rem', padding: '2px' }}>
                             Stubborn Factory <br />
                           </div>
-                          <div style={{ fontWeight: "bold" }}>
+                          <div style={{ fontWeight: 'bold' }}>
                             Rs {data.price} <br />
                           </div>
                           <div>
@@ -370,22 +372,21 @@ const ParticularCategory = ({ addToCart }) => {
                               return (
                                 <CircleIcon
                                   style={{
-                                    border: "1px solid black",
+                                    border: '1px solid black',
                                     color: `${colors}`,
-                                    borderRadius: "20px",
-                                    fontSize: "20px",
+                                    borderRadius: '20px',
+                                    fontSize: '20px',
                                   }}
                                 ></CircleIcon>
                               );
                             })}
                           </div>
-                          <div style={{ display: "flex" }}>
-                            <div style={{ marginRight: "10px" }}>Size:</div>
+                          <div style={{ display: 'flex' }}>
+                            <div style={{ marginRight: '10px' }}>Size:</div>
                             {data.sizes.map((size) => {
                               return (
-                                <div>
-                                  {size}
-                                  {", "}
+                                <div className='button-size' style={{  backgroundColor: "#D0D0D0",marginLeft: '.4rem' }}>
+                                  {size}{' '}
                                 </div>
                               );
                             })}

@@ -1,57 +1,42 @@
-import "./QualitySection.css";
-import { GiClothes } from "react-icons/gi";
-import { BsCashStack } from "react-icons/bs";
-import { MdKeyboardReturn } from "react-icons/md";
-import { RiCustomerService2Fill } from "react-icons/ri";
+import './QualitySection.css';
+import { GiClothes } from 'react-icons/gi';
+import { BsCashStack } from 'react-icons/bs';
+import { MdKeyboardReturn } from 'react-icons/md';
+import { RiCustomerService2Fill } from 'react-icons/ri';
 const QualitySection = () => {
   return (
     <div className="quality-wrapper">
       <div className="quality-item">
-        <div
-          className="quality-item-icon"
-          style={{ fontSize: "20px", padding: "3px 10px", color: "#8FD4F1" }}
-        >
-          <GiClothes />
-        </div>
-        <div className="quality-item-heading">
-          ML Tryon
-          <br />
+        <div>
+          <span style={{ color: '#8FD4F1' }}>
+            <GiClothes size={25}/>
+          </span>
+          <span className='quality-item-text'>ML Tryon</span>
         </div>
       </div>
       <div className="quality-item">
-        <div
-          className="quality-item-icon"
-          style={{ fontSize: "20px", padding: "3px 10px", color: "#8FD4F1" }}
-        >
-          <BsCashStack />
-        </div>
-        <div className="quality-item-heading">
-         Secure Payment
-          <br />
+        <div>
+          <span style={{ color: '#8FD4F1' }}>
+            <BsCashStack size={25} />
+          </span>
+          <span className='quality-item-text'>Secure Payment</span>
         </div>
       </div>
       <div className="quality-item">
-        <div
-          className="quality-item-icon"
-          style={{ fontSize: "20px", padding: "3px 10px", color: "#8FD4F1" }}
-        >
-          <RiCustomerService2Fill />
+        <div>
+        <span style={{ color: '#8FD4F1' }}>
+          <RiCustomerService2Fill size={25}/>
+        </span>
+        <span className='quality-item-text'>24 / 7 Support</span>
         </div>
-        <div className="quality-item-heading">
-          24 / 7 Support
-          <br />
-        </div>
+       
       </div>
       <div className="quality-item">
-        <div
-          className="quality-item-icon"
-          style={{ fontSize: "20px", padding: "3px 10px", color: "#8FD4F1" }}
-        >
-          <MdKeyboardReturn />
-        </div>
-        <div className="quality-item-heading">
-          Easy Return
-          <br />
+        <div>
+        <span style={{ color: '#8FD4F1' }}>
+          <MdKeyboardReturn size={25}/>
+        </span>
+        <span className='quality-item-text'>Easy Return</span>
         </div>
       </div>
     </div>
