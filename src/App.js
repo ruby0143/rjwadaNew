@@ -130,9 +130,9 @@ function App() {
 
   return (
     <div className="App">
+        
       {/* <Navbar user={user} /> */}
       <Navbar user={user} />
-
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
@@ -163,6 +163,7 @@ function App() {
         <Route path="/sendimage" element={<SendImage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
     </div>
   );
 }

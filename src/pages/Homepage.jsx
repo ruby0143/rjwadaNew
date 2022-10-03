@@ -1,27 +1,32 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
 // import BannerImg from "../images/Banner.png"
-import "aos/dist/aos.css";
-import Aos from "aos";
-import "./Homepage.css";
-import QualitySection from "../components/QualitySection";
-import Toplist from "../components/Toplist";
-import Footer from "../components/Footer";
-import { auth, fs } from "../config/Config";
-import { useNavigate } from "react-router-dom";
-import { Link, useParams } from "react-router-dom";
-import { Banner } from "./Banner";
-import ParticularProduct from "./ParticularProduct";
+//------skeleton------
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import CardSkeleton from './../components/skeleton/homeSkeleton';
+//------end here
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+import './Homepage.css';
+import QualitySection from '../components/QualitySection';
+import Toplist from '../components/Toplist';
+import Footer from '../components/Footer';
+import { auth, fs } from '../config/Config';
+import { useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { Banner } from './Banner';
+import ParticularProduct from './ParticularProduct';
 
 const Homepage = (props) => {
   const navigate = useNavigate;
-
+  const [loading, setLoading] = useState(true);
   function Getcurrentuser() {
     const [user, setuser] = useState(null);
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          fs.collection("users")
+          fs.collection('users')
             .doc(user.uid)
             .get()
             .then((snapshot) => {
@@ -38,43 +43,49 @@ const Homepage = (props) => {
 
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/category")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualdata) => {
-        setData(actualdata.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    setTimeout(() => {
+      fetch('http://api.rjwada.com/items/category')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `This is an HTTP error: The status is ${response.status}`
+            );
+          }
+          return response.json();
+        })
+        .then((actualdata) => {
+          setData(actualdata.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }, 1000);
   }, []);
 
   ////////
 
   const [homepageTopseller, sethomepageTopseller] = useState(null);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/products")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualhomepageTopseller) => {
-        sethomepageTopseller(actualhomepageTopseller.data);
-        console.log(actualhomepageTopseller);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    setTimeout(() => {
+      fetch('http://api.rjwada.com/items/products')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `This is an HTTP error: The status is ${response.status}`
+            );
+          }
+          return response.json();
+        })
+        .then((actualhomepageTopseller) => {
+          sethomepageTopseller(actualhomepageTopseller.data);
+         //setLoading(false);
+          console.log(actualhomepageTopseller);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }, 1000);
   }, []);
 
   const user = Getcurrentuser();
@@ -96,296 +107,333 @@ const Homepage = (props) => {
         <div className="collection-wrapper">
           <div
             className="collection-heading"
-            style={{ marginTop: "2px", marginBottom: "5px" }}
+            style={{ marginTop: '2px', marginBottom: '5px' }}
           >
             <center>COLLECTIONS</center>
           </div>
-          <div className="collection-item-wrapper">
-            <div className="collection-item">
-              {data &&
-                data.map((data) => (
-                  <div
-                    className="categorycard-homepage"
-                    key={data.id}
-                    data-aos="fade-in"
-                  >
-                    {data.id < 4 && (
+          <SkeletonTheme baseColor="#cfcfcf" highlightColor="#DFD8D7">
+            {loading ? (
+              <>
+                <div className="skeleton">
+                  <CardSkeleton /> <CardSkeleton /> <CardSkeleton />
+                </div>
+                {/* <Skeleton /> */}
+              </>
+            ) : (
+              <div className="collection-item-wrapper">
+                <div className="collection-item">
+                  {data &&
+                    data.map((data) => (
                       <div
-                        className="data-banner-container"
+                        className="categorycard-homepage"
                         key={data.id}
-                        style={{}}
+                        data-aos="fade-in"
                       >
-                        <Link
-                          style={{ textDecoration: "none" }}
-                          to={`productpage/${data.id}`}
-                        >
+                        {data.id < 4 && (
                           <div
-                            className="data-banner"
-                            style={{
-                              borderRadius: "30px",
-                              backgroundImage:
-                                "url(" +
-                                "http://api.rjwada.com/assets/" +
-                                `${data.banner}` +
-                                ")",
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                            }}
-                          ></div>
-                        </Link>
-                        <div key={data.id} className="collection-item-text">
-                          <Link
-                            style={{ textDecoration: "none" }}
-                            to={`productpage/${data.id}`}
+                            className="data-banner-container"
+                            key={data.id}
+                            style={{}}
                           >
-                            <center>
+                            <Link
+                              style={{ textDecoration: 'none' }}
+                              to={`productpage/${data.id}`}
+                            >
                               <div
-                                style={{ marginTop: "-20px", color: "black" }}
+                                className="data-banner"
+                                style={{
+                                  borderRadius: '30px',
+                                  backgroundImage:
+                                    'url(' +
+                                    'http://api.rjwada.com/assets/' +
+                                    `${data.banner}` +
+                                    ')',
+                                  backgroundSize: 'cover',
+                                  backgroundPosition: 'center',
+                                }}
+                              ></div>
+                            </Link>
+                            <div key={data.id} className="collection-item-text">
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={`productpage/${data.id}`}
                               >
-                                {data.category_name.length >= 25
-                                  ? `${data.category_name.slice(0, 5)}`
-                                  : data.category_name}
-                              </div>
-                            </center>
-                          </Link>
-                        </div>
+                                <center>
+                                  <div
+                                    style={{
+                                      marginTop: '-20px',
+                                      color: 'black',
+                                    }}
+                                  >
+                                    {data.category_name.length >= 25
+                                      ? `${data.category_name.slice(0, 5)}`
+                                      : data.category_name}
+                                  </div>
+                                </center>
+                              </Link>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                ))}
-            </div>
-          </div>
+                    ))}
+                </div>
+              </div>
+            )}
+          </SkeletonTheme>
         </div>
         <hr
           style={{
-            border: "0px",
-            height: "2px",
+            border: '0px',
+            height: '2px',
             backgroundImage:
-              "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))",
+              'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))',
           }}
         />
         <div
           className="collection-wrapper"
           style={{
-            background: "rgb(255,255,255)",
+            background: 'rgb(255,255,255)',
             backgroundImage:
-              "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 9%, rgba(236,244,244,1) 22%)",
+              'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 9%, rgba(236,244,244,1) 22%)',
           }}
         >
           <div
             className="collection-heading"
-            style={{ marginTop: "2px", marginBottom: "5px" }}
+            style={{ marginTop: '2px', marginBottom: '5px' }}
           >
             <center>Hot Selling Products</center>
           </div>
-          <div className="collection-item-wrapper">
-            <div className="collection-item">
-              {homepageTopseller &&
-                homepageTopseller.map((data) => (
-                  <div
-                    className="categorycard-homepage"
-                    key={data.id}
-                    data-aos="fade-in"
-                  >
-                    {data.id === 4 && (
-                      <>
-                        <div
-                          className="data-banner-container data-banner-container-ext"
-                          key={data.id}
-                          style={{
-                            height: "600px",
-                            overflow: "hidden",
-                            width: "380px",
-                          }}
-                        >
-                          {/* `productpage/${data.id} */}
-                          <Link
-                            style={{ textDecoration: "none" }}
-                            to={`productpage/${data.category_id}/${data.id}`}
-                            onClick={() => {
-                              <ParticularProduct cat_id={data.category_id} />;
-                            }}
-                          >
+          <SkeletonTheme baseColor="#cfcfcf" highlightColor="#DFD8D7">
+            {loading ? (
+              <>
+                <div className="skeleton">
+                  <CardSkeleton /> <CardSkeleton /> <CardSkeleton />
+                </div>
+                {/* <Skeleton /> */}
+              </>
+            ) : (
+              <div className="collection-item-wrapper">
+                <div className="collection-item">
+                  {homepageTopseller &&
+                    homepageTopseller.map((data) => (
+                      <div
+                        className="categorycard-homepage"
+                        key={data.id}
+                        data-aos="fade-in"
+                      >
+                        {data.id === 4 && (
+                          <>
                             <div
-                              className="data-banner"
+                              className="data-banner-container data-banner-container-ext"
+                              key={data.id}
                               style={{
-                                height: "510px",
-                                borderRadius: "30px",
-                                backgroundImage:
-                                  "url(" +
-                                  "http://api.rjwada.com/assets/" +
-                                  `${data.banner}` +
-                                  ")",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
+                                height: '600px',
+                                overflow: 'hidden',
+                                width: '380px',
                               }}
-                            ></div>
-                          </Link>
-                          <div
-                            key={data.id}
-                            className="collection-item-text"
-                          >
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`productpage/${data.id}`}
                             >
-                              <center>
+                              {/* `productpage/${data.id} */}
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={`productpage/${data.category_id}/${data.id}`}
+                                onClick={() => {
+                                  <ParticularProduct
+                                    cat_id={data.category_id}
+                                  />;
+                                }}
+                              >
                                 <div
+                                  className="data-banner"
                                   style={{
-                                    fontSize: "1.2rem",
-                                    marginTop: "-20px",
-                                    color: "black",
+                                    height: '510px',
+                                    borderRadius: '30px',
+                                    backgroundImage:
+                                      'url(' +
+                                      'http://api.rjwada.com/assets/' +
+                                      `${data.banner}` +
+                                      ')',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
                                   }}
+                                ></div>
+                              </Link>
+                              <div
+                                key={data.id}
+                                className="collection-item-text"
+                              >
+                                <Link
+                                  style={{ textDecoration: 'none' }}
+                                  to={`productpage/${data.id}`}
                                 >
-                                  {data.name}
-                                </div>
-                                <div
-                                  style={{
-                                    marginTop: "0.2rem",
-                                    fontSize: "1.5rem",
-                                    color: "black",
-                                  }}
-                                >
-                                  ₹ {data.price}
-                                </div>
-                              </center>
-                            </Link>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                    {data.id === 11 && (
-                      <>
-                        <div
-                          className="data-banner-container data-banner-container-ext"
-                          key={data.id}
-                          style={{
-                            height: "600px",
-                            overflow: "hidden",
-                            margin: "40px",
-                            width: "380px",
-                          }}
-                        >
-                          <Link
-                            style={{ textDecoration: "none" }}
-                            to={`productpage/${data.category_id}/${data.id}`}
-                            onClick={() => {
-                              <ParticularProduct cat_id={data.category_id} />;
-                            }}
-                          >
+                                  <center>
+                                    <div
+                                      style={{
+                                        fontSize: '1.2rem',
+                                        marginTop: '-20px',
+                                        color: 'black',
+                                      }}
+                                    >
+                                      {data.name}
+                                    </div>
+                                    <div
+                                      style={{
+                                        marginTop: '0.2rem',
+                                        fontSize: '1.5rem',
+                                        color: 'black',
+                                      }}
+                                    >
+                                      ₹ {data.price}
+                                    </div>
+                                  </center>
+                                </Link>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {data.id === 11 && (
+                          <>
                             <div
-                              className="data-banner"
+                              className="data-banner-container data-banner-container-ext"
+                              key={data.id}
                               style={{
-                                height: "510px",
-                                borderRadius: "30px",
-                                backgroundImage:
-                                  "url(" +
-                                  "http://api.rjwada.com/assets/" +
-                                  `${data.banner}` +
-                                  ")",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
+                                height: '600px',
+                                overflow: 'hidden',
+                                margin: '40px',
+                                width: '380px',
                               }}
-                            ></div>
-                          </Link>
-                          <div key={data.id} className="collection-item-text">
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`productpage/${data.id}`}
                             >
-                              <center>
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={`productpage/${data.category_id}/${data.id}`}
+                                onClick={() => {
+                                  <ParticularProduct
+                                    cat_id={data.category_id}
+                                  />;
+                                }}
+                              >
                                 <div
+                                  className="data-banner"
                                   style={{
-                                    fontSize: "1.2rem",
-                                    marginTop: "-20px",
-                                    color: "black",
+                                    height: '510px',
+                                    borderRadius: '30px',
+                                    backgroundImage:
+                                      'url(' +
+                                      'http://api.rjwada.com/assets/' +
+                                      `${data.banner}` +
+                                      ')',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
                                   }}
+                                ></div>
+                              </Link>
+                              <div
+                                key={data.id}
+                                className="collection-item-text"
+                              >
+                                <Link
+                                  style={{ textDecoration: 'none' }}
+                                  to={`productpage/${data.id}`}
                                 >
-                                  {data.name}
-                                </div>
-                                <div
-                                  style={{
-                                    marginTop: "0.2rem",
-                                    fontSize: "1.5rem",
-                                    color: "black",
-                                  }}
-                                >
-                                  ₹ {data.price}
-                                </div>
-                              </center>
-                            </Link>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                    {data.id === 5 && (
-                      <>
-                        <div
-                          className="data-banner-container data-banner-container-ext"
-                          key={data.id}
-                          style={{
-                            height: "600px",
-                            overflow: "hidden",
-                            margin: "40px",
-                            width: "380px",
-                          }}
-                        >
-                          <Link
-                            style={{ textDecoration: "none" }}
-                            to={`productpage/${data.category_id}/${data.id}`}
-                            onClick={() => {
-                              <ParticularProduct cat_id={data.category_id} />;
-                            }}
-                          >
+                                  <center>
+                                    <div
+                                      style={{
+                                        fontSize: '1.2rem',
+                                        marginTop: '-20px',
+                                        color: 'black',
+                                      }}
+                                    >
+                                      {data.name}
+                                    </div>
+                                    <div
+                                      style={{
+                                        marginTop: '0.2rem',
+                                        fontSize: '1.5rem',
+                                        color: 'black',
+                                      }}
+                                    >
+                                      ₹ {data.price}
+                                    </div>
+                                  </center>
+                                </Link>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        {data.id === 5 && (
+                          <>
                             <div
-                              className="data-banner"
+                              className="data-banner-container data-banner-container-ext"
+                              key={data.id}
                               style={{
-                                height: "510px",
-                                borderRadius: "30px",
-                                backgroundImage:
-                                  "url(" +
-                                  "http://api.rjwada.com/assets/" +
-                                  `${data.banner}` +
-                                  ")",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
+                                height: '600px',
+                                overflow: 'hidden',
+                                margin: '40px',
+                                width: '380px',
                               }}
-                            ></div>
-                          </Link>
-                          <div key={data.id} className="collection-item-text">
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`productpage/${data.id}`}
                             >
-                              <center>
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={`productpage/${data.category_id}/${data.id}`}
+                                onClick={() => {
+                                  <ParticularProduct
+                                    cat_id={data.category_id}
+                                  />;
+                                }}
+                              >
                                 <div
+                                  className="data-banner"
                                   style={{
-                                    fontSize: "1.2rem",
-                                    marginTop: "-20px",
-                                    color: "black",
+                                    height: '510px',
+                                    borderRadius: '30px',
+                                    backgroundImage:
+                                      'url(' +
+                                      'http://api.rjwada.com/assets/' +
+                                      `${data.banner}` +
+                                      ')',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
                                   }}
+                                ></div>
+                              </Link>
+                              <div
+                                key={data.id}
+                                className="collection-item-text"
+                              >
+                                <Link
+                                  style={{ textDecoration: 'none' }}
+                                  to={`productpage/${data.id}`}
                                 >
-                                  {data.name}
-                                </div>
-                                <div
-                                  style={{
-                                    marginTop: "0.2rem",
-                                    fontSize: "1.5rem",
-                                    color: "black",
-                                  }}
-                                >
-                                  ₹ {data.price}
-                                </div>
-                              </center>
-                            </Link>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                ))}
-            </div>
-          </div>
+                                  <center>
+                                    <div
+                                      style={{
+                                        fontSize: '1.2rem',
+                                        marginTop: '-20px',
+                                        color: 'black',
+                                      }}
+                                    >
+                                      {data.name}
+                                    </div>
+                                    <div
+                                      style={{
+                                        marginTop: '0.2rem',
+                                        fontSize: '1.5rem',
+                                        color: 'black',
+                                      }}
+                                    >
+                                      ₹ {data.price}
+                                    </div>
+                                  </center>
+                                </Link>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+          </SkeletonTheme>
         </div>
       </div>
       <Footer />
