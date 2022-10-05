@@ -385,7 +385,13 @@ const ParticularCategory = ({ addToCart }) => {
                             <div style={{ marginRight: '10px' }}>Size:</div>
                             {data.sizes.map((size) => {
                               return (
-                                <div className='button-size' style={{  backgroundColor: "#D0D0D0",marginLeft: '.4rem' }}>
+                                <div
+                                  className="button-size"
+                                  style={{
+                                    backgroundColor: '#D0D0D0',
+                                    marginLeft: '.4rem',
+                                  }}
+                                >
                                   {size}{' '}
                                 </div>
                               );

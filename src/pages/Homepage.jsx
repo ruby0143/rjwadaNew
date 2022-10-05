@@ -21,6 +21,7 @@ import ParticularProduct from './ParticularProduct';
 const Homepage = (props) => {
   const navigate = useNavigate;
   const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(true);
   function Getcurrentuser() {
     const [user, setuser] = useState(null);
     useEffect(() => {
@@ -79,7 +80,7 @@ const Homepage = (props) => {
         })
         .then((actualhomepageTopseller) => {
           sethomepageTopseller(actualhomepageTopseller.data);
-         //setLoading(false);
+          setLoading1(false);
           console.log(actualhomepageTopseller);
         })
         .catch((err) => {
@@ -125,13 +126,13 @@ const Homepage = (props) => {
                   {data &&
                     data.map((data) => (
                       <div
-                        className="categorycard-homepage"
+                        className="categorycard-homepage1"
                         key={data.id}
                         data-aos="fade-in"
                       >
                         {data.id < 4 && (
                           <div
-                            className="data-banner-container"
+                            className="data-banner-container1"
                             key={data.id}
                             style={{}}
                           >
@@ -140,9 +141,9 @@ const Homepage = (props) => {
                               to={`productpage/${data.id}`}
                             >
                               <div
-                                className="data-banner"
+                                className="data-banner1"
                                 style={{
-                                  borderRadius: '30px',
+                                  borderRadius: '13px',
                                   backgroundImage:
                                     'url(' +
                                     'http://api.rjwada.com/assets/' +
@@ -204,7 +205,7 @@ const Homepage = (props) => {
             <center>Hot Selling Products</center>
           </div>
           <SkeletonTheme baseColor="#cfcfcf" highlightColor="#DFD8D7">
-            {loading ? (
+            {loading1 ? (
               <>
                 <div className="skeleton">
                   <CardSkeleton /> <CardSkeleton /> <CardSkeleton />
@@ -246,7 +247,7 @@ const Homepage = (props) => {
                                   className="data-banner"
                                   style={{
                                     height: '510px',
-                                    borderRadius: '30px',
+                                    borderRadius: '13px',
                                     backgroundImage:
                                       'url(' +
                                       'http://api.rjwada.com/assets/' +
@@ -298,7 +299,6 @@ const Homepage = (props) => {
                               style={{
                                 height: '600px',
                                 overflow: 'hidden',
-                                margin: '40px',
                                 width: '380px',
                               }}
                             >
@@ -315,7 +315,7 @@ const Homepage = (props) => {
                                   className="data-banner"
                                   style={{
                                     height: '510px',
-                                    borderRadius: '30px',
+                                    borderRadius: '13px',
                                     backgroundImage:
                                       'url(' +
                                       'http://api.rjwada.com/assets/' +
@@ -384,7 +384,7 @@ const Homepage = (props) => {
                                   className="data-banner"
                                   style={{
                                     height: '510px',
-                                    borderRadius: '30px',
+                                    borderRadius: '13px',
                                     backgroundImage:
                                       'url(' +
                                       'http://api.rjwada.com/assets/' +
