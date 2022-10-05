@@ -1,29 +1,29 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import { BsHandbag } from "react-icons/bs";
-import { useState, useEffect } from "react";
-import Toplist from "../components/Toplist";
-import { Link, useParams } from "react-router-dom";
-import "./ParticularProduct.css";
-import Razorpay from "../components/Razorpay";
-import { auth, fs, storage, initializeAuthentication } from "../config/Config";
-import { useNavigate } from "react-router-dom";
-import { senddata } from "../components/send";
-import { BsCircleFill } from "react-icons/bs";
-import { BsHeartFill } from "react-icons/bs";
-import { BsHeart } from "react-icons/bs";
-import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Footer from "../components/Footer";
-import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import React from 'react';
+import Navbar from '../components/Navbar';
+import { BsHandbag } from 'react-icons/bs';
+import { useState, useEffect } from 'react';
+import Toplist from '../components/Toplist';
+import { Link, useParams } from 'react-router-dom';
+import './ParticularProduct.css';
+import Razorpay from '../components/Razorpay';
+import { auth, fs, storage, initializeAuthentication } from '../config/Config';
+import { useNavigate } from 'react-router-dom';
+import { senddata } from '../components/send';
+import { BsCircleFill } from 'react-icons/bs';
+import { BsHeartFill } from 'react-icons/bs';
+import { BsHeart } from 'react-icons/bs';
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Footer from '../components/Footer';
+import Carousel from 'react-material-ui-carousel';
+import { Paper, Button } from '@mui/material';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
-import "firebase/compat/storage";
-import "firebase/compat/database";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
+import 'firebase/compat/database';
 
 const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          fs.collection("users")
+          fs.collection('users')
             .doc(user.uid)
             .get()
             .then((snapshot) => {
@@ -54,7 +54,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const [data, setData] = useState(null);
   console.log(data);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/products")
+    fetch('http://api.rjwada.com/items/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -71,20 +71,20 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
       });
   }, []);
 
-  const [selectedsize, setselectedsize] = useState("");
-  const [name, setname] = useState("Product name");
-  const [size, setsize] = useState("");
+  const [selectedsize, setselectedsize] = useState('');
+  const [name, setname] = useState('Product name');
+  const [size, setsize] = useState('');
   const [image, setimage] = useState([]);
   const [images, setimages] = useState([]);
-  const [categoryId, setcategoryId] = useState("");
-  const [productId, setproductId] = useState("");
-  const [price, setprice] = useState("Product price");
-  const [description, setdescription] = useState("Product description");
+  const [categoryId, setcategoryId] = useState('');
+  const [productId, setproductId] = useState('');
+  const [price, setprice] = useState('Product price');
+  const [description, setdescription] = useState('Product description');
   const [datas, setdata] = useState({});
-  const [banner, setbanner] = useState("Product img");
+  const [banner, setbanner] = useState('Product img');
   const [color, setColor] = useState({});
-  const [discount, setDiscount] = useState("");
-  const [features, setFeatures] = useState("");
+  const [discount, setDiscount] = useState('');
+  const [features, setFeatures] = useState('');
 
   useEffect(() => {
     data &&
@@ -107,58 +107,58 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
       );
   }, [data]);
   console.log(datas);
-  datas["categoryId"] = categoryId;
+  datas['categoryId'] = categoryId;
   console.log(selectedsize);
 
   let quantity = 1;
 
   let tosend = {};
-  tosend["userid_id"] = localStorage.getItem("uid");
-  tosend["name"] = name;
-  tosend["quantity"] = quantity;
-  tosend["size"] = selectedsize;
-  tosend["categoryId"] = categoryId;
-  tosend["product_id"] = productId;
-  tosend["productPrice"] = price;
-  tosend["description"] = description;
-  tosend["banner"] = banner;
-  tosend["color"] = color;
+  tosend['userid_id'] = localStorage.getItem('uid');
+  tosend['name'] = name;
+  tosend['quantity'] = quantity;
+  tosend['size'] = selectedsize;
+  tosend['categoryId'] = categoryId;
+  tosend['product_id'] = productId;
+  tosend['productPrice'] = price;
+  tosend['description'] = description;
+  tosend['banner'] = banner;
+  tosend['color'] = color;
 
   useEffect(() => {
-    if (localStorage.getItem("paymentdone") === true) {
-      console.log("paymentdone");
+    if (localStorage.getItem('paymentdone') === true) {
+      console.log('paymentdone');
       senddata(tosend);
-      localStorage.setItem("paymentdone", false);
+      localStorage.setItem('paymentdone', false);
     } else {
-      localStorage.setItem("paymentdone", false);
+      localStorage.setItem('paymentdone', false);
     }
   }, []);
   const [clicked, setClicked] = useState(false);
 
   async function sendImg(endpoint, base64_str, prod_id, user_id) {
     let headersList = {
-      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Origin': '*',
     };
 
-    console.log(base64_str.split("data:image/jpeg;base64,")[1]);
+    console.log(base64_str.split('data:image/jpeg;base64,')[1]);
 
     let bodyContent = new FormData();
     bodyContent.append(
-      "base64_str",
-      base64_str.split("data:image/jpeg;base64,")[1]
+      'base64_str',
+      base64_str.split('data:image/jpeg;base64,')[1]
     );
     console.log(returnedEndpoint);
     let uun = Date.now() * Math.random();
-    bodyContent.append("filename", `${prod_id}*${user_id}*${uun}`);
+    bodyContent.append('filename', `${prod_id}*${user_id}*${uun}`);
 
     let response = fetch(endpoint, {
-      method: "POST",
-      mode: "no-cors",
+      method: 'POST',
+      mode: 'no-cors',
       body: bodyContent,
       headers: headersList,
     });
 
-    console.log("done");
+    console.log('done');
     response.then((a) => {
       console.log(a);
       getImageURL(`${prod_id}*${user_id}*${uun}`);
@@ -171,7 +171,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
 
   // var storageRefImgs = storageRef.child("images");
 
-  const [MLimage, setMLimage] = useState("");
+  const [MLimage, setMLimage] = useState('');
   function getImageURL(imageName) {
     // "imageName" is the (<str>) full name of image with extensions.
     // It's just the name, do not pass anything else with it.
@@ -183,7 +183,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
       .then((url) => {
         // This is the actual URL (encrypted by Google).
         // Use it however you want to.
-        console.log("final image url", url);
+        console.log('final image url', url);
         setMLimage(url);
         // setimagetoview(url)
         return url;
@@ -191,13 +191,13 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   }
 
   initializeAuthentication();
-  const [returnedEndpoint, setreturnedEndpoint] = useState("");
+  const [returnedEndpoint, setreturnedEndpoint] = useState('');
   const getEndpoint = () => {
     // This function returns endpoint that is to be called by Fetch request.
-    console.log("function called");
-    var dbRef = firebase.database().ref().child("URL");
-    dbRef.on("value", (snap) => {
-      var endpoint = snap.val()["URL"] + "/upload";
+    console.log('function called');
+    var dbRef = firebase.database().ref().child('URL');
+    dbRef.on('value', (snap) => {
+      var endpoint = snap.val()['URL'] + '/upload';
       // console.log('this is endpoint - ', endpoint);
       // console.log('this is endpoint - ', endpoint);
       setreturnedEndpoint(endpoint);
@@ -208,13 +208,13 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
 
   console.log(size);
 
-  const [base64, setbase64] = useState("");
+  const [base64, setbase64] = useState('');
   const [readers, setreaders] = useState({});
   function loadfile(images) {
     getEndpoint();
     var reader = new FileReader();
     reader.onload = function () {
-      var output = document.getElementById("output");
+      var output = document.getElementById('output');
       setreaders(reader);
       output.src = readers.result;
       var res = readers.result;
@@ -227,9 +227,8 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   console.log(readers.result);
 
   const [sizenotselected, setsizenotselected] = useState(false);
-  const [imagetoview, setimagetoview] = useState("");
-  const [uploadedimage, setuploadedimage] = useState("");
-
+  const [imagetoview, setimagetoview] = useState('');
+  const [uploadedimage, setuploadedimage] = useState('');
   console.log(uploadedimage);
 
   return (
@@ -243,88 +242,127 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               <div
                 onClick={() => {
                   setimagetoview(
-                    "url(" +
-                      "http://api.rjwada.com/assets/" +
+                    'url(' +
+                      'http://api.rjwada.com/assets/' +
                       `${images[0]}` +
-                      ")"
+                      ')'
                   );
                 }}
                 className="vertical-slider-item"
                 style={{
                   backgroundImage:
-                    "url(" +
-                    "http://api.rjwada.com/assets/" +
+                    'url(' +
+                    'http://api.rjwada.com/assets/' +
                     `${images[0]}` +
-                    ")",
+                    ')',
                 }}
               ></div>
               <div
                 onClick={() => {
                   setimagetoview(
-                    "url(" +
-                      "http://api.rjwada.com/assets/" +
+                    'url(' +
+                      'http://api.rjwada.com/assets/' +
                       `${images[1]}` +
-                      ")"
+                      ')'
                   );
                 }}
                 className="vertical-slider-item"
                 style={{
                   backgroundImage:
-                    "url(" +
-                    "http://api.rjwada.com/assets/" +
+                    'url(' +
+                    'http://api.rjwada.com/assets/' +
                     `${images[1]}` +
-                    ")",
+                    ')',
                 }}
               ></div>
-              <div
-                onClick={() => {
-                  setimagetoview(
-                    "url(" +
-                      "http://api.rjwada.com/assets/" +
-                      `${images[2]}` +
-                      ")"
-                  );
-                }}
-                className="vertical-slider-item"
-                style={{
-                  backgroundImage:
-                    "url(" +
-                    "http://api.rjwada.com/assets/" +
-                    `${images[2]}` +
-                    ")",
-                }}
-              ></div>
-              {MLimage ? (
+              {images[2] ? (
                 <div
                   onClick={() => {
-                    setimagetoview("url(" + MLimage + ")");
+                    setimagetoview(
+                      'url(' +
+                        'http://api.rjwada.com/assets/' +
+                        `${images[2]}` +
+                        ')'
+                    );
                   }}
                   className="vertical-slider-item"
                   style={{
-                    backgroundImage: "url(" + MLimage + ")",
+                    backgroundImage:
+                      'url(' +
+                      'http://api.rjwada.com/assets/' +
+                      `${images[2]}` +
+                      ')',
                   }}
                 ></div>
               ) : (
                 <div
+                onClick={() => {
+                  setimagetoview(
+                    'url(' +
+                      'http://api.rjwada.com/assets/' +
+                      `${images[0]}` +
+                      ')'
+                  );
+                }}
+                className="vertical-slider-item"
+                // style={{
+                //   backgroundImage:
+                //     'url(' +
+                //     'http://api.rjwada.com/assets/' +
+                //     `${images[0]}` +
+                //     ')',
+                // }}
+              ></div>
+              )}
+
+              {MLimage ? (
+                <div
                   onClick={() => {
-                    setimagetoview("url(" + uploadedimage + ")");
+                    setimagetoview('url(' + MLimage + ')');
                   }}
                   className="vertical-slider-item"
                   style={{
-                    backgroundImage: "url(" + uploadedimage + ")",
+                    backgroundImage: 'url(' + MLimage + ')',
                   }}
                 ></div>
-              )}
-              <div
+              ) : <>{uploadedimage ?(<div
+                onClick={() => {
+                  setimagetoview('url(' + uploadedimage + ')');
+                }}
+                className="vertical-slider-item"
+                style={{
+                  backgroundImage: 'url(' + uploadedimage + ')',
+                }}
+              ></div>):(<div
+                onClick={() => {
+                  setimagetoview(
+                    'url(' +
+                      'http://api.rjwada.com/assets/' +
+                      `${images[0]}` +
+                      ')'
+                  );
+                }}
+                className="vertical-slider-item"
+                // style={{
+                //   backgroundImage:
+                //     'url(' +
+                //     'http://api.rjwada.com/assets/' +
+                //     `${images[0]}` +
+                //     ')',
+                // }}
+              ></div>)}</>
+                
+              }
+              {/* <div
                 // onClick={()=>{setimagetoview("url(" +
                 // "http://api.rjwada.com/assets/" +
                 // `${images[2]}` +
                 // ")")}}
                 className="vertical-slider-item"
                 style={{
-                  backgroundImage: "url(" + { uploadedimage } + ")",
+                  backgroundImage: 'url(' + uploadedimage + ')',
                 }}
-              ></div>
+              ></div> */}
               {/* <img src={require(images[0])} alt="" /> */}
             </div>
 
@@ -343,10 +381,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     className="particular-productimage"
                     style={{
                       backgroundImage:
-                        "url(" +
-                        "http://api.rjwada.com/assets/" +
+                        'url(' +
+                        'http://api.rjwada.com/assets/' +
                         `${images[0]}` +
-                        ")",
+                        ')',
                     }}
                   ></div>
                 )}
@@ -393,7 +431,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       className="custom-file-input"
                       title=""
                       style={{
-                        content: "Upload",
+                        content: 'Upload',
                       }}
                     />
                   </div>
@@ -404,24 +442,24 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         returnedEndpoint,
                         readers.result,
                         `${productId}`,
-                        localStorage.getItem("uid")
+                        localStorage.getItem('uid')
                       )
                     }
                     style={{
-                      background: "#B2EEEE",
-                      border: "1px solid rgba(0, 0, 0, 0.137)",
-                      borderRadius: "15px",
-                      padding: "10px 30px",
-                      fontWeight: "300",
-                      fontSize: "18px",
-                      cursor: "pointer",
+                      background: '#B2EEEE',
+                      border: '1px solid rgba(0, 0, 0, 0.137)',
+                      borderRadius: '15px',
+                      padding: '10px 30px',
+                      fontWeight: '300',
+                      fontSize: '18px',
+                      cursor: 'pointer',
                     }}
                   >
                     Tryon
                   </button>
                 </div>
                 <div class="button-content">
-                  <AiOutlineInfoCircle style={{ marginRight: "5px" }} />
+                  <AiOutlineInfoCircle style={{ marginRight: '5px' }} />
                   To use Try-On feature, click on Upload button, then click on
                   Tryon button
                 </div>
@@ -439,7 +477,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               </div>
               <div className="product-category-text"></div>
               <div className="product-size-header">
-                {" "}
+                {' '}
                 <br />
                 <div className="product-size-heading">
                   <h3>Sizes</h3>
@@ -450,7 +488,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <button
                       className="product-size-item"
                       onClick={() => {
-                        localStorage.setItem("size", size[0]);
+                        localStorage.setItem('size', size[0]);
                         setselectedsize(size[0]);
                       }}
                     >
@@ -459,7 +497,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   ) : (
                     <button
                       disabled={true}
-                      style={{ backgroundColor: "#D0D0D0" }}
+                      style={{ backgroundColor: '#D0D0D0' }}
                       className="product-size-item"
                       onClick={() => setselectedsize(size[0])}
                     >
@@ -470,7 +508,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <button
                       className="product-size-item"
                       onClick={() => {
-                        localStorage.setItem("size", size[1]);
+                        localStorage.setItem('size', size[1]);
                         setselectedsize(size[1]);
                       }}
                     >
@@ -479,7 +517,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   ) : (
                     <button
                       disabled={true}
-                      style={{ backgroundColor: "#D0D0D0" }}
+                      style={{ backgroundColor: '#D0D0D0' }}
                       className="product-size-item"
                       onClick={() => setselectedsize(size[1])}
                     >
@@ -490,7 +528,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <button
                       className="product-size-item"
                       onClick={() => {
-                        localStorage.setItem("size", size[2]);
+                        localStorage.setItem('size', size[2]);
                         setselectedsize(size[2]);
                       }}
                     >
@@ -499,7 +537,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   ) : (
                     <button
                       disabled={true}
-                      style={{ backgroundColor: "#D0D0D0" }}
+                      style={{ backgroundColor: '#D0D0D0' }}
                       className="product-size-item"
                       onClick={() => setselectedsize(size[2])}
                     >
@@ -510,7 +548,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <button
                       className="product-size-item"
                       onClick={() => {
-                        localStorage.setItem("size", size[3]);
+                        localStorage.setItem('size', size[3]);
                         setselectedsize(size[3]);
                       }}
                     >
@@ -519,7 +557,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   ) : (
                     <button
                       disabled={true}
-                      style={{ backgroundColor: "#D0D0D0" }}
+                      style={{ backgroundColor: '#D0D0D0' }}
                       className="product-size-item"
                       onClick={() => setselectedsize(size[3])}
                     >
@@ -530,7 +568,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <button
                       className="product-size-item"
                       onClick={() => {
-                        localStorage.setItem("size", size[4]);
+                        localStorage.setItem('size', size[4]);
                         setselectedsize(size[4]);
                       }}
                     >
@@ -539,7 +577,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   ) : (
                     <button
                       disabled={true}
-                      style={{ backgroundColor: "#D0D0D0" }}
+                      style={{ backgroundColor: '#D0D0D0' }}
                       className="product-size-item"
                       onClick={() => setselectedsize(size[4])}
                     >
@@ -549,23 +587,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 </div>
                 <br />
               </div>
-              {selectedsize == "S" ||
-              selectedsize == "M" ||
-              selectedsize == "L" ||
-              selectedsize == "XL" ||
-              selectedsize == "XXL" ? null : (
+              {selectedsize == 'S' ||
+              selectedsize == 'M' ||
+              selectedsize == 'L' ||
+              selectedsize == 'XL' ||
+              selectedsize == 'XXL' ? null : (
                 <h3
                   style={{
-                    marginTop: "-8px",
-                    marginLeft: "5px",
-                    color: "red",
-                    fontFamily: "Montserrat",
+                    marginTop: '-8px',
+                    marginLeft: '5px',
+                    color: 'red',
+                    fontFamily: 'Montserrat',
                   }}
                 >
                   *Please select a size
                 </h3>
               )}
-              {sizenotselected ? null : console.log("Size selection needed")}
+              {sizenotselected ? null : console.log('Size selection needed')}
               <div className="size-lower-text">
                 {/* Size Not Available? */}
                 {/* <span className="product-notify">Notify Me</span> */}
@@ -597,10 +635,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <BsCircleFill
                       style={{
                         color: `${color[0]}`,
-                        border: "1px solid black",
-                        borderRadius: "30px",
-                        margin: "9px",
-                        fontSize: "20px",
+                        border: '1px solid black',
+                        borderRadius: '30px',
+                        margin: '9px',
+                        fontSize: '20px',
                       }}
                     />
                   )}
@@ -608,10 +646,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     <BsCircleFill
                       style={{
                         color: `${color[1]}`,
-                        border: "1px solid black",
-                        borderRadius: "30px",
-                        margin: "9px",
-                        fontSize: "20px",
+                        border: '1px solid black',
+                        borderRadius: '30px',
+                        margin: '9px',
+                        fontSize: '20px',
                       }}
                     />
                   )}
@@ -619,19 +657,19 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               </div>
               <div className="product-btn-section product-btn-section-desktop">
                 <div className="buy-now-btn">
-                  {!user || localStorage.getItem("city") === null ? (
+                  {!user || localStorage.getItem('city') === null ? (
                     <>
                       {!user ? (
                         <button
                           className="product-button-cart "
-                          onClick={() => navigate("/login")}
+                          onClick={() => navigate('/login')}
                         >
                           Buy Now
                         </button>
                       ) : (
                         <button
                           className="product-button-cart "
-                          onClick={() => navigate("/profile")}
+                          onClick={() => navigate('/profile')}
                         >
                           Buy Now
                         </button>
@@ -658,9 +696,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     </>
                   )}
                 </div>
-                <div style={{ flex: 0.2, textAlign: "center" }}>
+                <div style={{ flex: 0.2, textAlign: 'center' }}>
                   <BsHandbag
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: 'pointer' }}
                     // className="product-button-cart"
                     size={28}
                     onClick={() => {
@@ -669,10 +707,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       } else {
                         setTimeout(() => {
                           setsizenotselected(true);
-                          console.log("size?", { selectedsize });
-                          console.log("datas.data", datas.data);
+                          console.log('size?', { selectedsize });
+                          console.log('datas.data', datas.data);
                           addToCart(datas.data, selectedsize);
-                          navigate("/cart");
+                          navigate('/cart');
                         }, 1000);
                       }
                     }}
@@ -709,17 +747,17 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   {clicked ? (
                     <BsHeartFill
                       style={{
-                        fontSize: "28px",
-                        cursor: "pointer",
-                        color: "#B2EEEE",
+                        fontSize: '28px',
+                        cursor: 'pointer',
+                        color: '#B2EEEE',
                       }}
                     />
                   ) : (
                     <BsHeart
                       style={{
-                        fontSize: "28px",
-                        cursor: "pointer",
-                        color: "black",
+                        fontSize: '28px',
+                        cursor: 'pointer',
+                        color: 'black',
                       }}
                       onClick={() => {
                         if (!selectedsize) {
@@ -727,10 +765,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         } else {
                           setTimeout(() => {
                             setsizenotselected(true);
-                            console.log("size?", { selectedsize });
-                            console.log("datas.data", datas.data);
+                            console.log('size?', { selectedsize });
+                            console.log('datas.data', datas.data);
                             addToWhishlist(datas.data, selectedsize);
-                            navigate("/whishlist");
+                            navigate('/whishlist');
                           }, 1000);
                         }
                       }}
@@ -741,18 +779,18 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
 
               <div className="product-btn-section-mobile">
                 <div>
-                  {!user || localStorage.getItem("city") === null ? (
+                  {!user || localStorage.getItem('city') === null ? (
                     <>
                       {!user ? (
                         <button
-                          onClick={() => navigate("/login")}
+                          onClick={() => navigate('/login')}
                           className="product-button-cart"
                         >
                           Buy Now
                         </button>
                       ) : (
                         <button
-                          onClick={() => navigate("/profile")}
+                          onClick={() => navigate('/profile')}
                           className="product-button-cart"
                         >
                           Buy Now
@@ -766,7 +804,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                           Buy Now
                         </button>
                       ) : (
-                        <div style={{ width: "85%", marginLeft: "10px" }}>
+                        <div style={{ width: '85%', marginLeft: '10px' }}>
                           <Razorpay
                             btnText="Buy Now"
                             totalCartPrice={price}
@@ -787,10 +825,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         } else {
                           setTimeout(() => {
                             setsizenotselected(true);
-                            console.log("size?", { selectedsize });
-                            console.log("datas.data", datas.data);
+                            console.log('size?', { selectedsize });
+                            console.log('datas.data', datas.data);
                             addToCart(datas.data, selectedsize);
-                            navigate("/cart");
+                            navigate('/cart');
                           }, 1000);
                         }
                       }}
@@ -821,10 +859,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                           } else {
                             setTimeout(() => {
                               setsizenotselected(true);
-                              console.log("size?", { selectedsize });
-                              console.log("datas.data", datas.data);
+                              console.log('size?', { selectedsize });
+                              console.log('datas.data', datas.data);
                               addToWhishlist(datas.data, selectedsize);
-                              navigate("/whishlist");
+                              navigate('/whishlist');
                             }, 1000);
                           }
                         }}
