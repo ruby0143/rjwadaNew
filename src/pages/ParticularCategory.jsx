@@ -39,9 +39,10 @@ const ParticularCategory = ({ addToCart }) => {
   }
 
   const user = Getcurrentuser();
-
+  let modiSize = [0, 0, 0, 0, 0];
   const { category_id } = useParams();
   const [data, setData] = useState(null);
+  const [sizedata, setSizedata] = useState([]);
   console.log(category_id);
   useEffect(() => {
     fetch('http://api.rjwada.com/items/products')
@@ -55,6 +56,7 @@ const ParticularCategory = ({ addToCart }) => {
       })
       .then((actualdata) => {
         setData(actualdata.data);
+        setSizedata(actualdata.data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -82,7 +84,10 @@ const ParticularCategory = ({ addToCart }) => {
   }, []);
   // Drawer
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+  //   const smallFound=data[0].sizes.find(el=>{
+  //     return el=="S";
+  //   });
+  // console.log(smallFound);
   return (
     <div>
       {/* <Toplist /> */}
@@ -305,8 +310,8 @@ const ParticularCategory = ({ addToCart }) => {
             <br />
             {/* Productpage {id} */}
             <div className="shopby-products">
-              {data &&
-                data.map((data) =>
+              {sizedata &&
+                sizedata.map((data) =>
                   data.category_id == category_id &&
                   data.status == 'published' ? (
                     <Link
@@ -384,18 +389,46 @@ const ParticularCategory = ({ addToCart }) => {
                           <div style={{ display: 'flex' }}>
                             <div style={{ marginRight: '10px' }}>Size:</div>
                             {data.sizes.map((size) => {
-                              return (
-                                <div
-                                  className="button-size"
-                                  style={{
-                                    backgroundColor: '#D0D0D0',
-                                    marginLeft: '.4rem',
-                                  }}
-                                >
-                                  {size}{' '}
-                                </div>
-                              );
+                              // return (
+                              //   <div
+                              //     className="button-size"
+                              //     style={{
+                              //       backgroundColor: '#D0D0D0',
+                              //       marginLeft: '.4rem',
+                              //     }}
+                              //   >
+                              //     {size}{' '}
+                              //   </div>
+                              // );
+                              if (size == 'S') {
+                                modiSize[0] = 'S';
+                              } else if (size == 'M') {
+                                modiSize[1] = 'M';
+                              } else if (size == 'L') {
+                                modiSize[2] = 'L';
+                              } else if (size == 'XL') {
+                                modiSize[3] = 'XL';
+                              } else if (size == 'XXL') {
+                                modiSize[4] = 'XXL';
+                                console.log(modiSize);
+                              }
                             })}
+                            <>
+                              {modiSize.map((el, index) => {
+                                return el != 0 ? (
+                                  <div
+                                    key={index}
+                                    className="button-size"
+                                    style={{
+                                      backgroundColor: '#D0D0D0',
+                                      marginLeft: '.4rem',
+                                    }}
+                                  >
+                                    {el}
+                                  </div>
+                                ) : null;
+                              })}
+                            </>
                           </div>
                         </div>
                       </div>
