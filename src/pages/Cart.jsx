@@ -8,6 +8,8 @@ import { Icon } from "react-icons-kit";
 import { plus } from "react-icons-kit/feather/plus";
 import { minus } from "react-icons-kit/feather/minus";
 import "./Cart.css";
+import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
@@ -239,7 +241,25 @@ const Cart = ({ userid }) => {
                                 <div className="wish-text">
                                   <b>{p.name}</b>
                                 </div>
-                                <div className="wish-text">₹ {p.price}</div>
+                                <div
+                                  className="p-details"
+                                  style={{ display: "flex" , flexDirection:"column",alignItems:"flex-start",
+                                  margin:"10px", fontWeight:"600"}}
+                                >
+                                  <div
+                                    className="wish-text m5"
+                                    
+                                  >
+                                    Size : {p.size}
+                                  </div>
+                                  <div
+                                    className="wish-text m5"
+                                    
+                                  >
+                                    Price : ₹ {p.price}
+                                  </div>
+                                </div>
+
                                 {/* Product size : {p.sizes[0]} */}
                                 {/* <h4>Price : {p.price}</h4> */}
                               </div>
@@ -308,51 +328,108 @@ const Cart = ({ userid }) => {
           </div>
 
           <div className="cart-detail-container">
-            <div className="cart-address-wrapper">
-              <div className="cart-add-header">
-                <div className="cart-add-icon">
-                  <LocationOnRoundedIcon />
-                </div>
-                <div className="cart-add-heading">
-                  <div className="add-heading-bold">Delivery Address</div>
-                  <div className="add-heading-light">
-                    We will deliver your order to this address
+            <div
+              className="cart-address-wrapper"
+              style={{
+                boxShadow: "none",
+                padding: "10px",
+              }}
+            >
+              <Accordion
+                defaultExpanded={false}
+                className="product-accordion-main"
+              >
+                <AccordionSummary
+                  id="panel1-header"
+                  className="product-accordion-header"
+                  expandIcon={<ExpandMoreIcon />}
+                >
+                  <div className="accordion-heading">
+                    <div className="cart-add-header">
+                      <div className="cart-add-icon">
+                        <LocationOnRoundedIcon />
+                      </div>
+                      <div
+                        className="cart-add-heading"
+                        style={{
+                          margin: "5px",
+                        }}
+                      >
+                        <div className="add-heading-bold">Delivery Address</div>
+                        <div
+                          className="add-heading-light"
+                          style={{
+                            fontWeight: "lighter",
+                            marginTop: "5px",
+                          }}
+                        >
+                          
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              {useradd ? (
-                <div className="cart-address-detail-header">
-                  <ul className="cart-details-list">
-                    <li className="add-detail-fullname">{useradd.Name}</li>
-                    {/* <li className="add-detail-addtype">Home</li> */}
-                    <li className="add-detail-addline1">{useradd.Street}</li>
-                    <li className="add-detail-landmark">{useradd.Landmark}</li>
-                    <li className="add-detail-addline2">{useradd.City}</li>
-                    <li className="add-detail-state-country">
-                      {useradd.State}
-                    </li>
-                    <li className="add-detail-state-country">
-                      {useradd.Country}
-                    </li>
-                    <li className="add-detail-phone">
-                      Phone{" "}
-                      <span className="add-detail-number">
-                        {useradd.Mobile}
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <h4> click on change address to add address </h4>
-              )}
-              <Link to="/profile" style={{ textDecoration: "none" }}>
-                <button className="change-add-btn">Change Address</button>
-              </Link>
+                </AccordionSummary>
+                <AccordionDetails className="product-accordion-detail">
+                  <div className="addInfo"> We will deliver your order to this address</div>
+                  {useradd ? (
+                    <div className="cart-address-detail-header">
+                      <ul className="cart-details-list">
+                        <li className="add-detail-fullname m7">
+                          {useradd.Name}
+                        </li>
+                        {/* <li className="add-detail-addtype">Home</li> */}
+                        {useradd.Street ? (
+                          <label className="delivery-label">Street: </label>
+                        ) : null}
+                        <li className="add-detail-addline1 m7">
+                          {useradd.Street}
+                        </li>
+                        {useradd.Landmark ? (
+                          <label className="delivery-label">Landmark: </label>
+                        ) : null}
+                        <li className="add-detail-landmark m7">
+                          {useradd.Landmark}
+                        </li>
+                        {useradd.City ? (
+                          <label className="delivery-label">City: </label>
+                        ) : null}
+                        <li className="add-detail-addline2 m7">
+                          {useradd.City}
+                        </li>
+                        {useradd.State ? (
+                          <label className="delivery-label">State: </label>
+                        ) : null}
+                        <li className="add-detail-state-country m7">
+                          {useradd.State}
+                        </li>
+                        {useradd.Country ? (
+                          <label className="delivery-label">Country: </label>
+                        ) : null}
+                        <li className="add-detail-state-country m7">
+                          {useradd.Country}
+                        </li>
+                        {useradd.Mobile ? (
+                          <label className="delivery-label">Phone: </label>
+                        ) : null}
+                        <li className="add-detail-phone m7">
+                          {useradd.Mobile}
+                        </li>
+                      </ul>
+                    </div>
+                  ) : (
+                    <h4> click on change address to add address </h4>
+                  )}
+                  <Link to="/profile" style={{ textDecoration: "none" }}>
+                    <button className="change-add-btn">Change Address</button>
+                  </Link>
+                </AccordionDetails>
+              </Accordion>
             </div>
-            <div className="cart-total-container">
-              <div className="cart-total-header">CART TOTAL</div>
-              {/*  */}
 
+            <div className="cart-total-container">
+              <div className="cart-total-header">
+                CART TOTAL <hr />
+              </div>
               <table className="cart-total">
                 <tr className="cart-row">
                   <td className="cart-col">Sub-Total</td>
@@ -363,8 +440,9 @@ const Cart = ({ userid }) => {
                   <td className="cart-col">₹{deliverycharges}</td>
                 </tr>
               </table>
-              <hr className="cart-hr" />
+              <hr style={{marginLeft : "10px",marginRight:"10px"}}/>
               <table className="cart-total">
+                    
                 <tr className="cart-row">
                   <td className="cart-col">Total</td>
                   <td className="cart-col">₹ {totalq}</td>
@@ -380,10 +458,6 @@ const Cart = ({ userid }) => {
                   className="buynow-btn"
                   style={{
                     width: "100%",
-                    backgroundColor: "#b2eeee",
-                    // border: "1px solid black",
-                    borderRadius: "20px",
-                    padding: "6px",
                     margin: "10px 0px",
                   }}
                 >
@@ -394,7 +468,7 @@ const Cart = ({ userid }) => {
                         cartProducts={cartProducts.length}
                         totalCartPrice={x}
                         products={products}
-                        style={{ width: "20px" }}
+                        style={{ width: "20px",backgroundColor: "#b2eeee", }}
                       />
                     ) : (
                       <center>

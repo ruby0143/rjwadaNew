@@ -70,10 +70,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
         console.log(err.message);
       });
   }, []);
-
+  console.log(data);
   const [selectedsize, setselectedsize] = useState('');
   const [name, setname] = useState('Product name');
-  const [size, setsize] = useState('');
+  const [size, setsize] = useState([]);
   const [image, setimage] = useState([]);
   const [images, setimages] = useState([]);
   const [categoryId, setcategoryId] = useState('');
@@ -85,7 +85,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const [color, setColor] = useState({});
   const [discount, setDiscount] = useState('');
   const [features, setFeatures] = useState('');
-
+  let modiSize = [0, 0, 0, 0, 0];
   useEffect(() => {
     data &&
       data.map((data) =>
@@ -106,7 +106,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
           : null
       );
   }, [data]);
-  console.log(datas);
+  console.log(data);
   datas['categoryId'] = categoryId;
   console.log(selectedsize);
 
@@ -207,7 +207,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   console.log(returnedEndpoint);
 
   console.log(size);
-
+  console.log(selectedsize);
   const [base64, setbase64] = useState('');
   const [readers, setreaders] = useState({});
   function loadfile(images) {
@@ -230,7 +230,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const [imagetoview, setimagetoview] = useState('');
   const [uploadedimage, setuploadedimage] = useState('');
   console.log(uploadedimage);
-
+  console.log(selectedsize);
   return (
     <div>
       {/* <Toplist /> */}
@@ -296,23 +296,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 ></div>
               ) : (
                 <div
-                onClick={() => {
-                  setimagetoview(
-                    'url(' +
-                      'http://api.rjwada.com/assets/' +
-                      `${images[0]}` +
-                      ')'
-                  );
-                }}
-                className="vertical-slider-item"
-                // style={{
-                //   backgroundImage:
-                //     'url(' +
-                //     'http://api.rjwada.com/assets/' +
-                //     `${images[0]}` +
-                //     ')',
-                // }}
-              ></div>
+                  onClick={() => {
+                    setimagetoview(
+                      'url(' +
+                        'http://api.rjwada.com/assets/' +
+                        `${images[0]}` +
+                        ')'
+                    );
+                  }}
+                  className="vertical-slider-item"
+                  // style={{
+                  //   backgroundImage:
+                  //     'url(' +
+                  //     'http://api.rjwada.com/assets/' +
+                  //     `${images[0]}` +
+                  //     ')',
+                  // }}
+                ></div>
               )}
 
               {MLimage ? (
@@ -325,34 +325,40 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     backgroundImage: 'url(' + MLimage + ')',
                   }}
                 ></div>
-              ) : <>{uploadedimage ?(<div
-                onClick={() => {
-                  setimagetoview('url(' + uploadedimage + ')');
-                }}
-                className="vertical-slider-item"
-                style={{
-                  backgroundImage: 'url(' + uploadedimage + ')',
-                }}
-              ></div>):(<div
-                onClick={() => {
-                  setimagetoview(
-                    'url(' +
-                      'http://api.rjwada.com/assets/' +
-                      `${images[0]}` +
-                      ')'
-                  );
-                }}
-                className="vertical-slider-item"
-                // style={{
-                //   backgroundImage:
-                //     'url(' +
-                //     'http://api.rjwada.com/assets/' +
-                //     `${images[0]}` +
-                //     ')',
-                // }}
-              ></div>)}</>
-                
-              }
+              ) : (
+                <>
+                  {uploadedimage ? (
+                    <div
+                      onClick={() => {
+                        setimagetoview('url(' + uploadedimage + ')');
+                      }}
+                      className="vertical-slider-item"
+                      style={{
+                        backgroundImage: 'url(' + uploadedimage + ')',
+                      }}
+                    ></div>
+                  ) : (
+                    <div
+                      onClick={() => {
+                        setimagetoview(
+                          'url(' +
+                            'http://api.rjwada.com/assets/' +
+                            `${images[0]}` +
+                            ')'
+                        );
+                      }}
+                      className="vertical-slider-item"
+                      // style={{
+                      //   backgroundImage:
+                      //     'url(' +
+                      //     'http://api.rjwada.com/assets/' +
+                      //     `${images[0]}` +
+                      //     ')',
+                      // }}
+                    ></div>
+                  )}
+                </>
+              )}
               {/* <div
                 // onClick={()=>{setimagetoview("url(" +
                 // "http://api.rjwada.com/assets/" +
@@ -478,33 +484,132 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               <div className="product-category-text"></div>
               <div className="product-size-header">
                 {' '}
-                <br />
                 <div className="product-size-heading">
-                  <h3>Sizes</h3>
+                  Sizes
                 </div>
                 {/* <div className="product-size-chart-text">Size Chart</div> */}
                 <div className="product-size-boxes">
-                  {size[0] ? (
-                    <button
-                      className="product-size-item"
-                      onClick={() => {
-                        localStorage.setItem('size', size[0]);
-                        setselectedsize(size[0]);
-                      }}
-                    >
-                      {size[0]}
-                    </button>
-                  ) : (
-                    <button
-                      disabled={true}
-                      style={{ backgroundColor: '#D0D0D0' }}
-                      className="product-size-item"
-                      onClick={() => setselectedsize(size[0])}
-                    >
-                      S
-                    </button>
-                  )}
-                  {size[1] ? (
+                  {size.map((size) => {
+                    if (size === 'S') {
+                      modiSize[0] = 'S';
+                    } else if (size === 'M') {
+                      modiSize[1] = 'M';
+                    } else if (size === 'L') {
+                      modiSize[2] = 'L';
+                    } else if (size === 'XL') {
+                      modiSize[3] = 'XL';
+                    } else if (size === 'XXL') {
+                      modiSize[4] = 'XXL';
+                      console.log(modiSize);
+                    }
+                  })}
+                  <>
+                    {modiSize[0] != 0 ? (
+                      <button
+                      className={"product-size-item" + (selectedsize===modiSize[0] ? " sizeState" : " ")}
+                      id='size0'
+                        onClick={() => {
+                          localStorage.setItem('size', modiSize[0]);
+                          setselectedsize(modiSize[0]);
+                        }}
+                      >
+                        {modiSize[0]}
+                      </button>
+                    ) : (
+                      <button
+                      id='size0'
+                        disabled={true}
+                        style={{ backgroundColor: '#D0D0D0' }}
+                        className="product-size-item"
+                        onClick={() => setselectedsize(modiSize[0])}
+                      >
+                        S
+                      </button>
+                    )}
+                    {modiSize[1] != 0 ? (
+                      <button
+                      className={"product-size-item" + (selectedsize===modiSize[1] ? " sizeState" : " ")}
+                        onClick={() => {
+                          console.log(modiSize[1],"harsha"); //
+                          localStorage.setItem('size', modiSize[1]);
+                          setselectedsize(modiSize[1]);
+                        }}
+                      >
+                        {modiSize[1]}
+                      </button>
+                    ) : (
+                      <button
+                        disabled={true}
+                        style={{ backgroundColor: '#D0D0D0' }}
+                        className="product-size-item"
+                        onClick={() => setselectedsize(modiSize[1])}
+                      >
+                        M
+                      </button>
+                    )}
+                    {modiSize[2] != 0 ? (
+                      <button
+                      className={"product-size-item" + (selectedsize===modiSize[2] ? " sizeState" : " ")}
+                        onClick={() => {
+                          console.log(modiSize[2]);//
+                          localStorage.setItem('size', modiSize[2]);
+                          setselectedsize(modiSize[2]);
+                        }}
+                      >
+                        {modiSize[2]}
+                      </button>
+                    ) : (
+                      <button
+                        disabled={true}
+                        style={{ backgroundColor: '#D0D0D0' }}
+                        className="product-size-item"
+                        onClick={() => setselectedsize(modiSize[2])}
+                      >
+                        L
+                      </button>
+                    )}
+                    {modiSize[3] != 0 ? (
+                      <button
+                      className={"product-size-item" + (selectedsize===modiSize[3] ? " sizeState" : " ")}
+                        onClick={() => {
+                          localStorage.setItem('size', modiSize[3]);
+                          setselectedsize(modiSize[3]);
+                        }}
+                      >
+                        {modiSize[3]}
+                      </button>
+                    ) : (
+                      <button
+                        disabled={true}
+                        style={{ backgroundColor: '#D0D0D0' }}
+                        className="product-size-item"
+                        onClick={() => setselectedsize(modiSize[0])}
+                      >
+                        XL
+                      </button>
+                    )}
+                    {modiSize[4] != 0 ? (
+                      <button
+                      className={"product-size-item" + (selectedsize===modiSize[4] ? " sizeState" : " ")}
+                        onClick={() => {
+                          localStorage.setItem('size', modiSize[4]);
+                          setselectedsize(modiSize[4]);
+                        }}
+                      >
+                        {modiSize[4]}
+                      </button>
+                    ) : (
+                      <button
+                        disabled={true}
+                        style={{ backgroundColor: '#D0D0D0' }}
+                        className="product-size-item"
+                        onClick={() => setselectedsize(modiSize[4])}
+                      >
+                    
+                        XXL
+                      </button>
+                    )}
+                    {/* {size[1] ? (
                     <button
                       className="product-size-item"
                       onClick={() => {
@@ -583,19 +688,22 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     >
                       XXL
                     </button>
-                  )}
+                  )} */}
+                  </>
                 </div>
                 <br />
+                
               </div>
-              {selectedsize == 'S' ||
-              selectedsize == 'M' ||
-              selectedsize == 'L' ||
-              selectedsize == 'XL' ||
-              selectedsize == 'XXL' ? null : (
-                <h3
+              
+              {selectedsize === 'S' ||
+              selectedsize === 'M' ||
+              selectedsize === 'L' ||
+              selectedsize === 'XL' ||
+              selectedsize === 'XXL' ? null : (
+                <h3 className="selectASize"
                   style={{
                     marginTop: '-8px',
-                    marginLeft: '5px',
+                    marginLeft: '9px',
                     color: 'red',
                     fontFamily: 'Montserrat',
                   }}
@@ -603,7 +711,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   *Please select a size
                 </h3>
               )}
-              {sizenotselected ? null : console.log('Size selection needed')}
+              {/* {sizenotselected ? null : console.log('Size selection needed')} */}
               <div className="size-lower-text">
                 {/* Size Not Available? */}
                 {/* <span className="product-notify">Notify Me</span> */}
