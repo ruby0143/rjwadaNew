@@ -213,7 +213,7 @@
   }
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 450px) {
   .special-tabs {
     display: flex;
     justify-content: space-between;
@@ -226,18 +226,21 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 450px) {
   .mobile-footer .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
     box-shadow: none !important;
+   
   }
 
   .mobile-footer .css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
-    background-color: #f3f3f3 !important;
+    background-color: rgb(249 249 249)  !important;
   }
   .mobile-footer {
+    width: 85%;
     display: block;
-    background-color: rgb(249 249 249) !important;
+    background-color: #fff!important;
     padding: 45px 0px;
+    margin: 0px 26px;
   }
 
   .product-accordion-detail {
@@ -286,6 +289,13 @@
     padding: 8px 10px 16px !important;
   }
 
+  .mobile-footer {
+    width: 95% !important;
+    display: block;
+    background-color: #fff!important;
+    padding: 45px 0px !important;
+    margin: 0px 10px !important;
+  }
   .product-accordion-detail {
     font-size: 14px !important;
   }

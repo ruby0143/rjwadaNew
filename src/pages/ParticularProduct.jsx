@@ -484,9 +484,8 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               <div className="product-category-text"></div>
               <div className="product-size-header">
                 {' '}
-                <br />
                 <div className="product-size-heading">
-                  <h3>Sizes</h3>
+                  Sizes
                 </div>
                 {/* <div className="product-size-chart-text">Size Chart</div> */}
                 <div className="product-size-boxes">
@@ -507,7 +506,8 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   <>
                     {modiSize[0] != 0 ? (
                       <button
-                        className="product-size-item"
+                      className={"product-size-item" + (selectedsize===modiSize[0] ? " sizeState" : " ")}
+                      id='size0'
                         onClick={() => {
                           localStorage.setItem('size', modiSize[0]);
                           setselectedsize(modiSize[0]);
@@ -517,6 +517,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       </button>
                     ) : (
                       <button
+                      id='size0'
                         disabled={true}
                         style={{ backgroundColor: '#D0D0D0' }}
                         className="product-size-item"
@@ -527,8 +528,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[1] != 0 ? (
                       <button
-                        className="product-size-item"
+                      className={"product-size-item" + (selectedsize===modiSize[1] ? " sizeState" : " ")}
                         onClick={() => {
+                          console.log(modiSize[1],"harsha"); //
                           localStorage.setItem('size', modiSize[1]);
                           setselectedsize(modiSize[1]);
                         }}
@@ -547,8 +549,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[2] != 0 ? (
                       <button
-                        className="product-size-item"
+                      className={"product-size-item" + (selectedsize===modiSize[2] ? " sizeState" : " ")}
                         onClick={() => {
+                          console.log(modiSize[2]);//
                           localStorage.setItem('size', modiSize[2]);
                           setselectedsize(modiSize[2]);
                         }}
@@ -567,7 +570,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[3] != 0 ? (
                       <button
-                        className="product-size-item"
+                      className={"product-size-item" + (selectedsize===modiSize[3] ? " sizeState" : " ")}
                         onClick={() => {
                           localStorage.setItem('size', modiSize[3]);
                           setselectedsize(modiSize[3]);
@@ -587,7 +590,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[4] != 0 ? (
                       <button
-                        className="product-size-item"
+                      className={"product-size-item" + (selectedsize===modiSize[4] ? " sizeState" : " ")}
                         onClick={() => {
                           localStorage.setItem('size', modiSize[4]);
                           setselectedsize(modiSize[4]);
@@ -697,10 +700,10 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               selectedsize === 'L' ||
               selectedsize === 'XL' ||
               selectedsize === 'XXL' ? null : (
-                <h3
+                <h3 className="selectASize"
                   style={{
                     marginTop: '-8px',
-                    marginLeft: '5px',
+                    marginLeft: '9px',
                     color: 'red',
                     fontFamily: 'Montserrat',
                   }}
@@ -708,7 +711,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   *Please select a size
                 </h3>
               )}
-              {sizenotselected ? null : console.log('Size selection needed')}
+              {/* {sizenotselected ? null : console.log('Size selection needed')} */}
               <div className="size-lower-text">
                 {/* Size Not Available? */}
                 {/* <span className="product-notify">Notify Me</span> */}
