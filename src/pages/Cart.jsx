@@ -220,13 +220,7 @@ const Cart = ({ userid }) => {
                           <hr />
                           <div className="cart-card" key={p.id}>
                             <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-evenly",
-                                alignItems: "center",
-                                marginRight: "6px",
-                              }}
-                            >
+                              className="cart-card-item">
                               <Link to={`/productpage/${p.categoryId}/${p.id}`}>
                                 <div className="wish-img">
                                   <img
@@ -238,25 +232,27 @@ const Cart = ({ userid }) => {
                               </Link>
                               <hr style={{ marginLeft: "5px" }} />
                               <div className="wish-details">
-                                <div className="wish-text">
+                                <div
+                                  className="wish-text wish-item-text"
+                                  
+                                >
                                   <b>{p.name}</b>
                                 </div>
                                 <div
                                   className="p-details"
-                                  style={{ display: "flex" , flexDirection:"column",alignItems:"flex-start",
-                                  margin:"10px", fontWeight:"600"}}
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    margin: "10px",
+                                    fontWeight: "600",
+                                  }}
                                 >
-                                  <div
-                                    className="wish-text m5"
-                                    
-                                  >
-                                    Size : {p.size}
+                                  <div>
+                                    <span className="wish-text"> Price : </span> <span className="sm"> ₹ {p.price} </span>
                                   </div>
-                                  <div
-                                    className="wish-text m5"
-                                    
-                                  >
-                                    Price : ₹ {p.price}
+                                  <div >
+                                    <span className="wish-text"> Size : </span> <span className="sm"> ₹ {p.size} </span>
                                   </div>
                                 </div>
 
@@ -264,7 +260,7 @@ const Cart = ({ userid }) => {
                                 {/* <h4>Price : {p.price}</h4> */}
                               </div>
                             </div>
-                            <div>
+                            <div className="holder">
                               <div className="incDec">
                                 <div
                                   onClick={() =>
@@ -301,21 +297,20 @@ const Cart = ({ userid }) => {
                                   <Icon icon={plus} size={20} />
                                 </div>
                               </div>
-                            </div>
-
-                            <div className="delete-btn">
-                              <BsTrash
-                                onClick={() =>
-                                  handleProductDelete(
-                                    p,
-                                    userid,
-                                    p.name,
-                                    p.quantity,
-                                    p.price,
-                                    p.id
-                                  )
-                                }
-                              />
+                              <div className="delete-btn">
+                                <BsTrash
+                                  onClick={() =>
+                                    handleProductDelete(
+                                      p,
+                                      userid,
+                                      p.name,
+                                      p.quantity,
+                                      p.price,
+                                      p.id
+                                    )
+                                  }
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -362,15 +357,16 @@ const Cart = ({ userid }) => {
                             fontWeight: "lighter",
                             marginTop: "5px",
                           }}
-                        >
-                          
-                        </div>
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails className="product-accordion-detail">
-                  <div className="addInfo"> We will deliver your order to this address</div>
+                  <div className="addInfo">
+                    {" "}
+                    We will deliver your order to this address
+                  </div>
                   {useradd ? (
                     <div className="cart-address-detail-header">
                       <ul className="cart-details-list">
@@ -428,21 +424,21 @@ const Cart = ({ userid }) => {
 
             <div className="cart-total-container">
               <div className="cart-total-header">
-                CART TOTAL <hr />
+                CART TOTAL <hr className="wd"/>
               </div>
               <table className="cart-total">
                 <tr className="cart-row">
                   <td className="cart-col">Sub-Total</td>
                   <td className="cart-col">₹{totalq}</td>
                 </tr>
+                
                 <tr className="cart-row">
-                  <td className="cart-col">Delivery Charges</td>
+                  <td className="cart-col">Delivery <br /> Charges</td>
                   <td className="cart-col">₹{deliverycharges}</td>
                 </tr>
               </table>
-              <hr style={{marginLeft : "10px",marginRight:"10px"}}/>
+              <hr  className="wd" />
               <table className="cart-total">
-                    
                 <tr className="cart-row">
                   <td className="cart-col">Total</td>
                   <td className="cart-col">₹ {totalq}</td>
@@ -450,15 +446,14 @@ const Cart = ({ userid }) => {
               </table>
               <div
                 className="cart-btn-sec"
-                style={{
-                  backgroundColor: "#ECF4F4",
-                }}
+                
               >
                 <button
                   className="buynow-btn"
                   style={{
                     width: "100%",
                     margin: "10px 0px",
+                    backgroundColor: "white",
                   }}
                 >
                   {user && useradd ? (
@@ -468,7 +463,7 @@ const Cart = ({ userid }) => {
                         cartProducts={cartProducts.length}
                         totalCartPrice={x}
                         products={products}
-                        style={{ width: "20px",backgroundColor: "#b2eeee", }}
+                        style={{ width: "20px",backgroundColor:"#ecf4f4"}}
                       />
                     ) : (
                       <center>
@@ -478,7 +473,7 @@ const Cart = ({ userid }) => {
                   ) : (
                     <center>
                       <h2>Please enter address</h2>
-                      <Link to="/profile" style={{ textDecoration: "none" }}>
+                      <Link to="/profile" style={{ textDecoration: "none"}}>
                         <button className="change-add-btn">Add Address</button>
                       </Link>
                     </center>

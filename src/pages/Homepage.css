@@ -11,6 +11,10 @@
   padding: 1rem;
 }
 
+.mask{ 
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 70%, transparent 100%);
+}
+
 @media only screen and (max-width: 320px) {
   .skeleton {
     flex-direction: column !important;
@@ -192,13 +196,19 @@
   .collection-item {
     width: 250px !important;
   }
+  .data-banner-container{
+    margin-left: 45px !important;
+  }
+  .data-banner-container1{
+    margin-left: 45px !important;
+  }
 }
 
 /*     old queries*/
 @media only screen and (max-width: 450px) {
   .data-banner-container {
     height: 400px !important;
-    margin: 15px 30px 10px 30px;
+    margin: 15px 30px 10px 25px;
     /* padding-left: 2rem !important; */
   }
   .data-banner {
@@ -209,7 +219,7 @@
 
   .data-banner-container1 {
     height: 350px !important;
-    margin: 10px 30px 10px 30px;
+    margin: 10px 30px 10px 25px;
     /* padding-left: 2rem !important; */
   }
   .data-banner1 {
@@ -217,8 +227,41 @@
 
     height: 300px !important;
   }
+  
 }
 
+
+@media screen and (min-width:450px) and (max-width:500px) {
+  .collection-item{
+    margin-left: 0px;
+  }
+  .data-banner-container1{
+    /* margin-left:0px ;
+    margin-right: 5px; */
+    width: 300px;
+  }
+  .data-banner-container{
+    /* margin-left:0px ;
+    margin-right: 5px; */
+    width: 300px !important;
+  }
+}
+@media screen and (min-width:500px) and (max-width:530px) {
+  .data-banner-container1{
+    width: 325px;
+  }
+  .data-banner-container{
+    width: 325px;
+  }
+}
+@media screen and (min-width:530px) and (max-width:600px) {
+  .data-banner-container1{
+    width: 350px;
+  }
+  .data-banner-container{
+    width: 350px;
+  }
+}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 450px) {
   /* .collection-item-image {
@@ -267,6 +310,7 @@
     -ms-flex-pack: center !important;
     justify-content: center !important;
   }
+  
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   .homepage-banner {
@@ -494,17 +538,17 @@
 }
 @media only screen and (min-width: 1240px) and (max-width: 1980px) {
   .data-banner-container {
-    width: 282px;
+    width: 302px;
     height: 435px;
     margin: 2px 50px !important;
   }
   .data-banner-container1 {
-    width: 282px;
+    width: 302px;
     height: 435px;
     margin: 2px 50px !important;
   }
   .data-banner-container-ext {
-    width: 282px !important;
+    width: 302px !important;
     height: 520px !important;
   }
 
@@ -518,5 +562,21 @@
   .collection-item {
     flex-direction: row;
     /* margin-bottom: 60px; */
+  }
+}
+
+@media screen and (min-width:1000px) and (max-width:1300px) {
+  .collection-item-wrapper{
+    margin: 0px 15px !important;
+    justify-content: space-around;
+  }
+  .data-banner-container1{
+    margin: 20px;
+  }
+  .collection-wrapper{
+    padding: 0 20px;
+  }
+  .data-banner-container{
+    margin: 18px;
   }
 }

@@ -4,6 +4,8 @@ import Toplist from "../components/Toplist";
 import "../pages/Locationpage.css";
 import { auth, fs } from "../config/Config";
 import { useNavigate } from "react-router-dom";
+import Footer from './../components/Footer';
+// import { Helmet } from "react-helmet-async";
 
 const LocationPage = () => {
   const navigate = useNavigate();
@@ -20,11 +22,11 @@ const LocationPage = () => {
               setuser(snapshot.data().Fullname);
               setuserid(user.uid);
               console.log(user.uid);
-              console.log(snapshot.data().Fullname);
+              console.log(snapshot.data());
             });
-        } else {
-          setuser(null);
-        }
+          } else {
+            setuser(null);
+          }
       });
     }, []);
     return user;
@@ -84,179 +86,123 @@ const LocationPage = () => {
   };
 
   return (
-    <div>
-      <h1
-        style={{
-          width: "90%",
-          margin: "auto",
-          backgroundColor: "blue",
-          color: "white",
-        }}
-      >
-        {success}
-      </h1>
-      {/* <h2 className="addlocation-heading">
-        <center>Add a new location</center>
-      </h2> */}
-      <div className="addlocation-wrapper">
-        <div className="addlocation-image"></div>
-        <div className="addlocation-form-wrapper">
-          {/* Form */}
-          <form className="addloc-form" onSubmit={handleaddress}>
-            {/* * stated as required for all */}
-            <div className="form-group">
-              <label htmlFor="">
-                Full Name <br />
-                <input
+    <>
+      {/* <Helmet>
+        <title>Profile</title>
+        <meta name="description" content="This is a Profile page" />
+        <link rel="canonical" href="/locationpage" />
+      </Helmet> */}
+      <div>
+        <h1
+          style={{
+            width: "90%",
+            margin: "auto",
+            backgroundColor: "blue",
+            color: "white",
+          }}
+        >
+          {success}
+        </h1>
+        <div className="addlocation-wrapper">
+          <div className="addlocation-form-wrapper">
+            {/* Form */}
+            <form className="addloc-form" onSubmit={handleaddress}>
+              <h2 className="address-head">Your Address</h2>
+              <div className="flex-form">
+                <div className="form-group">
+                  <input
+                    required
+                    type="text"
+                    className="addloc-input"
+                    placeholder={!name ? "Full Name" : localStorage.getItem("name")}
+                    onChange={(e) => setname(e.target.value)}
+                    value={user}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <input
+                    required
+                    type="number"
+                    className="addloc-input"
+                    placeholder={!mobile ? "Mobile Number" : localStorage.getItem("mobile")}
+                    onChange={(e) => setmobile(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-group textarea-group">
+                <textarea
                   required
                   type="text"
-                  className="addloc-input"
-                  placeholder={localStorage.getItem("name")}
-                  onChange={(e) => setname(e.target.value)}
-                />
-              </label>
-            </div>
-
-            <div className="form-group">
-              <div className="addloc-row">
-                <div className="addloc-column">
-                  <label htmlFor="">
-                    Mobile Number <br />
-                    <input
-                      required
-                      type="text"
-                      className="addloc-input"
-                      placeholder={localStorage.getItem("mobile")}
-                      onChange={(e) => setmobile(e.target.value)}
-                    />
-                  </label>
-                </div>
-                {/* <div class="addloc-column">
-                  <label htmlFor="">
-                    Alternate Mobile Number <br />
-                    <input required type="text" className="addloc-input" />
-                  </label>
-                </div> */}
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="addloc-row">
-                <div className="addloc-column">
-                  <label htmlFor="">
-                    Country <br />
-                    <input
-                      required
-                      type="text"
-                      placeholder={localStorage.getItem("country")}
-                      className="addloc-input"
-                      onChange={(e) => setcountry(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="addloc-column">
-                  <label htmlFor="">
-                    State <br />
-                    <input
-                      required
-                      type="text"
-                      className="addloc-input"
-                      placeholder={localStorage.getItem("state")}
-                      onChange={(e) => setstate(e.target.value)}
-                    />
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="">
-                Street <br />
-                <textarea
-                  type="text"
-                  className="addloc-input textarea"
-                  id="add-longtext"
-                  rows="3"
-                  placeholder={localStorage.getItem("street")}
+                  placeholder={!street ? "Street Address" : localStorage.getItem("street")}
+                  className="addloc-input extend"
                   onChange={(e) => setstreet(e.target.value)}
-                ></textarea>
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="">
-                Landmark <br />
+                  rows="4"
+                />
+              </div>
+              <div className="form-group textarea-group">
                 <textarea
+                  required
                   type="text"
-                  className="addloc-input textarea"
-                  id="add-longtext"
-                  placeholder={localStorage.getItem("landmark")}
-                  rows="3"
+                  className="addloc-input extend"
+                  placeholder={!landmark ? "Landmark" : localStorage.getItem("landmark")}
                   onChange={(e) => setlandmark(e.target.value)}
-                ></textarea>
-              </label>
-            </div>
-            <div className="form-group">
-              <div className="addloc-row">
-                <div className="addloc-column">
-                  <label htmlFor="">
-                    City <br />
-                    <input
-                      required
-                      type="text"
-                      className="addloc-input"
-                      placeholder={localStorage.getItem("city")}
-                      onChange={(e) => setcity(e.target.value)}
-                    />
-                  </label>
+                  rows="4"
+                />
+              </div>
+              <div className="flex-form">
+                <div className="form-group">
+                  <input
+                    required
+                    type="text"
+                    className="addloc-input"
+                    placeholder={!city ? "City" : localStorage.getItem("city")}
+                    onChange={(e) => setstreet(e.target.value)}
+                  />
                 </div>
-                <div className="addloc-column">
-                  <label htmlFor="">
-                    Pincode <br />
-                    <input
-                      required
-                      type="text"
-                      className="addloc-input"
-                      placeholder={localStorage.getItem("pincode")}
-                      onChange={(e) => setpincode(e.target.value)}
-                    />
-                  </label>
+                <div className="form-group">
+                  <input
+                    required
+                    type="text"
+                    className="addloc-input"
+                    placeholder={!state ? "State" : localStorage.getItem("state")}
+                    onChange={(e) => setlandmark(e.target.value)}
+                  />
                 </div>
               </div>
-            </div>
-
-            {/* <div className="form-group">
-              <input required type="checkbox" />
-              <label htmlFor="" id="checkbox-label">
-                Make this as my default Address
-              </label>
-            </div>
-            <div className="addloc-address-input">
-              <label htmlFor=""></label>
-            </div>
-            <div className="addloc-addtype-wrapper">
-              <label htmlFor="">
-                Address Type
-                <br />
-              </label>
-              <select class="addloc-select">
-                <option value="none" selected disabled hidden>
-                  Select
-                </option>
-                <option value="home">Home</option>
-                <option value="office">Office</option>
-                <option value="other">Other</option>
-              </select>
-            </div> */}
-
-            <button
-              className="addloc-btn"
-              type="submit"
-              style={{ cursor: "pointer" }}
-            >
-              Add Address
-            </button>
-          </form>
+              <div className="flex-form">
+                <div className="form-group">
+                  <input
+                    required
+                    type="text"
+                    className="addloc-input"
+                    placeholder={!country ? "Country" : localStorage.getItem("city")}
+                    onChange={(e) => setcity(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    required
+                    type="number"
+                    className="addloc-input"
+                    placeholder={!pincode ? "Pincode" : localStorage.getItem("pincode")}
+                    onChange={(e) => setpincode(e.target.value)}
+                  />
+                </div>
+              </div>
+              <button
+                className="addloc-btn"
+                type="submit"
+                style={{ cursor: "pointer" }}
+              >
+                Save Address
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+      <Footer/>
+    </>
   );
 };
 

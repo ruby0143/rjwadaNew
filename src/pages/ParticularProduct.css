@@ -37,7 +37,10 @@ h3 {
   justify-content: space-between;
   gap: 4rem;
 }
-
+.noBlue{
+  border: 2px solid #dadada !important;
+  background-color: white !important;
+}
 .product-image-section {
   /* border: 1px solid aqua; */
   width: 45%;
@@ -709,20 +712,30 @@ h3 {
   height: 340px;
   width: 243px;
 }
-
+.right{
+  width:60%;
+  margin-right: 2%;
+}
 /* input start */
 
+
+.custom-btn-toggle{
+  width: 73%;
+  margin-left: 2%;
+}
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
 
 .custom-file-input::before {
   content: 'Upload';
+  width: 100%;
   display: inline-block;
   cursor: pointer;
   background: #b2eeee;
-  border-radius: 15px;
-  padding: 10px 30px;
+  text-align: center;
+  border-radius: 12px;
+  padding: 12px 30px;
   /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
   font-size: 18px;
   border: 1px solid rgba(0, 0, 0, 0.137);
@@ -743,6 +756,7 @@ h3 {
   .product-btn-section-desktop {
     display: none;
   }
+
 }
 
 @media only screen and (max-width: 1300px) {
@@ -881,14 +895,15 @@ h3 {
 
 .tryon-lower-sec {
   display: flex;
-  width: 400px;
-  justify-content: space-between;
+  width: fit-content;
+  justify-content: space-around;
   padding: 10px 0px;
+
 }
 
 .uploadbtn {
   cursor: pointer;
-  width: 150px;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -1026,8 +1041,12 @@ h3 {
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
     width: 325px !important;
-    height: 555px !important;
-    margin: 0;
+    height: 650px !important;
+    margin-top: -70px !important;
+
+  }
+  .resp{
+    margin-top: 3% !important;
   }
   .product-image-slider {
     width: 325px !important;
@@ -1049,6 +1068,7 @@ h3 {
   }
   .tryon-lower-sec {
     width: 290px !important;
+    flex-direction: column;
   }
   .button-content {
     width: 290px !important;
@@ -1115,6 +1135,32 @@ h3 {
   .product-accordion {
     padding: 0rem 1rem;
   }
+  
+  .uploadbtn{
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 5%;
+  }
+  .custom-file-input{
+    border-radius: 12px;
+    width: 76%;
+    background: #b2eeee;
+  }
+  .custom-file-input::before{
+    border-radius: 12px;
+    width: 100%;
+  }
+  .custom-btn-toggle{
+    width: 80% !important;
+    margin-right: 7% !important;
+  }
+  .right{
+    width: 80%;
+    margin: 6%;
+    margin-left: 16%;
+  }
+  
+  
 }
 
 @media only screen and (max-width: 768px) {
@@ -1199,4 +1245,14 @@ h3 {
   .product-color-text{
     font-size: 28px;
   }
+  .uploadbtn{
+    margin-left: 14%;
+  }
+  .custom-btn-toggle{
+    width: 86%;
+  }
+  .right{
+    margin-right: 19%;
+  }
 }
+
