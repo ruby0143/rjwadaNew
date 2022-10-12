@@ -72,6 +72,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   }, []);
   console.log(data);
   const [selectedsize, setselectedsize] = useState('');
+  const [upload,setUpload] = useState(false);
   const [name, setname] = useState('Product name');
   const [size, setsize] = useState([]);
   const [image, setimage] = useState([]);
@@ -133,6 +134,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
       localStorage.setItem('paymentdone', false);
     }
   }, []);
+  
   const [clicked, setClicked] = useState(false);
 
   async function sendImg(endpoint, base64_str, prod_id, user_id) {
@@ -231,6 +233,8 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const [uploadedimage, setuploadedimage] = useState('');
   console.log(uploadedimage);
   console.log(selectedsize);
+
+
   return (
     <div>
       {/* <Toplist /> */}
@@ -421,8 +425,8 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   <div style={{ marginTop: "-1000px" }}></div>
                 )} */}
 
-                <div className="tryon-lower-sec">
-                  <div className="uploadbtn">
+                <div className="tryon-lower-sec ">
+                  <div className='uploadbtn'>
                     <input
                       id="imagefile"
                       type="file"
@@ -432,6 +436,14 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         setuploadedimage(
                           URL.createObjectURL(e.target.files[0])
                         );
+                        setUpload(true);
+                        var tryon = document.querySelector(".tryon-lower-sec");
+                        tryon.classList.add("custom-btn-toggle");
+                        
+                        var inp = document.querySelector(".custom-file-input");
+                        inp.classList.add("custom-btn-toggle");
+                        var slider = document.querySelector(".product-image-section");
+                        slider.classList.add("resp");
                       }}
                       // onChange={(e) => setuploadedimage(e.target.files[0])}
                       className="custom-file-input"
@@ -442,7 +454,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     />
                   </div>
 
+                  {upload === true ? 
                   <button
+                    className='right'
                     onClick={() =>
                       sendImg(
                         returnedEndpoint,
@@ -454,7 +468,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     style={{
                       background: '#B2EEEE',
                       border: '1px solid rgba(0, 0, 0, 0.137)',
-                      borderRadius: '15px',
+                      borderRadius: '12px',
                       padding: '10px 30px',
                       fontWeight: '300',
                       fontSize: '18px',
@@ -463,6 +477,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   >
                     Tryon
                   </button>
+                  : 
+                  null
+                  }
                 </div>
                 <div class="button-content">
                   <AiOutlineInfoCircle style={{ marginRight: '5px' }} />
@@ -506,18 +523,32 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   <>
                     {modiSize[0] != 0 ? (
                       <button
-                      className={"product-size-item" + (selectedsize===modiSize[0] ? " sizeState" : " ")}
+                      className={"product-size-item"}
                       id='size0'
-                        onClick={() => {
-                          localStorage.setItem('size', modiSize[0]);
-                          setselectedsize(modiSize[0]);
+                        onClick={(e) => {
+                            if(selectedsize===modiSize[0]){
+                              
+                              const curr = document.querySelector('#size0');
+                              curr.classList.remove("sizeState");
+                              curr.classList.add("noBlue")
+                              setselectedsize(null);
+                            }
+                            else{
+                              
+                              const curr = document.querySelector('#size0');
+                              curr.classList.remove("noBlue");
+                              localStorage.setItem('size', modiSize[0]);
+                              setselectedsize(modiSize[0]);
+                            }
+                            
+                          
                         }}
                       >
                         {modiSize[0]}
                       </button>
                     ) : (
                       <button
-                      id='size0'
+                      id='dsize0'
                         disabled={true}
                         style={{ backgroundColor: '#D0D0D0' }}
                         className="product-size-item"
@@ -528,11 +559,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[1] != 0 ? (
                       <button
-                      className={"product-size-item" + (selectedsize===modiSize[1] ? " sizeState" : " ")}
+                      id="size1"
+                      className={"product-size-item"}
                         onClick={() => {
-                          console.log(modiSize[1],"harsha"); //
-                          localStorage.setItem('size', modiSize[1]);
-                          setselectedsize(modiSize[1]);
+                          if(selectedsize===modiSize[1]){
+                              
+                              const curr = document.querySelector('#size1');
+                              curr.classList.remove("sizeState");
+                              curr.classList.add("noBlue")
+                              setselectedsize(null);
+                            }
+                            else{
+                              
+                              const curr = document.querySelector('#size1');
+                              curr.classList.remove("noBlue");
+                              localStorage.setItem('size', modiSize[1]);
+                              setselectedsize(modiSize[1]);
+                            }
                         }}
                       >
                         {modiSize[1]}
@@ -549,11 +592,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[2] != 0 ? (
                       <button
-                      className={"product-size-item" + (selectedsize===modiSize[2] ? " sizeState" : " ")}
+                      id="size2"
+                      className={"product-size-item"}
                         onClick={() => {
-                          console.log(modiSize[2]);//
-                          localStorage.setItem('size', modiSize[2]);
-                          setselectedsize(modiSize[2]);
+                          if(selectedsize===modiSize[2]){
+                              
+                              const curr = document.querySelector('#size2');
+                              curr.classList.remove("sizeState");
+                              curr.classList.add("noBlue")
+                              setselectedsize(null);
+                            }
+                            else{
+                              
+                              const curr = document.querySelector('#size2');
+                              curr.classList.remove("noBlue");
+                              localStorage.setItem('size', modiSize[2]);
+                              setselectedsize(modiSize[2]);
+                            }
                         }}
                       >
                         {modiSize[2]}
@@ -570,10 +625,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[3] != 0 ? (
                       <button
-                      className={"product-size-item" + (selectedsize===modiSize[3] ? " sizeState" : " ")}
+                      id='size3'
+                      className={"product-size-item"}
                         onClick={() => {
-                          localStorage.setItem('size', modiSize[3]);
-                          setselectedsize(modiSize[3]);
+                          if(selectedsize===modiSize[3]){
+                              
+                              const curr = document.querySelector('#size3');
+                              curr.classList.remove("sizeState");
+                              curr.classList.add("noBlue")
+                              setselectedsize(null);
+                            }
+                            else{
+                              
+                              const curr = document.querySelector('#size3');
+                              curr.classList.remove("noBlue");
+                              localStorage.setItem('size', modiSize[3]);
+                              setselectedsize(modiSize[3]);
+                            }
                         }}
                       >
                         {modiSize[3]}
@@ -590,10 +658,23 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     )}
                     {modiSize[4] != 0 ? (
                       <button
-                      className={"product-size-item" + (selectedsize===modiSize[4] ? " sizeState" : " ")}
+                      id="size4"
+                      className={"product-size-item"}
                         onClick={() => {
-                          localStorage.setItem('size', modiSize[4]);
-                          setselectedsize(modiSize[4]);
+                          if(selectedsize===modiSize[4]){
+                              
+                              const curr = document.querySelector('#size0');
+                              curr.classList.remove("sizeState");
+                              curr.classList.add("noBlue")
+                              setselectedsize(null);
+                            }
+                            else{
+                              
+                              const curr = document.querySelector('#size4');
+                              curr.classList.remove("noBlue");
+                              localStorage.setItem('size', modiSize[4]);
+                              setselectedsize(modiSize[4]);
+                            }
                         }}
                       >
                         {modiSize[4]}

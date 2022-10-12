@@ -8,11 +8,10 @@
   height: auto;
   padding: 50px 100px;
   padding-bottom: 10px;
-  background: #ecf4f4;
+  background: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #ecf4f4;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -58,7 +57,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: #8fd4f1;
+  background: #f5fafc;
 }
 
 .footer p {
@@ -98,7 +97,7 @@
 }
 
 .some li a:hover {
-  background: #8fd4f1;
+  background: #eaf2f5;
 }
 
 .some li a .fa {
@@ -190,6 +189,7 @@
 @media screen and (max-width: 1024px) {
   .footer {
     padding: 40px;
+    background: white;
   }
   .footer .ft-container {
     -webkit-box-orient: vertical;
@@ -208,6 +208,9 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .footer{
+    background: white;
+  }
   .contact {
     margin-right: 200px !important;
   }
@@ -229,16 +232,15 @@
 @media screen and (max-width: 450px) {
   .mobile-footer .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
     box-shadow: none !important;
-   
   }
 
   .mobile-footer .css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
-    background-color: rgb(249 249 249)  !important;
+    background-color: rgb(249 249 249) !important;
   }
   .mobile-footer {
     width: 85%;
     display: block;
-    background-color: #fff!important;
+    background-color: #fff !important;
     padding: 45px 0px;
     margin: 0px 26px;
   }
@@ -277,12 +279,18 @@
     position: absolute;
     bottom: 0;
   }
+  .accordion-heading h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline solid rgb(92, 87, 87) 2px;
+  }
 }
 
 @media screen and (max-width: 350px) {
   .accordion-heading h2 {
     font-size: 1rem;
     font-weight: bold;
+    text-decoration: underline solid rgb(92, 87, 87) 2px;
   }
 
   .css-15v22id-MuiAccordionDetails-root {
@@ -292,7 +300,7 @@
   .mobile-footer {
     width: 95% !important;
     display: block;
-    background-color: #fff!important;
+    background-color: #fff !important;
     padding: 45px 0px !important;
     margin: 0px 10px !important;
   }

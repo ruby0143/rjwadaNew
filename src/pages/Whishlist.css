@@ -112,6 +112,7 @@
   align-items: center;
 }
 
+
 @media only screen and (max-width: 768px) {
   .wish-text {
     font-size: 14px;
@@ -128,6 +129,9 @@
   }
   .wish-btns {
     justify-content: flex-start;
+  }
+  .wishlist-wrapperr{
+    min-height: 200px;
   }
 }
 
@@ -153,6 +157,9 @@
     width: 70px;
     border-radius: 15px;
   }
+  .wishlist-wrapperr{
+    min-height: 95px !important;
+  }
 }
 
 @media only screen and (max-width: 380px) {
@@ -169,5 +176,14 @@
   .wish-btns {
     justify-content: center;
     flex-direction: row;
+  }
+  .wishlist-wrapperr{
+    min-height: 95px !important;
+  }
+}
+@media only screen and (max-width: 320px) {
+
+  .wishlist-wrapperr{
+    min-height: 107px !important;
   }
 }

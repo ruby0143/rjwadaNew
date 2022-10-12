@@ -141,7 +141,7 @@ const Homepage = (props) => {
                               to={`productpage/${data.id}`}
                             >
                               <div
-                                className="data-banner1"
+                                className="data-banner1 mask"
                                 style={{
                                   borderRadius: '13px',
                                   backgroundImage:
@@ -151,6 +151,7 @@ const Homepage = (props) => {
                                     ')',
                                   backgroundSize: 'cover',
                                   backgroundPosition: 'center',
+                                  
                                 }}
                               ></div>
                             </Link>
@@ -162,8 +163,9 @@ const Homepage = (props) => {
                                 <center>
                                   <div
                                     style={{
-                                      marginTop: '-20px',
+                                      marginTop: '-70px',
                                       color: 'black',
+                                      fontSize:"25px"
                                     }}
                                   >
                                     {data.category_name.length >= 25
@@ -194,8 +196,7 @@ const Homepage = (props) => {
           className="collection-wrapper"
           style={{
             background: 'rgb(255,255,255)',
-            backgroundImage:
-              'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 9%, rgba(236,244,244,1) 22%)',
+            
           }}
         >
           <div
@@ -367,7 +368,7 @@ const Homepage = (props) => {
                               style={{
                                 height: '600px',
                                 overflow: 'hidden',
-                                margin: '40px',
+                                
                                 width: '380px',
                               }}
                             >
