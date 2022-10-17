@@ -169,7 +169,7 @@
   height: 666px !important;
   overflow: hidden;
   margin: 40px 65px 10px 78px;
-  width: 427px !important;
+  width: 427px;
   text-align: center;
 }
 .data-banner-container1 {
@@ -246,15 +246,15 @@
     width: 300px !important;
   }
 }
-@media screen and (min-width:500px) and (max-width:530px) {
+@media screen and (min-width:500px) and (max-width:540px) {
   .data-banner-container1{
     width: 325px;
   }
   .data-banner-container{
-    width: 325px;
+    width: 325px !important;
   }
 }
-@media screen and (min-width:530px) and (max-width:600px) {
+@media screen and (min-width:541px) and (max-width:600px) {
   .data-banner-container1{
     width: 350px;
   }

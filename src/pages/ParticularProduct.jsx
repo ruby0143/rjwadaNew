@@ -18,7 +18,7 @@ import Footer from '../components/Footer';
 import Carousel from 'react-material-ui-carousel';
 import { Paper, Button } from '@mui/material';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-
+import Modal3D from "../components/Modal3D";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -225,6 +225,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
     };
     reader.readAsDataURL(images);
   }
+  const pName = name.toLowerCase().split(' ');
+  const name3d = pName.join('-');
+  console.log(name3d,"modal");
   console.log(base64);
   console.log(readers.result);
 
@@ -395,8 +398,11 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         'http://api.rjwada.com/assets/' +
                         `${images[0]}` +
                         ')',
+                        display:"flex",
+                        justifyContent:"flex-end"
                     }}
-                  ></div>
+                    
+                  ><Modal3D /></div>
                 )}
                 {/* <img
                 height={600}
@@ -480,7 +486,11 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   : 
                   null
                   }
+                  
+                  
+                  
                 </div>
+                
                 <div class="button-content">
                   <AiOutlineInfoCircle style={{ marginRight: '5px' }} />
                   To use Try-On feature, click on Upload button, then click on

@@ -20,7 +20,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 2rem 0;
 }
 
 .login {
@@ -36,9 +36,7 @@ body {
   /* width: 44em; */
   -webkit-box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
-  /* Add Image */
-  /* background-image: url(""); */
-  /* background-image: url('https://images.pexels.com/photos/13004146/pexels-photo-13004146.jpeg?auto=compress&cs=tinysrgb&w=600'); */
+  margin-bottom: 1.5rem;
 }
 
 .login-content {
@@ -264,7 +262,21 @@ body {
   }
   .privacy {
     font-size: 12px !important;
+    margin-left: 0px !important;
   }
+  .login-content{
+    padding: 1.5rem .8rem !important;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .login-title{
+    font-size: 1.5rem;
+  }
+  .signup-label{
+    margin-bottom: .9rem;
+  }
+
 }
 
 @media only screen and (max-width: 425px) {
@@ -272,21 +284,16 @@ body {
   .login-btn-login {
     font-size: 10px !important;
     /* border: 1px solid red; */
-    width: 60% !important;
+    width: 65% !important;
   }
-  .signup-section {
-    font-size: 15px;
+  .signup-section, .login-tyc-wrapper-span, .login-tyc-wrapper, .privacy {
+    font-size: 13px !important;
   }
-  .login-tyc-wrapper-span {
-    font-size: 15px;
-  }
-  .login-tyc-wrapper {
-    font-size: 14px;
-  }
-  .privacy {
-    font-size: 14px;
+  .login-content{
+    padding: 1.5rem;
   }
 }
+
 @media only screen and (max-width: 900px) {
   .login-google,
   .login-btn-login {
@@ -295,3 +302,24 @@ body {
     width: 50%;
   }
 }
+
+/* used calc for width  */
+
+@media screen and (max-width: 720px){
+  .login{
+    width: calc(100% - 100px);
+  }
+} 
+
+@media screen and (max-width: 490px){
+  .login{
+    width: calc(100% - 50px);
+  }
+}
+
+@media screen and (max-width: 375px){
+  .login{
+    width: calc(100% - 35px);
+  }
+}
+

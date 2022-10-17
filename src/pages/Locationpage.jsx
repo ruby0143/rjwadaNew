@@ -4,8 +4,6 @@ import Toplist from "../components/Toplist";
 import "../pages/Locationpage.css";
 import { auth, fs } from "../config/Config";
 import { useNavigate } from "react-router-dom";
-import Footer from './../components/Footer';
-// import { Helmet } from "react-helmet-async";
 
 const LocationPage = () => {
   const navigate = useNavigate();
@@ -22,11 +20,11 @@ const LocationPage = () => {
               setuser(snapshot.data().Fullname);
               setuserid(user.uid);
               console.log(user.uid);
-              console.log(snapshot.data());
+              console.log(snapshot.data().Fullname);
             });
-          } else {
-            setuser(null);
-          }
+        } else {
+          setuser(null);
+        }
       });
     }, []);
     return user;
@@ -86,12 +84,7 @@ const LocationPage = () => {
   };
 
   return (
-    <>
-      {/* <Helmet>
-        <title>Profile</title>
-        <meta name="description" content="This is a Profile page" />
-        <link rel="canonical" href="/locationpage" />
-      </Helmet> */}
+    <div>
       <div>
         <h1
           style={{
@@ -201,8 +194,7 @@ const LocationPage = () => {
           </div>
         </div>
       </div>
-      <Footer/>
-    </>
+    </div>
   );
 };
 

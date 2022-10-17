@@ -206,15 +206,6 @@ const Login = () => {
                 </Link>
               </div>
             </form>
-            {/* {errmsg && (
-              <>
-                <div className="error-msg">
-                  <br />
-                  <br />
-                  {errmsg}
-                </div>
-              </>
-            )} */}
           </div>
         </div>
       </div>
