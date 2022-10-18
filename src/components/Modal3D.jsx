@@ -5,7 +5,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import CardSkeleton from "./skeleton/homeSkeleton";
 import "./Modal.css";
-import "./skeleton/ThreeD.css";
+// import "./skeleton/ThreeD.css";
 
 function Modal3D() {
   const [show, setShow] = useState(false);
