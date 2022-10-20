@@ -269,6 +269,7 @@
   }
   .addInfo{
       margin-left: 17px;
+      font-size: 15px;
   }
   .m7 {
     margin: 7px;
@@ -303,6 +304,7 @@
   }
   .wish-item-text{
     margin-left: 10px;
+    text-align:left !important;
   }
   @media only screen and (min-width: 600px) and (max-width: 959px) {
     .cart-detail-container {
@@ -357,7 +359,7 @@
       margin: 20px;
       flex-direction: row !important;
       width: 50% !important;
-      justify-content: space-between;
+      justify-content: space-around;
     }
   }
   @media only screen and (min-width: 300px) and (max-width: 599px) {
@@ -444,7 +446,7 @@
     height: 110px;
     -webkit-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    border-radius: 5px;
     -o-object-fit: cover;
     object-fit: cover;
   }
@@ -453,8 +455,12 @@
     font-size: 14px;
     font-size: large;
     font-weight: bolder;
+    
   }
-  
+  .curStyle{
+    text-align : left;
+    margin-left: 10px;
+  }
   
 
   @media only screen and (max-width: 768px) {
@@ -498,8 +504,17 @@
       text-align: left;
     } 
     .cart-address-wrapper{
-      width: 95%;
-      margin-left: 5px;
+      width: 98%;
+      margin-left: 4px;
+    }
+    .cart-detail-container{
+      flex-direction: column;
+    }
+    .cart-details-list{
+      padding-left: 20px;
+    }
+    .addInfo{
+      margin-left: 7px;
     }
   }
   @media screen and (max-width:340px) {

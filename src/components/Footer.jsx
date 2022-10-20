@@ -89,6 +89,7 @@ const Footer = () => {
                       href="https://twitter.com/rjwadalife"
                       target="_blank"
                       alt="twitter"
+                      rel="noopener noreferrer"
                     >
                       <i className="fa fa-twitter" aria-hidden="true" />
                     </a>
@@ -97,6 +98,7 @@ const Footer = () => {
                     <a
                       href="https://www.instagram.com/rjwadalife"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <i className="fa fa-instagram" aria-hidden="true" />
                     </a>
@@ -105,6 +107,7 @@ const Footer = () => {
                     <a
                       target="_blank"
                       href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in"
+                      rel="noopener noreferrer"
                     >
                       <i className="fa fa-linkedin" aria-hidden="true" />
                     </a>
@@ -129,6 +132,7 @@ const Footer = () => {
                     <a
                       href="https://www.linkedin.com/company/rjwada/about/"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       About
                     </a>
@@ -137,13 +141,14 @@ const Footer = () => {
                     <a
                       href="https://www.linkedin.com/company/rjwada/jobs/"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Career
                     </a>
                   </li>
 
                   <li>
-                    <a href="mailto:contact@rjwada.com" target="_blank">
+                    <a href="mailto:contact@rjwada.com" target="_blank" rel="noopener noreferrer">
                       Contact
                     </a>
                   </li>
@@ -191,6 +196,7 @@ const Footer = () => {
                     <a
                       href="https://www.google.co.in/maps/place/Research+and+Innovation+Park+IIT+DELHI+(+RNI+)/@28.5429542,77.1875624,195m/data=!3m1!1e3!4m5!3m4!1s0x0:0x48afdc51e54c8134!8m2!3d28.5433266!4d77.1874941?shorturl=1"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <span>
                         Research and Innovation Park,
@@ -258,6 +264,7 @@ const Footer = () => {
                       href="https://twitter.com/rjwadalife"
                       target="_blank"
                       alt="twitter"
+                      rel="noopener noreferrer"
                     >
                       <i className="fa fa-twitter" aria-hidden="true" />
                     </a>
@@ -266,6 +273,7 @@ const Footer = () => {
                     <a
                       href="https://www.instagram.com/rjwadalife"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <i className="fa fa-instagram" aria-hidden="true" />
                     </a>
@@ -274,6 +282,7 @@ const Footer = () => {
                     <a
                       target="_blank"
                       href="https://www.linkedin.com/company/rjwada/?originalSubdomain=in"
+                      rel="noopener noreferrer"
                     >
                       <i className="fa fa-linkedin" aria-hidden="true" />
                     </a>
@@ -288,6 +297,7 @@ const Footer = () => {
                       <a
                         href="https://www.linkedin.com/company/rjwada/about/"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         About
                       </a>
@@ -299,6 +309,7 @@ const Footer = () => {
                       <a
                         href="https://www.linkedin.com/company/rjwada/jobs/"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Career
                       </a>
@@ -310,7 +321,7 @@ const Footer = () => {
                 <a href="#">Terms &amp; conditions</a>
               </li> */}
                     <li>
-                      <a href="mailto:contact@rjwada.com" target="_blank">
+                      <a href="mailto:contact@rjwada.com" target="_blank" rel="noopener noreferrer">
                         Contact
                       </a>
                     </li>
@@ -348,6 +359,7 @@ const Footer = () => {
                       <a
                         href="https://www.google.co.in/maps/place/Research+and+Innovation+Park+IIT+DELHI+(+RNI+)/@28.5429542,77.1875624,195m/data=!3m1!1e3!4m5!3m4!1s0x0:0x48afdc51e54c8134!8m2!3d28.5433266!4d77.1874941?shorturl=1"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <span>
                           Research and Innovation Park,

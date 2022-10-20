@@ -6,7 +6,10 @@ import { auth, fs } from "../config/Config";
 import { useNavigate } from "react-router-dom";
 
 const LocationPage = () => {
+
   const navigate = useNavigate();
+
+
   const [userid, setuserid] = useState();
   function Getcurrentuser() {
     const [user, setuser] = useState(null);
@@ -20,71 +23,53 @@ const LocationPage = () => {
               setuser(snapshot.data().Fullname);
               setuserid(user.uid);
               console.log(user.uid);
-              console.log(snapshot.data().Fullname);
+              console.log(snapshot.data());
             });
-        } else {
-          setuser(null);
-        }
+          } else {
+            setuser(null);
+          }
       });
     }, []);
     return user;
   }
+
+
   const user = Getcurrentuser();
 
-  const [name, setname] = useState("");
-  const [mobile, setmobile] = useState("");
-  const [country, setcountry] = useState("");
-  const [street, setstreet] = useState("");
-  const [landmark, setlandmark] = useState("");
-  const [state, setstate] = useState("");
-  const [city, setcity] = useState("");
-  const [pincode, setpincode] = useState("");
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState(localStorage ? JSON.parse(localStorage.getItem("mobile")) : "");
+  const [street, setStreet] = useState(localStorage ? JSON.parse(localStorage.getItem("street")) : "")
+  const [landmark, setLandmark] = useState(localStorage ? JSON.parse(localStorage.getItem("landmark")) : "");
+  const [city, setCity] = useState(localStorage ? JSON.parse(localStorage.getItem("city")) : "")
+  const [state, setState] = useState(localStorage ? JSON.parse(localStorage.getItem("state")) : "");
+  const [country, setCountry] = useState(localStorage ? JSON.parse(localStorage.getItem("country")) : "");
+  const [pincode, setPincode] = useState(localStorage ? JSON.parse(localStorage.getItem("pincode")) : "");
   const [errmsg, seterrmsg] = useState("");
   const [success, setsuccess] = useState("");
 
+  useEffect(()=>{
+    localStorage.setItem("street", JSON.stringify(street));
+        localStorage.setItem("landmark", JSON.stringify(landmark));
+        localStorage.setItem("city", JSON.stringify(city));
+        localStorage.setItem("pincode", JSON.stringify(pincode));
+        localStorage.setItem("country", JSON.stringify(country));
+        localStorage.setItem("state", JSON.stringify(state));
+        localStorage.setItem("name", JSON.stringify(name));
+        localStorage.setItem("mobile", JSON.stringify(mobile));
+  }, [street, landmark, country, pincode, state, mobile, name, city])
+
   const handleaddress = (e) => {
     e.preventDefault();
-    fs.collection("user_address")
-      .doc(userid)
-      .set({
-        Name: name,
-        Mobile: mobile,
-        Country: country,
-        Street: street,
-        State: state,
-        Landmark: landmark,
-        City: city,
-        Pincode: pincode,
-      })
-      .then(() => {
-        localStorage.setItem("street", street);
-        localStorage.setItem("landmark", landmark);
-        localStorage.setItem("city", city);
-        localStorage.setItem("pincode", pincode);
-        localStorage.setItem("country", country);
-        localStorage.setItem("state", state);
-        localStorage.setItem("name", name);
-        localStorage.setItem("mobile", mobile);
-        setname("");
-        setmobile("");
-        setcountry("");
-        setstreet("");
-        setlandmark("");
-        setstate("");
-        setcity("");
-        setpincode("");
-        seterrmsg("");
         setTimeout(() => {
           setsuccess("details added succesfully");
           navigate("/cart");
         }, 1000);
-      })
-      .catch((error) => seterrmsg(error.message));
+        alert("Your address is changed ✔")
     console.log(errmsg);
   };
 
   return (
-    <div>
+    <>
       <div>
         <h1
           style={{
@@ -107,8 +92,9 @@ const LocationPage = () => {
                     required
                     type="text"
                     className="addloc-input"
-                    placeholder={!name ? "Full Name" : localStorage.getItem("name")}
-                    onChange={(e) => setname(e.target.value)}
+                    // placeholder={!name ? "Full Name" : localStorage.getItem("name")}
+                    placeholder="Name"
+                    onChange={(e) => setName(e.target.value)}
                     value={user}
                   />
                 </div>
@@ -116,10 +102,11 @@ const LocationPage = () => {
                 <div className="form-group">
                   <input
                     required
-                    type="number"
+                    type="text"
                     className="addloc-input"
-                    placeholder={!mobile ? "Mobile Number" : localStorage.getItem("mobile")}
-                    onChange={(e) => setmobile(e.target.value)}
+                    placeholder="Mobile Number"
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
                   />
                 </div>
               </div>
@@ -127,10 +114,12 @@ const LocationPage = () => {
                 <textarea
                   required
                   type="text"
-                  placeholder={!street ? "Street Address" : localStorage.getItem("street")}
+                  // placeholder={localStorage.getItem("street")}
+                  placeholder="Street"
                   className="addloc-input extend"
-                  onChange={(e) => setstreet(e.target.value)}
+                  onChange={(e) => setStreet(e.target.value)}
                   rows="4"
+                  value={street}
                 />
               </div>
               <div className="form-group textarea-group">
@@ -138,9 +127,11 @@ const LocationPage = () => {
                   required
                   type="text"
                   className="addloc-input extend"
-                  placeholder={!landmark ? "Landmark" : localStorage.getItem("landmark")}
-                  onChange={(e) => setlandmark(e.target.value)}
+                  // placeholder={!landmark ? "Landmark" : localStorage.getItem("landmark")}
+                  placeholder="Landmark"
+                  onChange={(e) => setLandmark(e.target.value)}
                   rows="4"
+                  value={landmark}
                 />
               </div>
               <div className="flex-form">
@@ -149,8 +140,10 @@ const LocationPage = () => {
                     required
                     type="text"
                     className="addloc-input"
-                    placeholder={!city ? "City" : localStorage.getItem("city")}
-                    onChange={(e) => setstreet(e.target.value)}
+                    // placeholder={!city ? "City" : localStorage.getItem("city")}
+                    placeholder="City"
+                    onChange={(e) => setCity(e.target.value)}
+                    value={city}
                   />
                 </div>
                 <div className="form-group">
@@ -158,8 +151,10 @@ const LocationPage = () => {
                     required
                     type="text"
                     className="addloc-input"
-                    placeholder={!state ? "State" : localStorage.getItem("state")}
-                    onChange={(e) => setlandmark(e.target.value)}
+                    // placeholder={!state ? "State" : localStorage.getItem("state")}
+                    placeholder="State"
+                    onChange={(e) => setState(e.target.value)}
+                    value={state}
                   />
                 </div>
               </div>
@@ -169,17 +164,21 @@ const LocationPage = () => {
                     required
                     type="text"
                     className="addloc-input"
-                    placeholder={!country ? "Country" : localStorage.getItem("city")}
-                    onChange={(e) => setcity(e.target.value)}
+                    // placeholder={!country ? "Country" : localStorage.getItem("Country")}
+                    placeholder="Country"
+                    onChange={(e) => setCountry(e.target.value)}
+                    value={country}
                   />
                 </div>
                 <div className="form-group">
                   <input
                     required
-                    type="number"
+                    type="text"
                     className="addloc-input"
-                    placeholder={!pincode ? "Pincode" : localStorage.getItem("pincode")}
-                    onChange={(e) => setpincode(e.target.value)}
+                    // placeholder={!pincode ? "Pincode" : localStorage.getItem("pincode")}
+                    placeholder="Pincode"
+                    onChange={(e) => setPincode(e.target.value)}
+                    value={pincode}
                   />
                 </div>
               </div>
@@ -194,7 +193,7 @@ const LocationPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

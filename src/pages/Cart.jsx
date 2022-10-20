@@ -220,7 +220,13 @@ const Cart = ({ userid }) => {
                           <hr />
                           <div className="cart-card" key={p.id}>
                             <div
-                              className="cart-card-item">
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-evenly",
+                                alignItems: "center",
+                                marginRight: "6px",
+                              }}
+                            >
                               <Link to={`/productpage/${p.categoryId}/${p.id}`}>
                                 <div className="wish-img">
                                   <img
@@ -232,27 +238,25 @@ const Cart = ({ userid }) => {
                               </Link>
                               <hr style={{ marginLeft: "5px" }} />
                               <div className="wish-details">
-                                <div
-                                  className="wish-text wish-item-text"
-                                  
-                                >
+                                <div className="wish-text wish-item-text">
                                   <b>{p.name}</b>
                                 </div>
                                 <div
                                   className="p-details"
-                                  style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "flex-start",
-                                    margin: "10px",
-                                    fontWeight: "600",
-                                  }}
+                                  style={{ display: "flex" , flexDirection:"column",alignItems:"flex-start",
+                                  margin:"10px", fontWeight:"600"}}
                                 >
-                                  <div>
-                                    <span className="wish-text"> Price : </span> <span className="sm"> ₹ {p.price} </span>
+                                  <div
+                                    className="wish-text m5"
+                                    
+                                  >
+                                    Size : {p.size}
                                   </div>
-                                  <div >
-                                    <span className="wish-text"> Size : </span> <span className="sm"> ₹ {p.size} </span>
+                                  <div
+                                    className="wish-text m5"
+                                    
+                                  >
+                                    Price : ₹ {p.price}
                                   </div>
                                 </div>
 
@@ -297,6 +301,7 @@ const Cart = ({ userid }) => {
                                   <Icon icon={plus} size={20} />
                                 </div>
                               </div>
+
                               <div className="delete-btn">
                                 <BsTrash
                                   onClick={() =>
@@ -311,7 +316,7 @@ const Cart = ({ userid }) => {
                                   }
                                 />
                               </div>
-                            </div>
+                            </div> 
                           </div>
                         </div>
                       );
@@ -357,58 +362,64 @@ const Cart = ({ userid }) => {
                             fontWeight: "lighter",
                             marginTop: "5px",
                           }}
-                        ></div>
+                        >
+                          
+                        </div>
                       </div>
                     </div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails className="product-accordion-detail">
-                  <div className="addInfo">
-                    {" "}
-                    We will deliver your order to this address
-                  </div>
+                  <div className="addInfo"> We will deliver your order to this address</div>
                   {useradd ? (
                     <div className="cart-address-detail-header">
                       <ul className="cart-details-list">
                         <li className="add-detail-fullname m7">
-                          {useradd.Name}
+                          {/* {useradd.Name} */}
+                          {JSON.parse(localStorage.getItem("name"))}
                         </li>
                         {/* <li className="add-detail-addtype">Home</li> */}
-                        {useradd.Street ? (
+                        {/* {useradd.Street ? ( */}
                           <label className="delivery-label">Street: </label>
-                        ) : null}
+                        {/* ) : null} */}
                         <li className="add-detail-addline1 m7">
-                          {useradd.Street}
+                          {/* {useradd.Street} */}
+                          {JSON.parse(localStorage.getItem("street"))}
                         </li>
-                        {useradd.Landmark ? (
+                        {/* {useradd.Landmark ? ( */}
                           <label className="delivery-label">Landmark: </label>
-                        ) : null}
+                        {/* ) : null} */}
                         <li className="add-detail-landmark m7">
-                          {useradd.Landmark}
+                        {JSON.parse(localStorage.getItem("landmark"))}
+                          {/* {useradd.Landmark} */}
                         </li>
-                        {useradd.City ? (
+                        {/* {useradd.City ? ( */}
                           <label className="delivery-label">City: </label>
-                        ) : null}
+                        {/* ) : null} */}
                         <li className="add-detail-addline2 m7">
-                          {useradd.City}
+                        {JSON.parse(localStorage.getItem("city"))}
+                          {/* {useradd.City} */}
                         </li>
-                        {useradd.State ? (
+                        {/* {useradd.State ? ( */}
                           <label className="delivery-label">State: </label>
-                        ) : null}
+                        {/* ) : null} */}
                         <li className="add-detail-state-country m7">
-                          {useradd.State}
+                          {/* {useradd.State} */}
+                          {JSON.parse(localStorage.getItem("state"))}
                         </li>
-                        {useradd.Country ? (
+                        {/* {useradd.Country ? ( */}
                           <label className="delivery-label">Country: </label>
-                        ) : null}
+                        {/* ) : null} */}
                         <li className="add-detail-state-country m7">
-                          {useradd.Country}
+                          {/* {useradd.Country} */}
+                          {JSON.parse(localStorage.getItem("country"))}
                         </li>
-                        {useradd.Mobile ? (
+                        {/* {useradd.Mobile ? ( */}
                           <label className="delivery-label">Phone: </label>
-                        ) : null}
+                        {/* ) : null} */}                
                         <li className="add-detail-phone m7">
-                          {useradd.Mobile}
+                          {/* {useradd.Mobile} */}
+                          {JSON.parse(localStorage.getItem("mobile"))}
                         </li>
                       </ul>
                     </div>
@@ -424,21 +435,21 @@ const Cart = ({ userid }) => {
 
             <div className="cart-total-container">
               <div className="cart-total-header">
-                CART TOTAL <hr className="wd"/>
+                CART TOTAL <hr />
               </div>
               <table className="cart-total">
                 <tr className="cart-row">
                   <td className="cart-col">Sub-Total</td>
                   <td className="cart-col">₹{totalq}</td>
                 </tr>
-                
                 <tr className="cart-row">
-                  <td className="cart-col">Delivery <br /> Charges</td>
+                  <td className="cart-col">Delivery Charges</td>
                   <td className="cart-col">₹{deliverycharges}</td>
                 </tr>
               </table>
-              <hr  className="wd" />
+              <hr style={{marginLeft : "10px",marginRight:"10px"}}/>
               <table className="cart-total">
+                    
                 <tr className="cart-row">
                   <td className="cart-col">Total</td>
                   <td className="cart-col">₹ {totalq}</td>
@@ -446,14 +457,15 @@ const Cart = ({ userid }) => {
               </table>
               <div
                 className="cart-btn-sec"
-                
+                style={{
+                  backgroundColor: "#ECF4F4",
+                }}
               >
                 <button
                   className="buynow-btn"
                   style={{
                     width: "100%",
                     margin: "10px 0px",
-                    backgroundColor: "white",
                   }}
                 >
                   {user && useradd ? (
@@ -463,7 +475,7 @@ const Cart = ({ userid }) => {
                         cartProducts={cartProducts.length}
                         totalCartPrice={x}
                         products={products}
-                        style={{ width: "20px",backgroundColor:"#ecf4f4"}}
+                        style={{ width: "20px",backgroundColor: "#b2eeee", }}
                       />
                     ) : (
                       <center>
@@ -473,7 +485,7 @@ const Cart = ({ userid }) => {
                   ) : (
                     <center>
                       <h2>Please enter address</h2>
-                      <Link to="/profile" style={{ textDecoration: "none"}}>
+                      <Link to="/profile" style={{ textDecoration: "none" }}>
                         <button className="change-add-btn">Add Address</button>
                       </Link>
                     </center>

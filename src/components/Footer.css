@@ -36,12 +36,8 @@
   flex-direction: column;
 }
 
-.footer .ft-container .sec {
-  margin-right: 30px;
-}
-
-.footer .ft-container .sec.about {
-  width: 80%;
+.sec.about{
+  margin-bottom: 2rem;
 }
 
 .footer .ft-container h2 {
@@ -98,7 +94,7 @@
 }
 
 .some li a:hover {
-  background: #8fd4f1;
+  background: #3ab8ee;
 }
 
 .some li a .fa {
@@ -109,6 +105,7 @@
 .quickLinks {
   position: relative;
   width: 25%;
+  margin-right: 200px;
 }
 
 .quickLinks ul li {
@@ -187,9 +184,13 @@
   margin-left: 10px !important;
 }
 
+.sec.contact{
+  margin-right: 100px;
+}
+
 @media screen and (max-width: 1024px) {
   .footer {
-    padding: 40px;
+    padding: 80px;
   }
   .footer .ft-container {
     -webkit-box-orient: vertical;
@@ -205,11 +206,8 @@
   .contact {
     width: 100%;
   }
-}
-
-@media screen and (min-width: 1200px) {
-  .contact {
-    margin-right: 200px !important;
+  .sec.contact{
+    margin-left: 150px;
   }
 }
 
@@ -221,8 +219,24 @@
 }
 
 @media screen and (max-width: 768px) {
+  .footer{
+    padding: 50px;
+  }
   .copyrightText {
     margin-bottom: 70px;
+  }
+  .sec.contact{
+    margin-left: 50px;
+  }
+}
+
+@media  screen and (max-width: 550px) {
+  .quickLinks{
+    margin-right: 0;
+  }
+  .sec.contact{
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

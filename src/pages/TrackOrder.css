@@ -130,13 +130,9 @@
 /* code replaced by prince  */
 
 @media only screen and (max-width: 550px) {
-  /* .track-container { */
-  /* max-width: inherit; */
-  /* max-width: 0px !important; */
-  /* } */
-  /* .titem-header {
-    width: 400px !important;
-  } */
+  .track-container { 
+  min-height: 25rem;
+  }
 
   .titem-card {
     margin: 10px;
@@ -158,6 +154,8 @@
   .titem-card-detail {
     margin: 0 0 0 10px;
   }
+
+
 }
 
 @media only screen and (max-width: 375px) {

@@ -143,7 +143,7 @@ const Homepage = (props) => {
                               <div
                                 className="data-banner1 mask"
                                 style={{
-                                  borderRadius: '13px',
+                                  borderRadius: '10px',
                                   backgroundImage:
                                     'url(' +
                                     'http://api.rjwada.com/assets/' +
