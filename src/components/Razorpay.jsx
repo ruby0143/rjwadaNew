@@ -13,6 +13,16 @@ const Razorpay = ({
   dataToSend,
 }) => {
   const navigate = useNavigate();
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(position=>{
+      localStorage.setItem("latitude",position.coords.latitude);
+      localStorage.setItem("longitude",position.coords.longitude);
+    })
+  }else{
+    console.log("Geo Location not availabe");
+    localStorage.setItem("latitude",null);
+    localStorage.setItem("longitude",null);
+  }
 
   console.log(products, "in razorpay jsx");
   console.log(dataToSend, "in razorpay jsx");

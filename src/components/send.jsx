@@ -1,5 +1,8 @@
 import axios from "axios";
-export function senddata(json) {
+
+const senddata = (json)=> {
+ 
+  
   let paymentid = localStorage.getItem("browser_tahelka");
   var today = new Date();
   var date =
@@ -29,16 +32,15 @@ export function senddata(json) {
   // if (navigator.geolocation) {
   //   navigator.geolocation.getCurrentPosition(
   //     function (position) {
-  //       var Lat = position.coords.latitude;
-  //       var Long = position.coords.longitude;
-  //       getGeoLocation(Lat, Long);
+  //       lat = position.coords.latitude;
+  //       long = position.coords.longitude;
+        
   //     },
   //     function () {
   //       //error
   //     }
   //   );
-  // }
-
+  // };
   let pickUpDetails = {
     pickup_details: [
       {
@@ -46,12 +48,12 @@ export function senddata(json) {
         address: {
           street_address_1: localStorage.getItem("street"),
           landmark: localStorage.getItem("landmark"),
-          city: "Bangalore",
-          state: "Karnataka",
-          pincode: "560017",
+          city: localStorage.getItem("city"),
+          state: localStorage.getItem("state"),
+          pincode: localStorage.getItem("pincode"),
           country: localStorage.getItem("country"),
-          lng: 77.67211,
-          lat: 12.96722,
+          lng: localStorage.getItem("longitude"),
+          lat: localStorage.getItem("latitude"),
           contact_details: {
             name: localStorage.getItem("name"),
             phone_number: localStorage.getItem("mobile"),
@@ -119,4 +121,37 @@ export function senddata(json) {
     .catch(function (error) {
       console.log(error);
     });
+    
 }
+
+
+// const address=()=>{
+
+//   let pickUpDetails = {
+//     pickup_details: [
+//       {
+        
+//         address: {
+//           street_address_1: localStorage.getItem("street"),
+//           landmark: localStorage.getItem("landmark"),
+//           city: localStorage.getItem("city"),
+//           state: localStorage.getItem("state"),
+//           pincode: localStorage.getItem("pincode"),
+//           country: localStorage.getItem("country"),
+//           lng:localStorage.getItem("longitude"),
+//           lat: localStorage.getItem("latitude"),
+//           contact_details: {
+//             name: localStorage.getItem("name"),
+//             phone_number: localStorage.getItem("mobile"),
+//           },
+//         },
+//         otp_required: true,
+//       },
+//     ],
+//   };
+
+//   const address = JSON.stringify(pickUpDetails);
+//   console.log(address,"from send.jsx");
+//   console.log("lat-long");
+// }
+export {senddata};
