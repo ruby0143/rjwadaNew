@@ -8,6 +8,8 @@ import "./index.css";
 import App from "./App";
 import ScrollToTop from "./components/ScrollToTop";
 import { HashRouter } from "react-router-dom";
+import { ToastContainer } from 'react-custom-alert';
+import 'react-custom-alert/dist/index.css'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +17,7 @@ root.render(
     <HashRouter>
       <ScrollToTop />
       <App />
+      <ToastContainer floatingTime={3000} />
     </HashRouter>
   </React.StrictMode>
 );
