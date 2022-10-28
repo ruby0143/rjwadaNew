@@ -5,8 +5,7 @@ import "../pages/Locationpage.css";
 import { auth, fs } from "../config/Config";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-custom-alert';
-// import TextField from "@material-ui/core/TextField";
-// import InputAdornment from "@material-ui/core/InputAdornment";
+
 
 
 const LocationPage = () => {
@@ -50,7 +49,7 @@ const LocationPage = () => {
   const [pincode, setPincode] = useState(localStorage ? JSON.parse(localStorage.getItem("pincode")) : "");
   const [errmsg, seterrmsg] = useState("");
   const [success, setsuccess] = useState("");
-  // const [isError, setIsError] = useState(false);
+ 
   
 
   useEffect(()=>{
@@ -65,8 +64,8 @@ const LocationPage = () => {
   }, [street, landmark, country, pincode, state, mobile, name, city])
 
   const alertSuccess = () => toast.success('Your address is changed ✔');
-  const alertWarning = () => toast.warning('Mobile Number must be 10 Digit');
-  const alertWarningpincode = () => toast.warning('PinCode must be 6 Digit');
+  const alertWarning = () => toast.warning('Mobile number and pincode must be valid');
+  
 
   const handleaddress = (e) => {
     if(mobile.length===10 && pincode.length===6){
@@ -77,12 +76,10 @@ const LocationPage = () => {
     }, 1000);
     alertSuccess()
       console.log(errmsg);
-    }else if(!mobile.length===10){
-        alertWarning()
-      }
-      else{
-        alertWarningpincode()
-      }
+    } 
+    else{
+      alertWarning()
+    }
     }
   
 
