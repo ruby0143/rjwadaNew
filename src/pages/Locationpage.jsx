@@ -24,6 +24,7 @@ const LocationPage = () => {
             .get()
             .then((snapshot) => {
               setuser(snapshot.data().Fullname);
+              setName(snapshot.data().Fullname);
               setuserid(user.uid);
               console.log(user.uid);
               console.log(snapshot.data());
@@ -45,23 +46,23 @@ const LocationPage = () => {
   const [landmark, setLandmark] = useState(localStorage ? JSON.parse(localStorage.getItem("landmark")) : "");
   const [city, setCity] = useState(localStorage ? JSON.parse(localStorage.getItem("city")) : "")
   const [state, setState] = useState(localStorage ? JSON.parse(localStorage.getItem("state")) : "");
-  const [country, setCountry] = useState(localStorage ? JSON.parse(localStorage.getItem("country")) : "");
+  const [country, setCountry] = useState(localStorage ? JSON.parse(localStorage.getItem("country")) : "India");
   const [pincode, setPincode] = useState(localStorage ? JSON.parse(localStorage.getItem("pincode")) : "");
   const [errmsg, seterrmsg] = useState("");
   const [success, setsuccess] = useState("");
  
   
 
-  useEffect(()=>{
-    localStorage.setItem("street", JSON.stringify(street));
-        localStorage.setItem("landmark", JSON.stringify(landmark));
-        localStorage.setItem("city", JSON.stringify(city));
-        localStorage.setItem("pincode", JSON.stringify(pincode));
-        localStorage.setItem("country", JSON.stringify(country));
-        localStorage.setItem("state", JSON.stringify(state));
-        localStorage.setItem("name", JSON.stringify(name));
-        localStorage.setItem("mobile", JSON.stringify(mobile));
-  }, [street, landmark, country, pincode, state, mobile, name, city])
+  // useEffect(()=>{
+    // localStorage.setItem("street", JSON.stringify(street));
+    //     localStorage.setItem("landmark", JSON.stringify(landmark));
+    //     localStorage.setItem("city", JSON.stringify(city));
+    //     localStorage.setItem("pincode", JSON.stringify(pincode));
+    //     localStorage.setItem("country", JSON.stringify(country));
+    //     localStorage.setItem("state", JSON.stringify(state));
+    //     localStorage.setItem("name", JSON.stringify(name));
+    //     localStorage.setItem("mobile", JSON.stringify(mobile));
+  // }, [street, landmark, country, pincode, state, mobile, name, city])
 
   const alertSuccess = () => toast.success('Your address is changed ✔');
   const alertWarning = () => toast.warning('Mobile number and pincode must be valid');
@@ -70,6 +71,14 @@ const LocationPage = () => {
   const handleaddress = (e) => {
     if(mobile.length===10 && pincode.length===6){
       e.preventDefault();
+        localStorage.setItem("street", JSON.stringify(street));
+        localStorage.setItem("landmark", JSON.stringify(landmark));
+        localStorage.setItem("city", JSON.stringify(city));
+        localStorage.setItem("pincode", JSON.stringify(pincode));
+        localStorage.setItem("country", JSON.stringify(country));
+        localStorage.setItem("state", JSON.stringify(state));
+        localStorage.setItem("name", JSON.stringify(name));
+        localStorage.setItem("mobile", JSON.stringify(mobile));
       setTimeout(() => {
        setsuccess("details added succesfully");
        navigate("/cart")
@@ -110,7 +119,7 @@ const LocationPage = () => {
                     // placeholder={!name ? "Full Name" : localStorage.getItem("name")}
                     placeholder="Name"
                     onChange={(e) => setName(e.target.value)}
-                    value={user}
+                    value={name}
                   />
                 </div>
 

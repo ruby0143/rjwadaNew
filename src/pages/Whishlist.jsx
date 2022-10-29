@@ -170,9 +170,9 @@ const Whishlist = ({ userid, addToCart }) => {
                                   data.id
                                 )
                               }
-                              className="wish-text wish-btn wish-del"
+                              className="wish-text wish-del"
                             >
-                              Delete <RiDeleteBinLine />
+                              <RiDeleteBinLine />
                             </div>
                           </div>
                         </div>
