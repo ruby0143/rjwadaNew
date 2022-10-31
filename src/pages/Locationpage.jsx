@@ -14,8 +14,11 @@ const LocationPage = () => {
 
 
   const [userid, setuserid] = useState();
+  const [useradd, setuseradd] = useState();
+  const [puser, setuser] = useState(null);
+  
+  
   function Getcurrentuser() {
-    const [user, setuser] = useState(null);
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
         if (user) {
@@ -24,30 +27,54 @@ const LocationPage = () => {
             .get()
             .then((snapshot) => {
               setuser(snapshot.data().Fullname);
-              setName(snapshot.data().Fullname);
+              if(snapshot.data().login){
+                setName(JSON.parse(localStorage.getItem("name")));
+              }
+              else setName(snapshot.data().Fullname);
               setuserid(user.uid);
               console.log(user.uid);
               console.log(snapshot.data());
             });
-          } else {
-            setuser(null);
+
           }
-      });
     }, []);
     return user;
+  });
   }
-
-
   const user = Getcurrentuser();
+  useEffect(()=>{
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+          fs
+          .collection("user_address")
+          .doc(`${userid}`)
+          .get()
+          .then((snapshot) => {
+            console.log(snapshot.data(),"address");
+            setuseradd(snapshot.data());
+            // localStorage.setItem("City", snapshot.data().City);
+            // localStorage.setItem("State", snapshot.data().State);
+            // localStorage.setItem("Street", snapshot.data().Street);
+            // localStorage.setItem("Country", snapshot.data().Country);
+            // localStorage.setItem("Landmark", snapshot.data().Landmark);
+          });
+      } else {
+        setuseradd(null);
+      }
+    });
+  },[user]);
 
+
+  console.log(useradd,'123');
+  console.log((useradd!=undefined && localStorage),'xyzz');
   const [name, setName] = useState("");
-  const [mobile, setMobile] = useState(localStorage ? JSON.parse(localStorage.getItem("mobile")) : "");
-  const [street, setStreet] = useState(localStorage ? JSON.parse(localStorage.getItem("street")) : "")
-  const [landmark, setLandmark] = useState(localStorage ? JSON.parse(localStorage.getItem("landmark")) : "");
-  const [city, setCity] = useState(localStorage ? JSON.parse(localStorage.getItem("city")) : "")
-  const [state, setState] = useState(localStorage ? JSON.parse(localStorage.getItem("state")) : "");
-  const [country, setCountry] = useState(localStorage ? JSON.parse(localStorage.getItem("country")) : "India");
-  const [pincode, setPincode] = useState(localStorage ? JSON.parse(localStorage.getItem("pincode")) : "");
+  const [mobile, setMobile] = useState((localStorage )? JSON.parse(localStorage.getItem("mobile")) : "");
+  const [street, setStreet] = useState((localStorage) ? JSON.parse(localStorage.getItem("street")) : "")
+  const [landmark, setLandmark] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("landmark")) : "");
+  const [city, setCity] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("city")) : "")
+  const [state, setState] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("state")) : "");
+  const [country, setCountry] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("country")) : "India");
+  const [pincode, setPincode] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("pincode")) : "");
   const [errmsg, seterrmsg] = useState("");
   const [success, setsuccess] = useState("");
  
@@ -79,6 +106,12 @@ const LocationPage = () => {
         localStorage.setItem("state", JSON.stringify(state));
         localStorage.setItem("name", JSON.stringify(name));
         localStorage.setItem("mobile", JSON.stringify(mobile));
+        fs
+        .collection("user_address")
+        .doc(`${userid}`)
+        .set({
+          address : true,
+        })
       setTimeout(() => {
        setsuccess("details added succesfully");
        navigate("/cart")
