@@ -24,6 +24,39 @@ const Login = () => {
   const [otp,setOTP] = useState();
   const [obj,setObj] = useState();
   const [genOTP,setGen] = useState(true);
+
+  useEffect(()=>{
+    auth.onAuthStateChanged(user=>{
+      if(user){
+        fs.collection("user_address")
+        .doc(`${user.uid}`)
+        .get()
+        .then((snapshot)=>{
+          console.log(snapshot.data(),"address from firebase");
+          if(snapshot.data()===undefined){
+            localStorage.setItem("name",JSON.stringify(""));
+            localStorage.setItem("mobile",JSON.stringify(""));
+            localStorage.setItem("street",JSON.stringify(""));
+            localStorage.setItem("state",JSON.stringify(""));
+            localStorage.setItem("landmark",JSON.stringify(""));
+            localStorage.setItem("city",JSON.stringify(""));
+            localStorage.setItem("country",JSON.stringify(""));
+            localStorage.setItem("pincode",JSON.stringify(""));
+          }
+          else{
+            localStorage.setItem("name",JSON.stringify(snapshot.data().Name ? snapshot.data().Name: ""));
+            localStorage.setItem("mobile",JSON.stringify(snapshot.data().Mobile ? snapshot.data().Mobile: ""));
+            localStorage.setItem("street",JSON.stringify(snapshot.data().Street ? snapshot.data().Street: ""));
+            localStorage.setItem("landmark",JSON.stringify(snapshot.data().Landmark ? snapshot.data().Landmark: ""));
+            localStorage.setItem("city",JSON.stringify(snapshot.data().City ? snapshot.data().City: ""));
+            localStorage.setItem("state",JSON.stringify(snapshot.data().State ? snapshot.data().State: ""));
+            localStorage.setItem("country",JSON.stringify(snapshot.data().Country ? snapshot.data().Country: ""));
+            localStorage.setItem("pincode",JSON.stringify(snapshot.data().Pincode ? snapshot.data().Pincode: ""));
+          }
+        })
+      }
+    })
+  })
  
   const handleSignup = (e) => {
     e.preventDefault();
@@ -73,7 +106,64 @@ const Login = () => {
     });
     setGen(false);
   }
+  // function GetUserAddress(uid){
 
+  //          fs
+  //           .collection("user_address")
+  //           .doc(`${uid}`)
+  //           .get()
+  //           .then((snapshot) => {
+  //             console.log(snapshot.data(),"address from firebase");
+  //             if(snapshot.data()!=undefined){
+  //               if(snapshot.data().Name != undefined){
+  //                 localStorage.setItem("name",JSON.stringify(snapshot.data().Name));
+  //               }
+  //               else{localStorage.setItem("name",JSON.stringify(""))};
+  //               if(snapshot.data().Pincode != undefined){
+  //                 localStorage.setItem("pincode",JSON.stringify(snapshot.data().Pincode));
+  //               }
+  //               else{localStorage.setItem("pincode",JSON.stringify(""))};
+  //               if(snapshot.data().City != undefined){
+  //                 localStorage.setItem("city",JSON.stringify(snapshot.data().City));
+  //               }
+  //               else{localStorage.setItem("state",JSON.stringify(""))};
+  //               if(snapshot.data().State != undefined){
+  //                 localStorage.setItem("state",JSON.stringify(snapshot.data().State));
+  //               }
+  //               else{localStorage.setItem("state",JSON.stringify(""))};
+  //               if(snapshot.data().Street!= undefined){
+  //                 localStorage.setItem("street",JSON.stringify(snapshot.data().Street));
+  //               }
+  //               else{localStorage.setItem("street",JSON.stringify(""))};
+  //               if(snapshot.data().Country != undefined){
+  //                 localStorage.setItem("country",JSON.stringify(snapshot.data().Country));
+  //               }
+  //               else{localStorage.setItem("country",JSON.stringify(""))};
+  //               if(snapshot.data().Landmark != undefined){
+  //                 localStorage.setItem("landmark",JSON.stringify(snapshot.data().Landmark));
+  //               }
+  //               else{localStorage.setItem("landmark",JSON.stringify(""))};
+  //               if(snapshot.data().Mobile != undefined){
+  //                 localStorage.setItem("mobile",JSON.stringify(snapshot.data().Mobile));
+  //               }
+  //               else{localStorage.setItem("mobile",JSON.stringify(""))};
+  //             }
+  //             else{
+  //               localStorage.setItem("name",JSON.stringify(""));
+  //               localStorage.setItem("landmark",JSON.stringify(""));
+  //               localStorage.setItem("pincode",JSON.stringify(""));
+  //               localStorage.setItem("mobile",JSON.stringify(""));
+  //               localStorage.setItem("country",JSON.stringify(""));
+  //               localStorage.setItem("street",JSON.stringify(""));
+  //               localStorage.setItem("state",JSON.stringify(""))
+  //               localStorage.setItem("city",JSON.stringify(""));
+  //               localStorage.setItem("address","false");
+  //             }
+  //             localStorage.setItem("address",snapshot.data().Address ? "true" : "false");
+  //           });
+  // }
+
+  
   const handleOTP = (e) =>{
     e.preventDefault();
     console.log(obj,"handleotp");
@@ -94,7 +184,8 @@ const Login = () => {
         .catch((error) => {
           seterrmsg(error.message);
         })
-        .then(() => {
+        .then((res) => {
+          console.log(res,"test");
           setsuccess("Signup successfull.");
           setfullname("");
           setemail("");
@@ -105,12 +196,14 @@ const Login = () => {
           setGen(true);
           setTimeout(() => {
             setsuccess("");
-            navigate(window.history.back());
+            navigate("/");
           }, 1000);
         })
         .catch((error) => {
           seterrmsg(error.message);
         });
+
+        
     }).catch((error) => {
       // User couldn't sign in (bad verification code?)
       // ...

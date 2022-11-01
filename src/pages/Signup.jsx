@@ -66,6 +66,7 @@ const Signup = () => {
             Password: password,
           })
           .then(() => {
+            
             setsuccess("Signup successfull.");
             setfullname("");
             setemail("");
@@ -179,7 +180,7 @@ const Signup = () => {
               )}
               <div className="login-btn" style={{ width: "101%" }}>
                 <center>
-                  <button type="submit" className="login-btn-login">
+                  <button  className="login-btn-login" onClick={handleSignup}>
                     Sign up
                   </button>
                   <div className="login-btn" onClick={handleSignupGoogle}>

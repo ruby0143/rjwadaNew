@@ -54,7 +54,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
   const [data, setData] = useState(null);
   console.log(data);
   useEffect(() => {
-    fetch('http://api.rjwada.com/items/products')
+    fetch('https://api.rjwada.com/items/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -250,7 +250,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 onClick={() => {
                   setimagetoview(
                     'url(' +
-                      'http://api.rjwada.com/assets/' +
+                      'https://api.rjwada.com/assets/' +
                       `${images[0]}` +
                       ')'
                   );
@@ -259,7 +259,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 style={{
                   backgroundImage:
                     'url(' +
-                    'http://api.rjwada.com/assets/' +
+                    'https://api.rjwada.com/assets/' +
                     `${images[0]}` +
                     ')',
                 }}
@@ -268,7 +268,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 onClick={() => {
                   setimagetoview(
                     'url(' +
-                      'http://api.rjwada.com/assets/' +
+                      'https://api.rjwada.com/assets/' +
                       `${images[1]}` +
                       ')'
                   );
@@ -277,7 +277,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 style={{
                   backgroundImage:
                     'url(' +
-                    'http://api.rjwada.com/assets/' +
+                    'https://api.rjwada.com/assets/' +
                     `${images[1]}` +
                     ')',
                 }}
@@ -287,7 +287,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   onClick={() => {
                     setimagetoview(
                       'url(' +
-                        'http://api.rjwada.com/assets/' +
+                        'https://api.rjwada.com/assets/' +
                         `${images[2]}` +
                         ')'
                     );
@@ -296,7 +296,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   style={{
                     backgroundImage:
                       'url(' +
-                      'http://api.rjwada.com/assets/' +
+                      'https://api.rjwada.com/assets/' +
                       `${images[2]}` +
                       ')',
                   }}
@@ -306,7 +306,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   onClick={() => {
                     setimagetoview(
                       'url(' +
-                        'http://api.rjwada.com/assets/' +
+                        'https://api.rjwada.com/assets/' +
                         `${images[0]}` +
                         ')'
                     );
@@ -315,7 +315,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   // style={{
                   //   backgroundImage:
                   //     'url(' +
-                  //     'http://api.rjwada.com/assets/' +
+                  //     'https://api.rjwada.com/assets/' +
                   //     `${images[0]}` +
                   //     ')',
                   // }}
@@ -349,7 +349,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       onClick={() => {
                         setimagetoview(
                           'url(' +
-                            'http://api.rjwada.com/assets/' +
+                            'https://api.rjwada.com/assets/' +
                             `${images[0]}` +
                             ')'
                         );
@@ -358,7 +358,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       // style={{
                       //   backgroundImage:
                       //     'url(' +
-                      //     'http://api.rjwada.com/assets/' +
+                      //     'https://api.rjwada.com/assets/' +
                       //     `${images[0]}` +
                       //     ')',
                       // }}
@@ -368,7 +368,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
               )}
               {/* <div
                 // onClick={()=>{setimagetoview("url(" +
-                // "http://api.rjwada.com/assets/" +
+                // "https://api.rjwada.com/assets/" +
                 // `${images[2]}` +
                 // ")")}}
                 className="vertical-slider-item"
@@ -395,7 +395,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     style={{
                       backgroundImage:
                         'url(' +
-                        'http://api.rjwada.com/assets/' +
+                        'https://api.rjwada.com/assets/' +
                         `${images[0]}` +
                         ')',
                         display:"flex",
@@ -408,7 +408,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                 height={600}
                 // weight={1000}
                 className="particular-productimage"
-                src={`http://api.rjwada.com/assets/${image}`}
+                src={`https://api.rjwada.com/assets/${image}`}
                 alt=""
               /> */}
                 {/* Image fetch end */}
@@ -1390,11 +1390,11 @@ export default ParticularProduct;
 //   const [data, setData] = useState(null);
 //   console.log(data);
 //   useEffect(() => {
-//     fetch("http://api.rjwada.com/items/products")
+//     fetch("https://api.rjwada.com/items/products")
 //       .then((response) => {
 //         if (!response.ok) {
 //           throw new Error(
-//             `This is an HTTP error: The status is ${response.status}`
+//             `This is an https error: The status is ${response.status}`
 //           );
 //         }
 //         return response.json();
@@ -1579,7 +1579,7 @@ export default ParticularProduct;
 //                 onClick={() => {
 //                   setimagetoview(
 //                     "url(" +
-//                       "http://api.rjwada.com/assets/" +
+//                       "https://api.rjwada.com/assets/" +
 //                       `${images[0]}` +
 //                       ")"
 //                   );
@@ -1588,7 +1588,7 @@ export default ParticularProduct;
 //                 style={{
 //                   backgroundImage:
 //                     "url(" +
-//                     "http://api.rjwada.com/assets/" +
+//                     "https://api.rjwada.com/assets/" +
 //                     `${images[0]}` +
 //                     ")",
 //                   backgroundSize: "cover",
@@ -1599,7 +1599,7 @@ export default ParticularProduct;
 //                 onClick={() => {
 //                   setimagetoview(
 //                     "url(" +
-//                       "http://api.rjwada.com/assets/" +
+//                       "https://api.rjwada.com/assets/" +
 //                       `${images[1]}` +
 //                       ")"
 //                   );
@@ -1608,7 +1608,7 @@ export default ParticularProduct;
 //                 style={{
 //                   backgroundImage:
 //                     "url(" +
-//                     "http://api.rjwada.com/assets/" +
+//                     "https://api.rjwada.com/assets/" +
 //                     `${images[1]}` +
 //                     ")",
 //                   backgroundSize: "cover",
@@ -1619,7 +1619,7 @@ export default ParticularProduct;
 //                 onClick={() => {
 //                   setimagetoview(
 //                     "url(" +
-//                       "http://api.rjwada.com/assets/" +
+//                       "https://api.rjwada.com/assets/" +
 //                       `${images[2]}` +
 //                       ")"
 //                   );
@@ -1628,7 +1628,7 @@ export default ParticularProduct;
 //                 style={{
 //                   backgroundImage:
 //                     "url(" +
-//                     "http://api.rjwada.com/assets/" +
+//                     "https://api.rjwada.com/assets/" +
 //                     `${images[2]}` +
 //                     ")",
 //                   backgroundSize: "cover",
@@ -1662,7 +1662,7 @@ export default ParticularProduct;
 //               )}
 //               <div
 //                 // onClick={()=>{setimagetoview("url(" +
-//                 // "http://api.rjwada.com/assets/" +
+//                 // "https://api.rjwada.com/assets/" +
 //                 // `${images[2]}` +
 //                 // ")")}}
 //                 className="vertical-slider-item"
@@ -1700,7 +1700,7 @@ export default ParticularProduct;
 //                       width: "550px",
 //                       backgroundImage:
 //                         "url(" +
-//                         "http://api.rjwada.com/assets/" +
+//                         "https://api.rjwada.com/assets/" +
 //                         `${images[0]}` +
 //                         ")",
 //                       backgroundSize: "cover",
@@ -1712,7 +1712,7 @@ export default ParticularProduct;
 //                 height={600}
 //                 // weight={1000}
 //                 className="particular-productimage"
-//                 src={`http://api.rjwada.com/assets/${image}`}
+//                 src={`https://api.rjwada.com/assets/${image}`}
 //                 alt=""
 //               /> */}
 //                 {/* Image fetch end */}
@@ -2441,11 +2441,11 @@ export default ParticularProduct;
 //   const [data, setData] = useState(null);
 //   console.log(data);
 //   useEffect(() => {
-//     fetch("http://api.rjwada.com/items/products")
+//     fetch("https://api.rjwada.com/items/products")
 //       .then((response) => {
 //         if (!response.ok) {
 //           throw new Error(
-//             `This is an HTTP error: The status is ${response.status}`
+//             `This is an https error: The status is ${response.status}`
 //           );
 //         }
 //         return response.json();
@@ -2630,7 +2630,7 @@ export default ParticularProduct;
 //                 onClick={() => {
 //                   setimagetoview(
 //                     "url(" +
-//                       "http://api.rjwada.com/assets/" +
+//                       "https://api.rjwada.com/assets/" +
 //                       `${images[0]}` +
 //                       ")"
 //                   );
@@ -2639,7 +2639,7 @@ export default ParticularProduct;
 //                 style={{
 //                   backgroundImage:
 //                     "url(" +
-//                     "http://api.rjwada.com/assets/" +
+//                     "https://api.rjwada.com/assets/" +
 //                     `${images[0]}` +
 //                     ")",
 //                 }}
@@ -2648,7 +2648,7 @@ export default ParticularProduct;
 //                 onClick={() => {
 //                   setimagetoview(
 //                     "url(" +
-//                       "http://api.rjwada.com/assets/" +
+//                       "https://api.rjwada.com/assets/" +
 //                       `${images[1]}` +
 //                       ")"
 //                   );
@@ -2657,7 +2657,7 @@ export default ParticularProduct;
 //                 style={{
 //                   backgroundImage:
 //                     "url(" +
-//                     "http://api.rjwada.com/assets/" +
+//                     "https://api.rjwada.com/assets/" +
 //                     `${images[1]}` +
 //                     ")",
 //                 }}
@@ -2666,7 +2666,7 @@ export default ParticularProduct;
 //                 onClick={() => {
 //                   setimagetoview(
 //                     "url(" +
-//                       "http://api.rjwada.com/assets/" +
+//                       "https://api.rjwada.com/assets/" +
 //                       `${images[2]}` +
 //                       ")"
 //                   );
@@ -2675,7 +2675,7 @@ export default ParticularProduct;
 //                 style={{
 //                   backgroundImage:
 //                     "url(" +
-//                     "http://api.rjwada.com/assets/" +
+//                     "https://api.rjwada.com/assets/" +
 //                     `${images[2]}` +
 //                     ")",
 //                 }}
@@ -2703,7 +2703,7 @@ export default ParticularProduct;
 //               )}
 //               <div
 //                 // onClick={()=>{setimagetoview("url(" +
-//                 // "http://api.rjwada.com/assets/" +
+//                 // "https://api.rjwada.com/assets/" +
 //                 // `${images[2]}` +
 //                 // ")")}}
 //                 className="vertical-slider-item"
@@ -2730,7 +2730,7 @@ export default ParticularProduct;
 //                     style={{
 //                       backgroundImage:
 //                         "url(" +
-//                         "http://api.rjwada.com/assets/" +
+//                         "https://api.rjwada.com/assets/" +
 //                         `${images[0]}` +
 //                         ")",
 //                     }}
@@ -2740,7 +2740,7 @@ export default ParticularProduct;
 //                 height={600}
 //                 // weight={1000}
 //                 className="particular-productimage"
-//                 src={`http://api.rjwada.com/assets/${image}`}
+//                 src={`https://api.rjwada.com/assets/${image}`}
 //                 alt=""
 //               /> */}
 //                 {/* Image fetch end */}
@@ -3435,11 +3435,11 @@ export default ParticularProduct;
 // //   const [data, setData] = useState(null);
 // //   console.log(data);
 // //   useEffect(() => {
-// //     fetch("http://api.rjwada.com/items/products")
+// //     fetch("https://api.rjwada.com/items/products")
 // //       .then((response) => {
 // //         if (!response.ok) {
 // //           throw new Error(
-// //             `This is an HTTP error: The status is ${response.status}`
+// //             `This is an https error: The status is ${response.status}`
 // //           );
 // //         }
 // //         return response.json();
@@ -3624,7 +3624,7 @@ export default ParticularProduct;
 // //                 onClick={() => {
 // //                   setimagetoview(
 // //                     "url(" +
-// //                       "http://api.rjwada.com/assets/" +
+// //                       "https://api.rjwada.com/assets/" +
 // //                       `${images[0]}` +
 // //                       ")"
 // //                   );
@@ -3633,7 +3633,7 @@ export default ParticularProduct;
 // //                 style={{
 // //                   backgroundImage:
 // //                     "url(" +
-// //                     "http://api.rjwada.com/assets/" +
+// //                     "https://api.rjwada.com/assets/" +
 // //                     `${images[0]}` +
 // //                     ")",
 // //                   backgroundSize: "cover",
@@ -3644,7 +3644,7 @@ export default ParticularProduct;
 // //                 onClick={() => {
 // //                   setimagetoview(
 // //                     "url(" +
-// //                       "http://api.rjwada.com/assets/" +
+// //                       "https://api.rjwada.com/assets/" +
 // //                       `${images[1]}` +
 // //                       ")"
 // //                   );
@@ -3653,7 +3653,7 @@ export default ParticularProduct;
 // //                 style={{
 // //                   backgroundImage:
 // //                     "url(" +
-// //                     "http://api.rjwada.com/assets/" +
+// //                     "https://api.rjwada.com/assets/" +
 // //                     `${images[1]}` +
 // //                     ")",
 // //                   backgroundSize: "cover",
@@ -3664,7 +3664,7 @@ export default ParticularProduct;
 // //                 onClick={() => {
 // //                   setimagetoview(
 // //                     "url(" +
-// //                       "http://api.rjwada.com/assets/" +
+// //                       "https://api.rjwada.com/assets/" +
 // //                       `${images[2]}` +
 // //                       ")"
 // //                   );
@@ -3673,7 +3673,7 @@ export default ParticularProduct;
 // //                 style={{
 // //                   backgroundImage:
 // //                     "url(" +
-// //                     "http://api.rjwada.com/assets/" +
+// //                     "https://api.rjwada.com/assets/" +
 // //                     `${images[2]}` +
 // //                     ")",
 // //                   backgroundSize: "cover",
@@ -3707,7 +3707,7 @@ export default ParticularProduct;
 // //               )}
 // //               <div
 // //                 // onClick={()=>{setimagetoview("url(" +
-// //                 // "http://api.rjwada.com/assets/" +
+// //                 // "https://api.rjwada.com/assets/" +
 // //                 // `${images[2]}` +
 // //                 // ")")}}
 // //                 className="vertical-slider-item"
@@ -3745,7 +3745,7 @@ export default ParticularProduct;
 // //                       width: "550px",
 // //                       backgroundImage:
 // //                         "url(" +
-// //                         "http://api.rjwada.com/assets/" +
+// //                         "https://api.rjwada.com/assets/" +
 // //                         `${images[0]}` +
 // //                         ")",
 // //                       backgroundSize: "cover",
@@ -3757,7 +3757,7 @@ export default ParticularProduct;
 // //                 height={600}
 // //                 // weight={1000}
 // //                 className="particular-productimage"
-// //                 src={`http://api.rjwada.com/assets/${image}`}
+// //                 src={`https://api.rjwada.com/assets/${image}`}
 // //                 alt=""
 // //               /> */}
 // //                 {/* Image fetch end */}

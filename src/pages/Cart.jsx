@@ -47,7 +47,7 @@ const Cart = ({ userid }) => {
 
   const user = Getcurrentuser();
   const [cartProducts, setCartProducts] = useState([]);
-
+  
   const cart = fs.collection("cart");
 
   useEffect(() => {
@@ -151,29 +151,24 @@ const Cart = ({ userid }) => {
 
   const [useradd, setuseradd] = useState({});
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
+    auth.onAuthStateChanged( (user) => {
       if (user) {
-        await fs
-          .collection("user_address")
-          .doc(`${userid}`)
-          .get()
-          .then((snapshot) => {
-            setuseradd(snapshot.data());
-            // localStorage.setItem("City", snapshot.data().City);
-            // localStorage.setItem("State", snapshot.data().State);
-            // localStorage.setItem("Street", snapshot.data().Street);
-            // localStorage.setItem("Country", snapshot.data().Country);
-            // localStorage.setItem("Landmark", snapshot.data().Landmark);
-          });
+        fs.collection("user_address")
+        .doc(`${user.uid}`)
+        .get()
+        .then((snapshot)=>{
+          snapshot.data() ? setuseradd(true) : setuseradd(false);
+        })
       } else {
-        setuseradd(null);
+        setuseradd(false);
       }
     });
   }, [user]);
+  console.log(useradd,'working');
 
   const [products, setProducts] = useState({});
   console.log(products);
-
+  console.log(useradd);
   return (
     <div>
       {/* <Toplist /> */}
@@ -230,7 +225,7 @@ const Cart = ({ userid }) => {
                               <Link to={`/productpage/${p.categoryId}/${p.id}`}>
                                 <div className="wish-img">
                                   <img
-                                    src={`http://api.rjwada.com/assets/${p.banner}`}
+                                    src={`https://api.rjwada.com/assets/${p.banner}`}
                                     alt=""
                                     className="wish-img"
                                   />
@@ -376,7 +371,7 @@ const Cart = ({ userid }) => {
                       <ul className="cart-details-list">
                         <li className="add-detail-fullname m7">
                           {/* {useradd.Name} */}
-                          {JSON.parse(localStorage.getItem("name"))}
+                          {localStorage.getItem('name') ? JSON.parse(localStorage.getItem("name")):null}
                         </li>
                         {/* <li className="add-detail-addtype">Home</li> */}
                         {/* {useradd.Street ? ( */}
@@ -384,20 +379,20 @@ const Cart = ({ userid }) => {
                         {/* ) : null} */}
                         <li className="add-detail-addline1 m7">
                           {/* {useradd.Street} */}
-                          {JSON.parse(localStorage.getItem("street"))}
+                          {localStorage.getItem('street') ? JSON.parse(localStorage.getItem("street")):null}
                         </li>
                         {/* {useradd.Landmark ? ( */}
                           <label className="delivery-label">Landmark: </label>
                         {/* ) : null} */}
                         <li className="add-detail-landmark m7">
-                        {JSON.parse(localStorage.getItem("landmark"))}
+                        {localStorage.getItem('landmark')? JSON.parse(localStorage.getItem("landmark")):null}
                           {/* {useradd.Landmark} */}
                         </li>
                         {/* {useradd.City ? ( */}
                           <label className="delivery-label">City: </label>
                         {/* ) : null} */}
                         <li className="add-detail-addline2 m7">
-                        {JSON.parse(localStorage.getItem("city"))}
+                        {localStorage.getItem('city') ? JSON.parse(localStorage.getItem("city")):null}
                           {/* {useradd.City} */}
                         </li>
                         {/* {useradd.State ? ( */}
@@ -405,21 +400,21 @@ const Cart = ({ userid }) => {
                         {/* ) : null} */}
                         <li className="add-detail-state-country m7">
                           {/* {useradd.State} */}
-                          {JSON.parse(localStorage.getItem("state"))}
+                          {localStorage.getItem('state')? JSON.parse(localStorage.getItem("state")):null}
                         </li>
                         {/* {useradd.Country ? ( */}
                           <label className="delivery-label">Country: </label>
                         {/* ) : null} */}
                         <li className="add-detail-state-country m7">
                           {/* {useradd.Country} */}
-                          {JSON.parse(localStorage.getItem("country"))}
+                          {localStorage.getItem('country')? JSON.parse(localStorage.getItem("country")):null}
                         </li>
                         {/* {useradd.Mobile ? ( */}
                           <label className="delivery-label">Phone: </label>
                         {/* ) : null} */}                
                         <li className="add-detail-phone m7">
                           {/* {useradd.Mobile} */}
-                          {JSON.parse(localStorage.getItem("mobile"))}
+                          {localStorage.getItem('mobile') ? JSON.parse(localStorage.getItem("mobile")):null}
                         </li>
                       </ul>
                     </div>

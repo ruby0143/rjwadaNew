@@ -9,16 +9,26 @@ import { toast } from 'react-custom-alert';
 
 
 const LocationPage = () => {
-
+   
   const navigate = useNavigate();
 
 
   const [userid, setuserid] = useState();
-  const [useradd, setuseradd] = useState();
-  const [puser, setuser] = useState(null);
+
+  const [name, setName] = useState(localStorage.getItem('name') ? JSON.parse(localStorage.getItem("name")):"");
+  const [mobile, setMobile] = useState(localStorage.getItem('mobile') ? JSON.parse(localStorage.getItem("mobile")):"");
+  const [street, setStreet] = useState(localStorage.getItem('street') ? JSON.parse(localStorage.getItem("street")):"")
+  const [landmark, setLandmark] = useState(localStorage.getItem('landmark')? JSON.parse(localStorage.getItem("landmark")):"");
+  const [city, setCity] = useState(localStorage.getItem('city') ? JSON.parse(localStorage.getItem("city")):"")
+  const [state, setState] = useState(localStorage.getItem('state')? JSON.parse(localStorage.getItem("state")):"");
+  const [country, setCountry] = useState(localStorage.getItem('country')? JSON.parse(localStorage.getItem("country")):"India");
+  const [pincode, setPincode] = useState(localStorage.getItem('pincode')? JSON.parse(localStorage.getItem("pincode")):"");
+  const [errmsg, seterrmsg] = useState("");
+  const [success, setsuccess] = useState("");
   
   
   function Getcurrentuser() {
+    const [user, setuser] = useState();
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
         if (user) {
@@ -35,50 +45,20 @@ const LocationPage = () => {
               console.log(user.uid);
               console.log(snapshot.data());
             });
-
-          }
-    }, []);
-    return user;
+          
+          
+        }
+        else{
+            setuser(null);
+        }
+    }, [user]);
   });
+  return user;
   }
-  const user = Getcurrentuser();
-  useEffect(()=>{
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-          fs
-          .collection("user_address")
-          .doc(`${userid}`)
-          .get()
-          .then((snapshot) => {
-            console.log(snapshot.data(),"address");
-            setuseradd(snapshot.data());
-            // localStorage.setItem("City", snapshot.data().City);
-            // localStorage.setItem("State", snapshot.data().State);
-            // localStorage.setItem("Street", snapshot.data().Street);
-            // localStorage.setItem("Country", snapshot.data().Country);
-            // localStorage.setItem("Landmark", snapshot.data().Landmark);
-          });
-      } else {
-        setuseradd(null);
-      }
-    });
-  },[user]);
-
-
-  console.log(useradd,'123');
-  console.log((useradd!=undefined && localStorage),'xyzz');
-  const [name, setName] = useState("");
-  const [mobile, setMobile] = useState((localStorage )? JSON.parse(localStorage.getItem("mobile")) : "");
-  const [street, setStreet] = useState((localStorage) ? JSON.parse(localStorage.getItem("street")) : "")
-  const [landmark, setLandmark] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("landmark")) : "");
-  const [city, setCity] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("city")) : "")
-  const [state, setState] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("state")) : "");
-  const [country, setCountry] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("country")) : "India");
-  const [pincode, setPincode] = useState((useradd &&  localStorage) ? JSON.parse(localStorage.getItem("pincode")) : "");
-  const [errmsg, seterrmsg] = useState("");
-  const [success, setsuccess] = useState("");
- 
   
+  const user = Getcurrentuser();
+  console.log(user,"user in locationpage");
+  console.log(userid,"uid in loc");
 
   // useEffect(()=>{
     // localStorage.setItem("street", JSON.stringify(street));
@@ -94,10 +74,22 @@ const LocationPage = () => {
   const alertSuccess = () => toast.success('Your address is changed ✔');
   const alertWarning = () => toast.warning('Mobile number and pincode must be valid');
   
+  // const [name, setName] = useState("");
+  // const [mobile, setMobile] = useState("");
+  // const [street, setStreet] = useState("")
+  // const [landmark, setLandmark] = useState("");
+  // const [city, setCity] = useState("")
+  // const [state, setState] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [pincode, setPincode] = useState("");
+  // const [errmsg, seterrmsg] = useState("");
+  // const [success, setsuccess] = useState("");
+  
 
   const handleaddress = (e) => {
+    let address = {}
+    e.preventDefault();
     if(mobile.length===10 && pincode.length===6){
-      e.preventDefault();
         localStorage.setItem("street", JSON.stringify(street));
         localStorage.setItem("landmark", JSON.stringify(landmark));
         localStorage.setItem("city", JSON.stringify(city));
@@ -106,12 +98,48 @@ const LocationPage = () => {
         localStorage.setItem("state", JSON.stringify(state));
         localStorage.setItem("name", JSON.stringify(name));
         localStorage.setItem("mobile", JSON.stringify(mobile));
-        fs
-        .collection("user_address")
+        localStorage.setItem("address","true");
+
+
+        address["Name"] = name;
+        address["Mobile"]=mobile;
+        address["Street"]=street;
+        address["Landmark"]=landmark;
+        address["City"]=city;
+        address["State"]=state;
+        address["Country"]=country;
+        address["Pincode"]=pincode;
+        address["address"]=true;
+        fs.collection("user_address")
         .doc(`${userid}`)
-        .set({
-          address : true,
-        })
+        .set(address)
+        .then(()=>{
+          console.log(address,"address pushed into firebase");
+        });
+        
+
+      // auth.onAuthStateChanged(user=>{
+      //   fs
+      //   .collection("user_address")
+      //   .doc(user.uid)
+      //   .set({
+      //     Name : name,
+      //     Mobile : mobile,
+      //     Street : street,
+      //     Landmark : landmark,
+      //     State : state,
+      //     City : city,
+      //     Country : country,
+      //     Pincode : pincode,
+      //     Address : true,
+      //   })
+      //   .then((res)=>{
+      //     console.log(res,"address into firebase");
+      //   })
+      //   .catch(err=> console.log(err));
+
+      // })
+
       setTimeout(() => {
        setsuccess("details added succesfully");
        navigate("/cart")
@@ -146,7 +174,7 @@ const LocationPage = () => {
               <div className="flex-form">
                 <div className="form-group">
                   <input
-                    required
+                    
                     type="text"
                     className="addloc-input"
                     // placeholder={!name ? "Full Name" : localStorage.getItem("name")}

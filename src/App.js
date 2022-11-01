@@ -27,13 +27,17 @@ function App() {
     const [user, setuser] = useState(null);
     useEffect(() => {
       auth.onAuthStateChanged((user) => {
+
         if (user) {
+          console.log(user.uid,'f');
           fs.collection("users")
             .doc(user.uid)
             .get()
             .then((snapshot) => {
               setuser(snapshot.data().Fullname);
             });
+
+            
         } else {
           setuser(null);
         }
