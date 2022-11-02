@@ -43,6 +43,7 @@ h3 {
 }
 .product-image-section {
   /* border: 1px solid aqua; */
+
   width: 45%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,6 +103,26 @@ h3 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
+}
+
+.refresh{
+  margin: auto;
+  cursor: pointer;
+}
+
+.refresh svg{
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height:4rem;
+  width: 4rem;
 }
 
 .particular-productimage {
@@ -110,6 +131,7 @@ h3 {
   -webkit-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
+  object-fit: cover;
 }
 
 .product-button-cart {
@@ -713,15 +735,22 @@ h3 {
   width: 243px;
 }
 .right{
-  width:60%;
-  margin-right: 2%;
+  /* width:60%; */
+  margin-right: 4px;
+  background: #B2EEEE;
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  border-radius: 12px;
+  padding: 10px 30px;
+  font-weight: 300;
+  font-size: 18px;
+  cursor: pointer;
 }
 /* input start */
 
 
 .custom-btn-toggle{
   width: 73%;
-  margin-left: 2%;
+  /* margin-left: 2%; */
 }
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
@@ -905,6 +934,8 @@ h3 {
   cursor: pointer;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .button-content {
@@ -1152,15 +1183,25 @@ h3 {
   }
   .custom-btn-toggle{
     width: 80% !important;
-    margin-right: 7% !important;
   }
   .right{
-    width: 80%;
-    margin: 6%;
-    margin-left: 16%;
+    /* width: 80%;
+    margin: 1rem auto; */
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    background: #b2eeee;
+    text-align: center;
+    border-radius: 12px;
+    padding: 12px 30px;
+    /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
   }
   
-  
+  .refresh{
+    margin-top: -0.5rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1246,14 +1287,15 @@ h3 {
     font-size: 28px;
   }
   .uploadbtn{
-    margin-left: 14%;
+    /* margin-left: 14%; */
   }
   .custom-btn-toggle{
     width: 86%;
   }
   .right{
-    margin-right: 19%;
+    /* margin-right: 19%; */
   }
+
 }
 
 

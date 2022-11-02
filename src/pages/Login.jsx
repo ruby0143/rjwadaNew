@@ -106,65 +106,27 @@ const Login = () => {
     });
     setGen(false);
   }
-  // function GetUserAddress(uid){
 
-  //          fs
-  //           .collection("user_address")
-  //           .doc(`${uid}`)
-  //           .get()
-  //           .then((snapshot) => {
-  //             console.log(snapshot.data(),"address from firebase");
-  //             if(snapshot.data()!=undefined){
-  //               if(snapshot.data().Name != undefined){
-  //                 localStorage.setItem("name",JSON.stringify(snapshot.data().Name));
-  //               }
-  //               else{localStorage.setItem("name",JSON.stringify(""))};
-  //               if(snapshot.data().Pincode != undefined){
-  //                 localStorage.setItem("pincode",JSON.stringify(snapshot.data().Pincode));
-  //               }
-  //               else{localStorage.setItem("pincode",JSON.stringify(""))};
-  //               if(snapshot.data().City != undefined){
-  //                 localStorage.setItem("city",JSON.stringify(snapshot.data().City));
-  //               }
-  //               else{localStorage.setItem("state",JSON.stringify(""))};
-  //               if(snapshot.data().State != undefined){
-  //                 localStorage.setItem("state",JSON.stringify(snapshot.data().State));
-  //               }
-  //               else{localStorage.setItem("state",JSON.stringify(""))};
-  //               if(snapshot.data().Street!= undefined){
-  //                 localStorage.setItem("street",JSON.stringify(snapshot.data().Street));
-  //               }
-  //               else{localStorage.setItem("street",JSON.stringify(""))};
-  //               if(snapshot.data().Country != undefined){
-  //                 localStorage.setItem("country",JSON.stringify(snapshot.data().Country));
-  //               }
-  //               else{localStorage.setItem("country",JSON.stringify(""))};
-  //               if(snapshot.data().Landmark != undefined){
-  //                 localStorage.setItem("landmark",JSON.stringify(snapshot.data().Landmark));
-  //               }
-  //               else{localStorage.setItem("landmark",JSON.stringify(""))};
-  //               if(snapshot.data().Mobile != undefined){
-  //                 localStorage.setItem("mobile",JSON.stringify(snapshot.data().Mobile));
-  //               }
-  //               else{localStorage.setItem("mobile",JSON.stringify(""))};
-  //             }
-  //             else{
-  //               localStorage.setItem("name",JSON.stringify(""));
-  //               localStorage.setItem("landmark",JSON.stringify(""));
-  //               localStorage.setItem("pincode",JSON.stringify(""));
-  //               localStorage.setItem("mobile",JSON.stringify(""));
-  //               localStorage.setItem("country",JSON.stringify(""));
-  //               localStorage.setItem("street",JSON.stringify(""));
-  //               localStorage.setItem("state",JSON.stringify(""))
-  //               localStorage.setItem("city",JSON.stringify(""));
-  //               localStorage.setItem("address","false");
-  //             }
-  //             localStorage.setItem("address",snapshot.data().Address ? "true" : "false");
-  //           });
+  // const resendOTP = () => {
+  //   let recaptcha = window.RecaptchaVerifier;
+  //   signInWithPhoneNumber(auth,email, recaptcha)
+  //   .then((confirmationResult) => {
+  //     // SMS sent. Prompt user to type the code from the message, then sign the
+  //     // user in with confirmationResult.confirm(code).
+  //     setObj(confirmationResult);
+  //     console.log(confirmationResult,"gencap");
+  //     // ...
+  //   }).catch((error) => {
+  //     // Error; SMS not sent
+  //     // ...
+  //     console.log(error);
+  //   });
+  //   // setResendingOTP(true);
+  //   // genCaptcha();
   // }
-
   
   const handleOTP = (e) =>{
+
     e.preventDefault();
     console.log(obj,"handleotp");
     console.log(email,otp,"handleotp");
@@ -422,7 +384,6 @@ const Login = () => {
                   type="number"
                   name="otp"
                   className="login-miniform"
-                  required
                   value={otp}
                   onChange={(e) => setOTP(e.target.value)}
                 />
@@ -435,12 +396,16 @@ const Login = () => {
                       </button>
                     </center>
                   ):(
+                    <>
                     <center>
                       <button className="login-btn-login"  onClick={handleOTP}>
                         Verify
                       </button>
                     </center>
+                    
+                    </>
                   )}
+                  
                 </form>
               </div>
             ) : (
