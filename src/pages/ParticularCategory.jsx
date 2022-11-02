@@ -45,7 +45,7 @@ const ParticularCategory = ({ addToCart }) => {
   const [sizedata, setSizedata] = useState([]);
   console.log(category_id);
   useEffect(() => {
-    fetch('http://api.rjwada.com/items/products')
+    fetch('https://api.rjwada.com/items/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -65,7 +65,7 @@ const ParticularCategory = ({ addToCart }) => {
 
   const [cate, setCate] = useState(null);
   useEffect(() => {
-    fetch('http://api.rjwada.com/items/products')
+    fetch('https://api.rjwada.com/items/products')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -345,7 +345,7 @@ const ParticularCategory = ({ addToCart }) => {
                         >
                           <img
                             width="235px"
-                            src={`http://api.rjwada.com/assets/${data.images[0]}`}
+                            src={`https://api.rjwada.com/assets/${data.images[0]}`}
                             alt=""
                           />
                         </div>

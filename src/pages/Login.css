@@ -214,6 +214,11 @@ body {
   cursor: pointer;
 }
 
+.resend-btn {
+  background: none;
+  padding: 10px;
+}
+
 .login-signup {
   color: #2c8f88;
   padding-left: 5px;

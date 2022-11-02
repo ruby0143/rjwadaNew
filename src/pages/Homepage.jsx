@@ -45,7 +45,7 @@ const Homepage = (props) => {
   const [data, setData] = useState(null);
   useEffect(() => {
     setTimeout(() => {
-      fetch('http://api.rjwada.com/items/category')
+      fetch('https://api.rjwada.com/items/category')
         .then((response) => {
           if (!response.ok) {
             throw new Error(
@@ -69,7 +69,7 @@ const Homepage = (props) => {
   const [homepageTopseller, sethomepageTopseller] = useState(null);
   useEffect(() => {
     setTimeout(() => {
-      fetch('http://api.rjwada.com/items/products')
+      fetch('https://api.rjwada.com/items/products')
         .then((response) => {
           if (!response.ok) {
             throw new Error(
@@ -146,7 +146,7 @@ const Homepage = (props) => {
                                   borderRadius: '10px',
                                   backgroundImage:
                                     'url(' +
-                                    'http://api.rjwada.com/assets/' +
+                                    'https://api.rjwada.com/assets/' +
                                     `${data.banner}` +
                                     ')',
                                   backgroundSize: 'cover',
@@ -251,7 +251,7 @@ const Homepage = (props) => {
                                     borderRadius: '13px',
                                     backgroundImage:
                                       'url(' +
-                                      'http://api.rjwada.com/assets/' +
+                                      'https://api.rjwada.com/assets/' +
                                       `${data.banner}` +
                                       ')',
                                     backgroundSize: 'cover',
@@ -319,7 +319,7 @@ const Homepage = (props) => {
                                     borderRadius: '13px',
                                     backgroundImage:
                                       'url(' +
-                                      'http://api.rjwada.com/assets/' +
+                                      'https://api.rjwada.com/assets/' +
                                       `${data.banner}` +
                                       ')',
                                     backgroundSize: 'cover',
@@ -388,7 +388,7 @@ const Homepage = (props) => {
                                     borderRadius: '13px',
                                     backgroundImage:
                                       'url(' +
-                                      'http://api.rjwada.com/assets/' +
+                                      'https://api.rjwada.com/assets/' +
                                       `${data.banner}` +
                                       ')',
                                     backgroundSize: 'cover',
