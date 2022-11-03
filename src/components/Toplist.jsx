@@ -5,7 +5,7 @@ import "./Toplist.css";
 const Toplist = () => {
   const [cate, setCate] = useState(null);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/category")
+    fetch("https://api.rjwada.com/items/category")
       .then((response) => {
         if (!response.ok) {
           throw new Error(

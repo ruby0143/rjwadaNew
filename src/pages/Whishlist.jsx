@@ -117,7 +117,7 @@ const Whishlist = ({ userid, addToCart }) => {
                           >
                             <div className="wish-img">
                               <img
-                                src={`http://api.rjwada.com/assets/${data.banner}`}
+                                src={`https://api.rjwada.com/assets/${data.banner}`}
                                 alt=""
                                 className="wish-img"
                               />

@@ -85,7 +85,7 @@ const senddata = (json)=> {
 
   console.log(paymentid);
   axios
-    .post("http://api.rjwada.com/items/inventory", {
+    .post("https://api.rjwada.com/items/inventory", {
       id: `${json.userid_id}.${paymentid}.${json.product_id}`,
       status: "published",
       sort: null,

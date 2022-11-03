@@ -298,7 +298,7 @@ const ParticularCategory = ({ addToCart }) => {
                       category_id: {category_id}
                       <div className="product-wrapper">
                         <img
-                          src={`http://api.rjwada.com/assets/${data.banner}`}
+                          src={`https://api.rjwada.com/assets/${data.banner}`}
                           alt=""
                         />
                       </div>

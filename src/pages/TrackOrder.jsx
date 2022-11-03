@@ -32,7 +32,7 @@ const TrackOrder = () => {
 
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/inventory")
+    fetch("https://api.rjwada.com/items/inventory")
       .then((response) => {
         return response.json();
       })
@@ -51,7 +51,7 @@ const TrackOrder = () => {
   ////display product//////
   const [trackorderProduct, settrackorderProduct] = useState(null);
   useEffect(() => {
-    fetch("http://api.rjwada.com/items/products")
+    fetch("https://api.rjwada.com/items/products")
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -76,7 +76,7 @@ const TrackOrder = () => {
     const getTrackData = () => {
       data &&
         data.map((d) => {
-          let proAPI = `http://api.rjwada.com/items/products/${
+          let proAPI = `https://api.rjwada.com/items/products/${
             d.id.split(".")[2]
           }`;
           setuidInventory(d.id.split(".")[0]);
@@ -181,7 +181,7 @@ const TrackOrder = () => {
                                 style={{
                                   backgroundImage:
                                     "url(" +
-                                    "http://api.rjwada.com/assets/" +
+                                    "https://api.rjwada.com/assets/" +
                                     `${data.image_of_design}` +
                                     ")",
                                 }}
@@ -232,7 +232,7 @@ const TrackOrder = () => {
                         style={{
                           backgroundImage:
                             "url(" +
-                            "http://api.rjwada.com/assets/" +
+                            "https://api.rjwada.com/assets/" +
                             `${data.images[0]}` +
                             ")",
                           backgroundSize: "cover",
@@ -266,7 +266,7 @@ const TrackOrder = () => {
                         style={{
                           backgroundImage:
                             "url(" +
-                            "http://api.rjwada.com/assets/" +
+                            "https://api.rjwada.com/assets/" +
                             `${data.images[0]}` +
                             ")",
                           backgroundSize: "cover",
