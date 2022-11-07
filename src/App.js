@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
 import Productpage from "./pages/ParticularCategory";
@@ -101,6 +102,17 @@ function App() {
         .then(() => {
           console.log("successfully added to cart");
         });
+      // const url = "https://api.rjwada.com/items/cart/A4BwVA8gLzRY0slICNJOXugFLSU2";
+      // console.log(Product,"api");
+      // axios.get(url).then(data=>{
+      //   console.log(data.data,"data api");
+      // })
+      // axios.post(url,Product).then(res=>{
+      //   console.log(res,"api");
+      // })
+      // .catch(err=>{
+      //   console.log(err,"api")
+      // })
     } else {
       navigate("/login");
     }

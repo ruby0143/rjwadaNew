@@ -141,9 +141,9 @@ const Homepage = (props) => {
                               to={`productpage/${data.id}`}
                             >
                               <div
-                                className="data-banner1 mask"
+                                className="data-banner1"
                                 style={{
-                                  borderRadius: '10px',
+                                  borderRadius: '6px',
                                   backgroundImage:
                                     'url(' +
                                     'https://api.rjwada.com/assets/' +
@@ -163,9 +163,10 @@ const Homepage = (props) => {
                                 <center>
                                   <div
                                     style={{
-                                      marginTop: '-70px',
-                                      color: 'black',
-                                      fontSize:"25px"
+                                      marginTop: '-135px',
+                                      color: 'white',
+                                      fontSize:"24px",
+                                      fontWeight: "bold"
                                     }}
                                   >
                                     {data.category_name.length >= 25
@@ -173,6 +174,9 @@ const Homepage = (props) => {
                                       : data.category_name}
                                   </div>
                                 </center>
+                                <div className='items-btn' style={{height: "1.8rem", width: "7rem", backgroundColor: "black", border: "2px solid white", margin: "auto", color: "white", fontSize: "12px", marginTop: "1.3rem"}}>
+                                  <p style={{margin: ".3rem auto"}}>SHOP</p>
+                                </div>
                               </Link>
                             </div>
                           </div>

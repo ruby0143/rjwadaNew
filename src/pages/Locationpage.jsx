@@ -27,38 +27,9 @@ const LocationPage = () => {
   const [success, setsuccess] = useState("");
   
   
-  function Getcurrentuser() {
-    const [user, setuser] = useState();
-    useEffect(() => {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          fs.collection("users")
-            .doc(user.uid)
-            .get()
-            .then((snapshot) => {
-              setuser(snapshot.data().Fullname);
-              if(snapshot.data().login){
-                setName(JSON.parse(localStorage.getItem("name")));
-              }
-              else setName(snapshot.data().Fullname);
-              setuserid(user.uid);
-              console.log(user.uid);
-              console.log(snapshot.data());
-            });
-          
-          
-        }
-        else{
-            setuser(null);
-        }
-    }, [user]);
-  });
-  return user;
-  }
   
-  const user = Getcurrentuser();
-  console.log(user,"user in locationpage");
-  console.log(userid,"uid in loc");
+  
+
 
   // useEffect(()=>{
     // localStorage.setItem("street", JSON.stringify(street));
