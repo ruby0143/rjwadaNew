@@ -13,7 +13,7 @@ const LocationPage = () => {
   const navigate = useNavigate();
 
 
-  const [userid, setuserid] = useState();
+  const [userid,setuserID] = useState();
 
   const [name, setName] = useState(localStorage.getItem('name') ? JSON.parse(localStorage.getItem("name")):"");
   const [mobile, setMobile] = useState(localStorage.getItem('mobile') ? JSON.parse(localStorage.getItem("mobile")):"");
@@ -26,7 +26,29 @@ const LocationPage = () => {
   const [errmsg, seterrmsg] = useState("");
   const [success, setsuccess] = useState("");
   
-  
+  function Getcurrentuser() {
+    const [user, setuser] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          fs.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+              setuser(snapshot.data().Fullname);
+              setuserID(user.uid);
+            });
+        } else {
+          setuser(null);
+        }
+      });
+    }, []);
+    return user;
+  }
+
+  const user = Getcurrentuser();
+  console.log(user,"locationpag");
+  console.log(userid,"locationpage");
   
   
 
