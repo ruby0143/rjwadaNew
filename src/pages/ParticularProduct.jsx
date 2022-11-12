@@ -192,6 +192,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
         // Use it however you want to.
         console.log('final image url', url);
         setMLimage(url);
+        setimagetoview('url(' + url + ')');
         // setimagetoview(url)
         return url;
       });
@@ -408,8 +409,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   <div
                     className="particular-productimage"
 
-                    style={uploadedimage ? { backgroundImage: ('url(' + uploadedimage + ')') }
-                      : { backgroundImage: imagetoview, }
+                    style={{ backgroundImage: imagetoview }
                     }
                   ></div>
                 ) : (
@@ -447,11 +447,13 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                       accept="image/*"
                       onChange={(e) => {
                         loadfile(e.target.files[0]);
-                        
+                
+                        let uploadedImageURL =  URL.createObjectURL(e.target.files[0])
                         setuploadedimage(
-                          URL.createObjectURL(e.target.files[0])
+                         uploadedImageURL
                         );
-                     
+                        setimagetoview('url(' + uploadedImageURL + ')');
+
                         setUpload(true)
                         var tryon = document.querySelector(".tryon-lower-sec");
                         tryon.classList.add("custom-btn-toggle");
