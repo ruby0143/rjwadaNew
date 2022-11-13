@@ -426,7 +426,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     }}
 
 
-                  ><Modal3D /></div>
+                  ><Modal3D src ={productId}/></div>
                 )}
               </div>
 
