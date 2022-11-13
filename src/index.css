@@ -10,6 +10,12 @@ body {
   overflow-x: clip;
 }
 
+/* Add a thumb */
+body::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

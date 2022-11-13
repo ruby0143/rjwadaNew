@@ -15,7 +15,7 @@ import Footer from '../components/Footer';
 import { auth, fs } from '../config/Config';
 import { useNavigate } from 'react-router-dom';
 import { Link, useParams } from 'react-router-dom';
-import { Banner } from './Banner';
+import NewBanner from './NewBanner';
 import ParticularProduct from './ParticularProduct';
 
 const Homepage = (props) => {
@@ -103,7 +103,8 @@ const Homepage = (props) => {
         {/* <div className="homepage-banner">
          
         </div> */}
-        <Banner />
+        {/* <Banner /> */}
+        <NewBanner></NewBanner>
         <QualitySection />
         <div className="collection-wrapper">
           <div
