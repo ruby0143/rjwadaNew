@@ -409,9 +409,11 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                   <div
                     className="particular-productimage"
 
-                    style={{ backgroundImage: imagetoview }
+                    style={{ backgroundImage: imagetoview ,
+                      display: "flex",
+                      justifyContent: "flex-end",}
                     }
-                  ></div>
+                  ><Modal3D src ={productId}/></div>
                 ) : (
                   <div
                     className="particular-productimage"
@@ -426,7 +428,7 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                     }}
 
 
-                  ><Modal3D /></div>
+                  ><Modal3D src ={productId}/></div>
                 )}
               </div>
 
@@ -457,7 +459,9 @@ const ParticularProduct = ({ addToCart, addToWhishlist }) => {
                         setUpload(true)
                         var tryon = document.querySelector(".tryon-lower-sec");
                         tryon.classList.add("custom-btn-toggle");
+                        var div = document.querySelector(".particular-productimage");
 
+                        
                         var inp = document.querySelector(".custom-file-input");
                         inp.classList.add("custom-btn-toggle");
                         var slider = document.querySelector(".product-image-section");

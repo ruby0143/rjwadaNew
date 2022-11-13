@@ -7,7 +7,7 @@ import CardSkeleton from "./skeleton/homeSkeleton";
 import "./Modal.css";
 // import "./skeleton/ThreeD.css";
 
-function Modal3D() {
+function Modal3D(props) {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -53,7 +53,7 @@ function Modal3D() {
                 <div class="embed-responsive embed-responsive-16by9">
                   <iframe
                     className="iframe"
-                    src="https://4-chill-nahi-hai-3d-rjwada.ishkapoor.repl.co/"
+                    src={`https://${props.src}.ishkapoor.repl.co/`}
                     loading="eager"
                     allowfullscreen
                   ></iframe>
