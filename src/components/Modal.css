@@ -8,6 +8,7 @@
     margin: 20px;
     display: flex;
     justify-content: center;
+    z-index: 1000;
 }
 
 .Threed-btn:hover,.Threed-btn:focus{
